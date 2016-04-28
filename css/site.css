@@ -1,6 +1,5 @@
 @charset "UTF-8";
-/* --- bass css --- */
-/* html,body,div,h1,h2,h3,h4,h5,h6,ul,li,ol,li,dl,dt,dd,p,form,input,textarea,table,th,td,menu,button{
+html,body,div,h1,h2,h3,h4,h5,h6,ul,li,ol,li,dl,dt,dd,p,form,input,textarea,table,th,td,menu,button{
     margin:0;
     padding:0;
 }
@@ -43,24 +42,16 @@ a,button{
 h1,h2,h3,h4,h5,h6,em,strong,b{
     font-weight:700;
 }
-a,a:hover{
+a,a:hover,a:visited,a:active{
     text-decoration:none;
 }
-body,textarea,input,button,select,keygen,legend{
-    font:12px Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif;
-    color:#333;
-    outline:0;
-}
-a,a:hover{
-    color:#333;
-} */
-
 html,
 body {
-    font:12px Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif;
+    font-family:Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif;
     width: 100%;
     height: 100%;
     min-width: 1280px;
+    background-color: #e5e5e5;
 }
 .clearfix{
     zoom:1;
@@ -76,7 +67,7 @@ body {
     width: 100%;
     min-height: 100%;
     min-width: 1280px;
-    height: auto;
+    height: 100%;
 }
 
 /*.wrap > .container {
@@ -212,4 +203,114 @@ a.desc:after {
 .login-main .form-group .btn-primary{
     font-size: 22px;
     color: #fff;
+}
+
+
+.benz-container{
+    position: relative;
+    width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+}
+.top-bar{
+    width: 100%;
+    height: 72px;
+    background: url("/images/top-bg.png") no-repeat;
+}
+.left-nav,.right-main{
+    position: absolute;
+}
+.left-nav{
+    position:absolute!important;
+    position:relative;
+    top:72px!important;
+    top:0;
+    bottom:0;
+    width:182px;
+    height:auto!important;
+    height:100%;
+    min-height: 698px;
+    left: 0;
+    background-color: #40434a;
+}
+.right-main{
+    position:absolute!important;
+    position:relative;
+    top:72px!important;
+    top:0;
+    bottom:0;
+    width:1098px;
+    height:auto!important;
+    height:100%;
+    right: 0;
+    background-color: #e5e5e5;
+}
+.left-nav li{
+    height: 60px;
+    /*text-align: center;*/
+}
+.left-nav li a{
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    /*text-align: center;*/
+    padding-left: 70px;
+    text-decoration: none;
+    border-bottom: 1px solid #545960;
+    background-color: #40434a;
+    background-repeat: no-repeat;
+    background-position: 35px center;
+}
+.left-nav li a:hover{
+    color: #fff;
+    background-color: #545960;
+}
+.left-nav li a.icon-wl{
+    background-image: url("/images/icon-wl.png");
+    background-repeat: no-repeat;
+    background-position: 35px center;
+}
+.left-nav li a.icon-3c{
+    background-image: url("/images/icon-3c.png");
+    background-repeat: no-repeat;
+    background-position: 35px center;
+}
+.left-nav li a.icon-yy{
+    background-image: url("/images/icon-yy.png");
+    background-repeat: no-repeat;
+    background-position: 35px center;
+}
+.left-nav li a.icon-zh{
+    background-image: url("/images/icon-zh.png");
+    background-repeat: no-repeat;
+    background-position: 35px center;
+}
+.left-nav li.active a{
+    background-color: #373a41;
+}
+.left-nav li.active span{
+    display: block;
+    height: 60px;
+    background: url("/images/icon-jt.png") no-repeat right center;
+}
+
+
+.search-box,.shipment-list{
+    width: 790px;
+    margin: 0 auto;
+}
+.search-box .btn-download{
+    display: inline-block;
+    width: 114px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    background: url("/images/btn-download.png") no-repeat;
+}
+.search-box .btn-download:active{
+    background: url("/images/btn-download-active.png") no-repeat;
+}
+.search-box .btn-download:hover{
+    background: url("/images/btn-download-hover.png") no-repeat;
 }
