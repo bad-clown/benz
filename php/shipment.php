@@ -12,7 +12,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-
+use app\modules\admin\models\Dictionary;
+use app\modules\admin\logic\DictionaryLogic;
+//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -23,14 +25,14 @@ $this->title = Yii::t('user', 'Sign in');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="benz-container">
+<div class="benzContainer">
 	<div class="top-bar">
 		<!-- 登录信息 -->
 	</div>
 	<div class="left-nav">
 		<ul>
 			<li class="active">
-				<a href="#" class="icon-wl" title="物流信息"><span>物流信息</span></a>
+				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
 			</li>
 			<li>
 				<a href="#" class="icon-3c" title="3C证书"><span>3C证书</span></a>
@@ -44,16 +46,52 @@ $this->params['breadcrumbs'][] = $this->title;
 		</ul>
 	</div>
 	<div class="right-main">
-		<div class="search-box">
-			<a href="javascript:;" class="btn-download" title="下载模版">下载模版</a>
-			<a href="javascript:;" class="btn-update" title="上传信息">上传信息</a>
-			<div class="">
-				<input type="text" class="text-search" name="" value="">
-				<a href="javascript:;" class="btn-search" title="查询">查询</a>
+		<div class="shipment-top clearfix">
+			<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="下载模版">下载模版</a>
+			<div class="update-box">
+				<a href="javascript:;" class="btn-update" title="上传信息">上传信息</a>
+				<input name="file" type="file" id="J_update_xlsx" class="file-update">
+			</div>
+			<div class="search-box">
+				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入单号">
+				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 			</div>
 		</div>
 		<div class="shipment-list">
-			
+			<div class="lists-titl">物流信息列表</div>
+			<div class="lists-cont">
+				<table>
+					<thead>
+						<tr>
+							<th width="60%" class="pl42">提单号</th>
+							<th width="25%"><div class="l-line pl20">上传时间</div></th>
+							<th width="15%"><div class="l-line pl20">操作</div></th>
+						</tr>
+					</thead>
+					<tbody id="J_lists"></tbody>
+				</table>
+				<div class="lists-pages">
+					<div class="count">共<span id="J_count"></span>页</div>
+					<ul class="pages clearfix" id="J_pages"></ul>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="update-popup popup" id="updateSuc">
+		<h3>文件上传</h3>
+		<div class="update-state" id="updateState"></div>
+		<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
+	</div>
 </div>
+<?php $this->beginBlock("bottomcode"); ?>
+<script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/x-jquery-tmpl" id="shipmentListTmpl">
+<tr>
+	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
+	<td class="pl20"><a href="javascript:;" class="btn-delete"></a></td>
+</tr>
+</script>
+<script type="text/javascript" src="/js/shipment.js"></script>
+<?php $this->endBlock();  ?>

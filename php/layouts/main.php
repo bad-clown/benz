@@ -74,6 +74,9 @@ AppAsset::register($this);
 </footer> -->
 
 <?php $this->endBody() ?>
+<?php if (isset($this->blocks['bottomcode'])): ?>
+<?= $this->blocks['bottomcode'] ?>
+<?php  endif; ?>
 </body>
 </html>
 <?php $this->endPage() ?>
