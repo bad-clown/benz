@@ -152,6 +152,7 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+/* 登录 */
 .login-box{
     width: 1280px;
     height: 768px;
@@ -209,7 +210,7 @@ a.desc:after {
     width: 389px;
 }
 
-
+/* 结构 */
 .benzContainer{
     position: relative;
     width: 1280px;
@@ -217,6 +218,7 @@ a.desc:after {
     margin: 0 auto;
     _text-align: center;
 }
+/* 顶条 */
 .top-bar{
     width: 100%;
     height: 72px;
@@ -225,6 +227,7 @@ a.desc:after {
 .left-nav,.right-main{
     position: absolute;
 }
+/* 左导航 */
 .left-nav{
     position:absolute;
     top:72px;
@@ -234,15 +237,6 @@ a.desc:after {
     min-height: 698px;
     left: 0;
     background-color: #40434a;
-}
-.right-main{
-    position:absolute;
-    top:72px;
-    bottom:0;
-    width:1098px;
-    height:100%;
-    right: 0;
-    background-color: #e5e5e5;
 }
 .left-nav li{
     /*height: 60px;*/
@@ -293,17 +287,30 @@ a.desc:after {
     height: 60px;
     background: url("/images/icon-jt.png") no-repeat right center;
 }
+/* 右主体 */
+.right-main{
+    position:absolute;
+    top:72px;
+    bottom:0;
+    width:1098px;
+    height:100%;
+    right: 0;
+    background-color: #e5e5e5;
+}
 
 
+/* 物流信息 */
 .shipment-top,.shipment-list{
     width: 790px;
     margin: 0 auto;
 }
+/* 搜索 */
 .shipment-top{
     padding-top: 23px;
     padding-bottom: 23px;
 }
-.shipment-top .btn-download,.shipment-top .btn-update,.shipment-top .btn-search{
+/* 按钮 */
+.shipment-top .btn-download,.shipment-top .btn-upload,.shipment-top .btn-search{
     display: inline;
     float: left;
     width: 114px;
@@ -323,16 +330,16 @@ a.desc:after {
 .shipment-top .btn-download:hover{
     background: url("/images/btn-download-hover.png") no-repeat;
 }
-.shipment-top .btn-update{
+.shipment-top .btn-upload{
     color: #fff;
-    background: url("/images/btn-update.png") no-repeat;
+    background: url("/images/btn-upload.png") no-repeat;
 }
-.shipment-top .btn-update:active{
-    background: url("/images/btn-update-active.png") no-repeat;
+.shipment-top .btn-upload:active{
+    background: url("/images/btn-upload-active.png") no-repeat;
 }
-.shipment-top .btn-update:hover{
+.shipment-top .btn-upload:hover{
     color: #fff;
-    background: url("/images/btn-update-hover.png") no-repeat;
+    background: url("/images/btn-upload-hover.png") no-repeat;
 }
 .shipment-top .btn-search{
     width: 77px;
@@ -346,13 +353,13 @@ a.desc:after {
     background: url("/images/btn-search-hover.png") no-repeat;
 }
 
-
-.update-box{
+/* 上传按钮 */
+.upload-box{
     position: relative;
     float: left;
     margin-left: 21px;
 }
-.update-box .file-update{
+.upload-box .file-upload{
     position: absolute;
     left: 0;
     top: 0;
@@ -364,8 +371,6 @@ a.desc:after {
     filter: alpha(opacity=0);
     _filter: alpha(opacity=0);
 }
-
-
 .shipment-top .search-box{
     display: inline;
     float: left;
@@ -385,7 +390,7 @@ a.desc:after {
     padding: 0 12px;
     background: transparent;
 }
-
+/* 物流列表 */
 .lists-titl{
     font-size: 16px;
     color: #969697;
@@ -397,10 +402,12 @@ a.desc:after {
 }
 .lists-cont table{
     width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 5px #ccc;
 }
 .lists-cont table th{
     height: 50px;
-    line-height: 50px;
     text-align: left;
     font-size: 16px;
     color: #323232;
@@ -409,7 +416,6 @@ a.desc:after {
 }
 .lists-cont table td{
     height: 50px;
-    line-height: 50px;
     text-align: left;
     font-size: 14px;
     color: #191919;
@@ -425,10 +431,10 @@ a.desc:after {
 }
 
 .lists-cont th .l-line {
+    display: block;
     height: 24px;
     line-height: 24px;
     border-left: 1px solid #6f93c7;
-
 }
 .lists-cont table .btn-delete{
     display: block;
@@ -438,7 +444,6 @@ a.desc:after {
     margin-left: 10px;
     background: url("/images/icon-del.png") no-repeat;
 }
-
 .lists-cont table .pl42{
     padding-left: 42px;
 }
@@ -448,6 +453,7 @@ a.desc:after {
 .lists-cont table .c7f7e7e{
     color: #7f7e7e;
 }
+/* 分页 */
 .lists-pages{
     float: right;
     height: 22px;
@@ -508,7 +514,8 @@ a.desc:after {
     width: 20px;
     background: none;
 }
-.update-popup{
+/* 上传提示窗 */
+.upload-popup{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -522,8 +529,7 @@ a.desc:after {
     box-shadow: 0 0 10px #ccc;
     display: none;
 }
-
-.update-popup h3{
+.upload-popup h3{
     height: 40px;
     line-height: 40px;
     font-size: 16px;
@@ -531,33 +537,30 @@ a.desc:after {
     padding-left: 16px;
     background: #438bda;
 }
-
-.update-popup .update-state{
+.upload-popup .upload-state{
     width: 310px;
     margin: 0 auto;
 }
-.update-popup .update-suc,.update-popup .update-err{
+.upload-popup .upload-suc,.upload-popup .upload-err{
     padding: 36px 0;
 }
-.update-popup .update-suc .cont1,.update-popup .update-suc .cont2{
+.upload-popup .upload-suc .cont1,.upload-popup .upload-suc .cont2{
     font-size: 16px;
     color: #191919;
 }
-
-.update-popup .update-suc .cont1{
+.upload-popup .upload-suc .cont1{
     float: left;
     width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.update-popup .update-suc .cont2{
+.upload-popup .upload-suc .cont2{
     float: right;
     padding-right: 22px;
     background: url("/images/icon-right.png") no-repeat right center;
 }
-
-.update-popup .btn-suc{
+.upload-popup .btn-suc{
     display: block;
     width: 112px;
     height: 36px;
@@ -569,8 +572,182 @@ a.desc:after {
     background: #438bda;
     margin: 0 auto;
 }
-.update-popup .update-err .cont{
+.upload-popup .upload-err .cont{
     font-size: 16px;
     color: #191919;
     text-align: center;
+}
+/* 提单详情 */
+.shipment-detail{
+    width: 1010px;
+    margin: 0 auto;
+}
+.shipment-detail-top{
+    padding-left: 18px;
+    padding-top: 40px;
+    padding-bottom: 16px;
+}
+.shipment-detail-top .s-n{
+    float: left;
+    font-size: 18px;
+    color: #848484;
+    line-height: 18px;
+    height: 18px;
+    margin-right: 60px;
+    padding-left: 8px;
+    display: inline;
+    border-left: 4px solid #53a0f1;
+}
+.shipment-detail-list{
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    /*box-shadow: 0 0 5px #ccc;*/
+}
+.shipment-detail-list table{
+    width: 100%;
+}
+.shipment-detail-list .table-tbody{
+    height: 500px;
+    overflow: auto;
+}
+.shipment-detail-list table th{
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    font-size: 16px;
+    color: #323232;
+    border-bottom: 1px solid #6792c7;
+    background-color: #f7f8f8;
+}
+.shipment-detail-list table td{
+    height: 50px;
+    text-align: left;
+    font-size: 14px;
+    color: #191919;
+}
+.shipment-detail-list table td a{
+    color: #191919;
+}
+.shipment-detail-list table tr{
+    background-color: #fff;
+}
+.shipment-detail-list table tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+.shipment-detail-list th .l-line {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    border-left: 1px solid #6f93c7;
+}
+.shipment-detail-list table .pl32{
+    padding-left: 32px;
+}
+.shipment-detail-list table .pl10{
+    padding-left: 10px;
+}
+.shipment-detail-list table .partName{
+    display: block;
+    width:  200px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+/* 证书导航 */
+.cert-nav{
+    width: 100%;
+    height: 47px;
+    line-height: 47px;
+    background-color: #e5e5e5;
+}
+.cert-nav a{
+    display: block;
+    float: left;
+    width: 130px;
+    height: 47px;
+    line-height: 47px;
+    font-size: 18px;
+    color: #282828;
+    text-align: center;
+}
+.cert-nav .active{
+    background-color: #fff;
+}
+/* 零件列表 */
+.cert-main{
+    background: #fff;
+}
+.cert-top .search-box{
+    display: inline;
+    float: left;
+    margin-left: 21px;
+    /*width: 304px;*/
+    height: 44px;
+    background: url("/images/search-text.png") no-repeat;
+}
+.cert-top .search-box .text-search{
+    display: block;
+    float: left;
+    width: 280px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    border: 0;
+    padding: 0 12px;
+    background: transparent;
+}
+/* 按钮 */
+.cert-top .btn-download,.cert-top .btn-upload,.cert-top .btn-search{
+    display: inline;
+    float: left;
+    width: 114px;
+    height: 44px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 44px;
+}
+.cert-top .btn-search{
+    width: 77px;
+    color: #033984;
+    background: url("/images/btn-search.png") no-repeat;
+}
+.cert-top .btn-search:active{
+    background: url("/images/btn-search-active.png") no-repeat;
+}
+.cert-top .btn-search:hover{
+    background: url("/images/btn-search-hover.png") no-repeat;
+}
+.cert-top .btn-download{
+    width: 165px;
+    height: 40px;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 5px;
+    border: 1px solid #d0d0d0;
+    color: #033984;
+    background: -webkit-linear-gradient(#fff, #ebebeb);
+    background: -o-linear-gradient(#fff, #ebebeb);
+    background: -moz-linear-gradient(#fff, #ebebeb);
+    background: linear-gradient(#fff, #ebebeb);
+}
+.cert-top .btn-download:hover{
+    background: #fff;
+}
+.cert-top .btn-upload{
+    width: 129px;
+    height: 40px;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 5px;
+    border: 1px solid #d0d0d0;
+    color: #033984;
+    background: -webkit-linear-gradient(#fff, #ebebeb);
+    background: -o-linear-gradient(#fff, #ebebeb);
+    background: -moz-linear-gradient(#fff, #ebebeb);
+    background: linear-gradient(#fff, #ebebeb);
+}
+
+.cert-top .btn-upload:hover{
+    background: #fff;
 }

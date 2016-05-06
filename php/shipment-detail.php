@@ -47,35 +47,43 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="right-main">
 		<div class="shipment-detail">
-			提单号：<?= $shipment->shipmentNo;?><br>
-			发货号：<?= $shipment->BLNo;?><br>
-			到厂日期：<?= $shipment->arrivalDate;?><br>
-		</div>
-		<div class="shipment-detail">
-			<table width="100%">
-				<thead>
-					<tr>
-						<th>集装箱号</th>
-						<th>装船号</th>
-						<th>船号</th>
-						<th>零件号</th>
-						<th>中文名</th>
-						<th>数量</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach($detail as $k => $v){	?>
-					<tr>
-						<td><?= $v['containerNo'];?></td>
-						<td><?= $v['vesselNo'];?></td>
-						<td><?= $v['vesselName'];?></td>
-						<td><?= $v['partNo'];?></td>
-						<td><?= $v['partName'];?></td>
-						<td><?= $v['count'];?></td>
-					</tr>
-					<?php };?>
-				</tbody>
-			</table>
+			<div class="shipment-detail-top clearfix">
+				<div class="s-n">提单号：<?= $shipment->shipmentNo;?></div>
+				<div class="s-n">发货号：<?= $shipment->BLNo;?></div>
+				<div class="s-n">到厂日期：<?= $shipment->arrivalDate;?></div>
+			</div>
+			<div class="shipment-detail-list">
+				<div class="table-thead">
+					<table>
+						<thead>
+							<tr>
+								<th width="20%" class="pl32">集装箱号</th>
+								<th width="13%"><span class="l-line pl10">装船号</span></th>
+								<th width="15%"><span class="l-line pl10">船号</span></th>
+								<th width="22%"><span class="l-line pl10">零件号</span></th>
+								<th width="20%"><span class="l-line pl10">中文名</span></th>
+								<th width="10%"><span class="l-line pl10">数量</span></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table-tbody">
+					<table>
+						<tbody>
+							<?php foreach($detail as $k => $v){	?>
+							<tr>
+								<td width="20%" class="pl32"><?= $v['containerNo'];?></td>
+								<td width="13%" class="pl10"><?= $v['vesselNo'];?></td>
+								<td width="15%" class="pl10"><?= $v['vesselName'];?></td>
+								<td width="22%" class="pl10"><?= $v['partNo'];?></td>
+								<td width="20%" class="pl10" title="<?= $v['partName'];?>"><span class="partName"><?= $v['partName'];?></span></td>
+								<td width="10%" class="pl10"><?= $v['count'];?></td>
+							</tr>
+							<?php };?>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

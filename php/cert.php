@@ -31,11 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="left-nav">
 		<ul>
-			<li class="active">
+			<li>
 				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
 			</li>
-			<li>
-				<a href="#" class="icon-3c" title="3C证书"><span>3C证书</span></a>
+			<li class="active">
+				<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
 			</li>
 			<li>
 				<a href="#" class="icon-yy" title="预约查询"><span>预约查询</span></a>
@@ -46,33 +46,40 @@ $this->params['breadcrumbs'][] = $this->title;
 		</ul>
 	</div>
 	<div class="right-main">
-		<div class="shipment-top clearfix">
-			<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="下载模版">下载模版</a>
-			<div class="upload-box">
-				<a href="javascript:;" class="btn-upload" title="上传信息">上传信息</a>
-				<input name="file" type="file" id="J_upload_xlsx" class="file-upload">
-			</div>
-			<div class="search-box">
-				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入单号">
-				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
-			</div>
+		<div class="cert-nav">
+			<a href="javascript:;" class="active" title="全部">全部</a>
+			<a href="javascript:;" title="将过期">将过期</a>
+			<a href="javascript:;" title="已过期">已过期</a>
 		</div>
-		<div class="shipment-list">
-			<div class="lists-titl">物流信息列表</div>
-			<div class="lists-cont">
-				<table>
-					<thead>
-						<tr>
-							<th width="60%" class="pl42">提单号</th>
-							<th width="25%"><span class="l-line pl20">上传时间</span></th>
-							<th width="15%"><span class="l-line pl20">操作</span></th>
-						</tr>
-					</thead>
-					<tbody id="J_lists"></tbody>
-				</table>
-				<div class="lists-pages">
-					<div class="count">共<span id="J_count"></span>页</div>
-					<ul class="pages clearfix" id="J_pages"></ul>
+		<div class="cert-main">
+			<div class="cert-top clearfix">
+				<div class="search-box">
+					<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号或零件号">
+					<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
+				</div>
+				<a href="javascript:;" class="btn-upload" title="导入3C证书">导入3C证书</a>
+				<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
+			</div>
+			<div class="cert-list">
+				<div class="lists-titl">所有零件列表</div>
+				<div class="lists-cont">
+					<table>
+						<thead>
+							<tr>
+								<th class="pl42">零件号</th>
+								<th><span class="l-line pl20">中文名</span></th>
+								<th><span class="l-line pl20">证书号</span></th>
+								<th><span class="l-line pl20">截止日期</span></th>
+								<th><span class="l-line pl20">3C证书文件</span></th>
+								<th><span class="l-line pl20">操作</span></th>
+							</tr>
+						</thead>
+						<tbody id="J_lists"></tbody>
+					</table>
+					<div class="lists-pages">
+						<div class="count">共<span id="J_count"></span>页</div>
+						<ul class="pages clearfix" id="J_pages"></ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,7 +93,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr>
 	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
@@ -94,5 +100,5 @@ $this->params['breadcrumbs'][] = $this->title;
 	<td class="pl20"><a href="javascript:;" class="btn-delete"></a></td>
 </tr>
 </script>
-<script type="text/javascript" src="/js/shipment.js"></script>
+<script type="text/javascript" src="/js/cert.js"></script>
 <?php $this->endBlock();  ?>
