@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
 			</li>
 			<li>
-				<a href="#" class="icon-3c" title="3C证书"><span>3C证书</span></a>
+				<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
 			</li>
 			<li>
 				<a href="#" class="icon-yy" title="预约查询"><span>预约查询</span></a>
@@ -77,12 +77,13 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div>
 		</div>
 	</div>
-	<div class="upload-popup popup" id="uploadSuc">
-		<h3>文件上传</h3>
-		<div class="upload-state" id="uploadState"></div>
-		<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
-	</div>
 </div>
+<div class="upload-popup popup" id="uploadSuc">
+	<h3>文件上传</h3>
+	<div class="upload-state" id="uploadState"></div>
+	<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
+</div>
+
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>

@@ -52,10 +52,10 @@ $(function() {
 	})
 
 	var _key_ = "";
-	function _GetData(a, n) {
+	function _GetData(n) {
 		var d = {
 			key : _key_ || "",
-			page : n || 1,
+			page : n || 1
 		};
 
 		$.ajax({
@@ -68,7 +68,7 @@ $(function() {
 
 				if(_len > 0) {
 					_result = Extend(data.list)
-					PageTotal.init(a, data)
+					PageTotal.init(data)
 
 					$('#J_count').html(data.pageCount)
 					$('#J_lists').empty()
@@ -76,7 +76,7 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<div style="text-align:center;">找不到该提单号，请重新输入！</div>')
+					$('#J_lists').html('<tr><td colspan="3" style="text-align:center;color:#ff7d26;">找不到该提单号，请重新输入！</td></tr>')
 				}
 			}
 		});

@@ -50,7 +50,7 @@ html,
 body {
     font-family:Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     min-width: 1280px;
     background-color: #e5e5e5;
 }
@@ -66,9 +66,9 @@ body {
 }
 .wrap {
     width: 100%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     min-width: 1280px;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 /*.wrap > .container {
@@ -233,8 +233,9 @@ a.desc:after {
     top:72px;
     bottom:0;
     width:182px;
-    height:100%;
-    min-height: 698px;
+    /*height:100%;*/
+    height: 777px;
+    min-height: 730px;
     left: 0;
     background-color: #40434a;
 }
@@ -293,7 +294,9 @@ a.desc:after {
     top:72px;
     bottom:0;
     width:1098px;
-    height:100%;
+    /*height:100%;*/
+    height: 777px;
+    min-height: 698px;
     right: 0;
     background-color: #e5e5e5;
 }
@@ -403,8 +406,7 @@ a.desc:after {
 .lists-cont table{
     width: 100%;
     border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 0 5px #ccc;
+    border: 1px solid #d9d9d9;
 }
 .lists-cont table th{
     height: 50px;
@@ -444,6 +446,14 @@ a.desc:after {
     margin-left: 10px;
     background: url("/images/icon-del.png") no-repeat;
 }
+.lists-cont table .btn-edit{
+    display: block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    margin-left: 20px;
+    background: url("/images/icon-edit.png") no-repeat;
+}
 .lists-cont table .pl42{
     padding-left: 42px;
 }
@@ -452,6 +462,27 @@ a.desc:after {
 }
 .lists-cont table .c7f7e7e{
     color: #7f7e7e;
+}
+.lists-cont table tr.status1 td{
+    color: #ff8400;
+}
+.lists-cont table tr.status2 td{
+    color: #ff0d0d;
+}
+.lists-cont table tr.status0 .s-i{
+    display: block;
+    background: url("/images/icon-guoqi0.png") no-repeat 20px center;
+    padding-left: 50px;
+}
+.lists-cont table tr.status1 .s-i{
+    display: block;
+    background: url("/images/icon-guoqi1.png") no-repeat 20px center;
+    padding-left: 50px;
+}
+.lists-cont table tr.status2 .s-i{
+     display: block;
+    background: url("/images/icon-guoqi2.png") no-repeat 20px center;
+    padding-left: 50px;
 }
 /* 分页 */
 .lists-pages{
@@ -514,69 +545,7 @@ a.desc:after {
     width: 20px;
     background: none;
 }
-/* 上传提示窗 */
-.upload-popup{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 408px;
-    height: 188px;
-    margin-left: -204px;
-    margin-top: -94px;
-    border-radius: 5px;
-    background: #fff;
-    overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
-    display: none;
-}
-.upload-popup h3{
-    height: 40px;
-    line-height: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding-left: 16px;
-    background: #438bda;
-}
-.upload-popup .upload-state{
-    width: 310px;
-    margin: 0 auto;
-}
-.upload-popup .upload-suc,.upload-popup .upload-err{
-    padding: 36px 0;
-}
-.upload-popup .upload-suc .cont1,.upload-popup .upload-suc .cont2{
-    font-size: 16px;
-    color: #191919;
-}
-.upload-popup .upload-suc .cont1{
-    float: left;
-    width: 220px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.upload-popup .upload-suc .cont2{
-    float: right;
-    padding-right: 22px;
-    background: url("/images/icon-right.png") no-repeat right center;
-}
-.upload-popup .btn-suc{
-    display: block;
-    width: 112px;
-    height: 36px;
-    line-height: 36px;
-    text-align: center;
-    font-size: 16px;
-    color: #fff;
-    border-radius: 3px;
-    background: #438bda;
-    margin: 0 auto;
-}
-.upload-popup .upload-err .cont{
-    font-size: 16px;
-    color: #191919;
-    text-align: center;
-}
+
 /* 提单详情 */
 .shipment-detail{
     width: 1010px;
@@ -602,14 +571,18 @@ a.desc:after {
     width: 100%;
     border-radius: 4px;
     overflow: hidden;
+    height: 640px;
+    overflow-x: hidden;
+    overflow-y: auto;
     /*box-shadow: 0 0 5px #ccc;*/
 }
 .shipment-detail-list table{
     width: 100%;
 }
 .shipment-detail-list .table-tbody{
-    height: 500px;
-    overflow: auto;
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .shipment-detail-list table th{
     height: 50px;
@@ -671,18 +644,26 @@ a.desc:after {
     font-size: 18px;
     color: #282828;
     text-align: center;
+    text-decoration: none;
 }
 .cert-nav .active{
     background-color: #fff;
 }
 /* 零件列表 */
 .cert-main{
+    height: 777px;
     background: #fff;
+}
+.cert-top,.cert-list{
+    width: 1010px;
+    margin: 0 auto;
+}
+.cert-top{
+    padding: 30px 0 18px 0;
 }
 .cert-top .search-box{
     display: inline;
     float: left;
-    margin-left: 21px;
     /*width: 304px;*/
     height: 44px;
     background: url("/images/search-text.png") no-repeat;
@@ -708,6 +689,7 @@ a.desc:after {
     text-align: center;
     text-decoration: none;
     line-height: 44px;
+    overflow: hidden;
 }
 .cert-top .btn-search{
     width: 77px;
@@ -747,7 +729,326 @@ a.desc:after {
     background: -moz-linear-gradient(#fff, #ebebeb);
     background: linear-gradient(#fff, #ebebeb);
 }
-
 .cert-top .btn-upload:hover{
     background: #fff;
+}
+.cert-top .btn-upload,.cert-top .btn-download{
+    float: right;
+    margin-left: 24px;
+    display: inline;
+}
+
+
+.cert-inc{
+    width: 980px;
+    margin: 0 auto;
+}
+.cert-inc .cert-inc-title{
+    padding: 40px 0 12px 0;
+    font-size: 20px;
+    color: #292929;
+    border-bottom: 1px solid #e6e6e6;
+}
+.cert-inc .cert-inc-cont{
+    margin-top: 32px;
+}
+.overflow-y-auto{
+    padding-bottom: 18px;
+    height: 270px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.cert-inc .cert-inc-cont td{
+    height: 66px;
+}
+.cert-inc .cert-inc-cont .tit{
+    width: 105px;
+    font-size: 16px;
+    color: #191919;
+    text-align: right;
+}
+.cert-inc .cert-inc-cont .con{
+    padding-left: 15px;
+    text-align: left;
+}
+.cert-inc .cert-inc-cont .con .part-text{
+    width: 300px;
+    height: 36px;
+    border: 0;
+    font-size: 16px;
+    color: #191919;
+    padding-left: 18px;
+    background: #f4f4f4;
+    border-radius: 3px;
+}
+.cert-inc .cert-inc-cont .con .f-l{
+    float: left;
+}
+.cert-inc .cert-inc-cont .btn-file-box{
+    position: relative;
+}
+.cert-inc .cert-inc-cont .btn-file-box .file-upload{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 114px;
+    height: 44px;
+    font-size: 30px;
+    overflow: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    _filter: alpha(opacity=0);
+}
+.cert-inc .cert-inc-cont .btn-file-box .btn-upload{
+    display: inline;
+    float: left;
+    width: 108px;
+    height: 36px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+    color: #fff;
+    margin-left: 17px;
+    background: #fda454;
+    border-radius: 3px;
+}
+.cert-inc .cert-inc-cont .con .msg{
+    display: none;
+    color: #fda454;
+}
+
+.cert-inc .cert-inc-cont .btn-del{
+    width: 80px;
+    height: 36px;
+    border: 1px solid #D4D4D4;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    display: block;
+    margin-left: 14px;
+    text-decoration: none;
+}
+.cert-inc .cert-inc-cont .btn-add{
+    display: block;
+    width: 66px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #438bda;
+    color: #438bda;
+    padding-left: 40px;
+    margin-left: 30px;
+    border-radius: 3px;
+    background: url("/images/icon-add.png") no-repeat 14px center;
+    text-decoration: none;
+}
+.cert-inc .btn-confirm{
+    display: block;
+    width: 355px;
+    height: 39px;
+    border-radius: 3px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 39px;
+    text-decoration: none;
+}
+
+
+/* --------- 弹出窗 --------- */
+/* 上传提示窗 */
+.popup{
+    display: -none;
+}
+.upload-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 408px;
+    height: 188px;
+    margin-left: -204px;
+    margin-top: -94px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+.upload-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.upload-popup .upload-state{
+    width: 310px;
+    margin: 0 auto;
+}
+.upload-popup .upload-suc,.upload-popup .upload-err{
+    padding: 36px 0;
+}
+.upload-popup .upload-suc .cont1,.upload-popup .upload-suc .cont2{
+    font-size: 16px;
+    color: #191919;
+}
+.upload-popup .upload-suc .cont1{
+    float: left;
+    width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.upload-popup .upload-suc .cont2{
+    float: right;
+    padding-right: 22px;
+    background: url("/images/icon-right.png") no-repeat right center;
+}
+.upload-popup .btn-suc{
+    display: block;
+    width: 112px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 3px;
+    background: #438bda;
+    margin: 0 auto;
+}
+.upload-popup .upload-err .cont{
+    font-size: 16px;
+    color: #191919;
+    text-align: center;
+}
+
+/* 更新零件信息 */
+.popup .btn-close{
+    position: absolute;
+    right: 28px;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    text-indent: -999em;
+    overflow: hidden;
+    background: url("/images/icon-close.png") no-repeat;
+}
+.update-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 540px;
+    height: 490px;
+    margin-left: -270px;
+    margin-top: -245px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+.popup .btn-close{
+    position: absolute;
+    right: 28px;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    text-indent: -999em;
+    overflow: hidden;
+    background: url("/images/icon-close.png") no-repeat;
+}
+.update-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.update-cont{
+    padding-top: 25px;
+}
+.update-cont table{
+    width: 100%;
+}
+.update-cont td{
+    height: 66px;
+}
+.update-cont .tit{
+    width: 20%;
+    font-size: 14px;
+    color: #191919;
+    text-align: right;
+}
+.update-cont .con{
+    width: 80%;
+    text-align: left;
+}
+.update-cont .con .part-text{
+    width: 360px;
+    height: 36px;
+    border: 0;
+    font-size: 14px;
+    color: #191919;
+    padding-left: 18px;
+    background: #f4f4f4;
+    border-radius: 3px;
+}
+.update-cont .con .msg{
+    display: none;
+    color: #FF851D;
+}
+.update-cont .con .w160{
+    width: 160px;
+}
+.update-cont .con .w235{
+    width: 235px;
+}
+.update-cont .con .f-l{
+    float: left;
+}
+.update-cont .btn-file-box{
+    position: relative;
+}
+.update-cont .btn-file-box .file-upload{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 114px;
+    height: 44px;
+    font-size: 30px;
+    overflow: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    _filter: alpha(opacity=0);
+}
+.update-cont .btn-file-box .btn-upload{
+    display: inline;
+    float: left;
+    width: 108px;
+    height: 36px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+    color: #fff;
+    margin-left: 17px;
+    background: #fda454;
+    border-radius: 3px;
+}
+
+.update-cont .btn-confirm{
+    display: block;
+    width: 355px;
+    height: 39px;
+    border-radius: 3px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 39px;
 }

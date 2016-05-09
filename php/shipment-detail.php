@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
 			</li>
 			<li>
-				<a href="#" class="icon-3c" title="3C证书"><span>3C证书</span></a>
+				<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
 			</li>
 			<li>
 				<a href="#" class="icon-yy" title="预约查询"><span>预约查询</span></a>
@@ -53,36 +53,30 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="s-n">到厂日期：<?= $shipment->arrivalDate;?></div>
 			</div>
 			<div class="shipment-detail-list">
-				<div class="table-thead">
-					<table>
-						<thead>
-							<tr>
-								<th width="20%" class="pl32">集装箱号</th>
-								<th width="13%"><span class="l-line pl10">装船号</span></th>
-								<th width="15%"><span class="l-line pl10">船号</span></th>
-								<th width="22%"><span class="l-line pl10">零件号</span></th>
-								<th width="20%"><span class="l-line pl10">中文名</span></th>
-								<th width="10%"><span class="l-line pl10">数量</span></th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-				<div class="table-tbody">
-					<table>
-						<tbody>
-							<?php foreach($detail as $k => $v){	?>
-							<tr>
-								<td width="20%" class="pl32"><?= $v['containerNo'];?></td>
-								<td width="13%" class="pl10"><?= $v['vesselNo'];?></td>
-								<td width="15%" class="pl10"><?= $v['vesselName'];?></td>
-								<td width="22%" class="pl10"><?= $v['partNo'];?></td>
-								<td width="20%" class="pl10" title="<?= $v['partName'];?>"><span class="partName"><?= $v['partName'];?></span></td>
-								<td width="10%" class="pl10"><?= $v['count'];?></td>
-							</tr>
-							<?php };?>
-						</tbody>
-					</table>
-				</div>
+				<table>
+					<thead>
+						<tr>
+							<th width="20%" class="pl32">集装箱号</th>
+							<th width="13%"><span class="l-line pl10">装船号</span></th>
+							<th width="15%"><span class="l-line pl10">船号</span></th>
+							<th width="22%"><span class="l-line pl10">零件号</span></th>
+							<th width="20%"><span class="l-line pl10">中文名</span></th>
+							<th width="10%"><span class="l-line pl10">数量</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach($detail as $k => $v){	?>
+						<tr>
+							<td width="20%" class="pl32"><?= $v['containerNo'];?></td>
+							<td width="13%"><span class="pl10"><?= $v['vesselNo'];?></span></td>
+							<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
+							<td width="22%"><span class="pl10"><?= $v['partNo'];?></span></td>
+							<td width="20%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
+							<td width="10%"><span class="pl10"><?= $v['count'];?></span></td>
+						</tr>
+						<?php };?>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

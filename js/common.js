@@ -29,8 +29,7 @@ function Extend(a) {
 
 var PageTotal = {
 	/* 初始化 */
-	init : function(a, d) {
-		this.port = a,
+	init : function(d) {
 		this.current = d.page, 	//当前页
 		this.pageCount = 10, 			//每页显示的数据量
 		this.total = d.pageCount, 	//总共的页码
@@ -77,24 +76,24 @@ var PageTotal = {
 			var end = this.total;
 		}
 		if (this.current > 1) {
-			$("#J_pages").append("<li><a href='javascript:_GetData(\"" + this.port + "\", " + (this.current - 1) + ");' class='prev'>&lt;</a></li>");
+			$("#J_pages").append("<li><a href='javascript:_GetData(" + (this.current - 1) + ");' class='prev'>&lt;</a></li>");
 		}
 
 		for (var i = index; i <= end; i++) {
 			if (i == this.current) {
-				$("#J_pages").append("<li><a href='javascript:_GetData(\"" + this.port + "\", " + this.current + ");' class='on'>" + i + "</a></li>");
+				$("#J_pages").append("<li><a href='javascript:_GetData(" + this.current + ");' class='on'>" + i + "</a></li>");
 			} else {
-				$("#J_pages").append("<li><a href='javascript:_GetData(\"" + this.port + "\", " + i + ");'>" + i + "</a></li>");
+				$("#J_pages").append("<li><a href='javascript:_GetData(" + i + ");'>" + i + "</a></li>");
 			}
 		}
 
 		if (end != this.total) {
 			$("#J_pages").append("<li class='pt'><a href='javascript:;'>...</a></li>");
-			$("#J_pages").append("<li><a href='javascript:_GetData(\"" + this.port + "\", " + this.total + ");'>" + this.total + "</a></li>");
+			$("#J_pages").append("<li><a href='javascript:_GetData(" + this.total + ");'>" + this.total + "</a></li>");
 		}
 
 		if (this.current < end) {
-			$("#J_pages").append("<li><a href='javascript:_GetData(\"" + this.port + "\", " + (this.current + 1) + ");' class='next'>&gt;</a></li>");
+			$("#J_pages").append("<li><a href='javascript:_GetData(" + (this.current + 1) + ");' class='next'>&gt;</a></li>");
 		}
 	}
 };

@@ -46,19 +46,19 @@ $this->params['breadcrumbs'][] = $this->title;
 		</ul>
 	</div>
 	<div class="right-main">
-		<div class="cert-nav">
-			<a href="javascript:;" class="active" title="全部">全部</a>
-			<a href="javascript:;" title="将过期">将过期</a>
-			<a href="javascript:;" title="已过期">已过期</a>
-		</div>
 		<div class="cert-main">
+			<div class="cert-nav clearfix">
+				<a href="javascript:;" class="active" title="全部" id="cert-all">全部</a>
+				<a href="javascript:;" title="将过期" id="cert-soon">将过期</a>
+				<a href="javascript:;" title="已过期" id="cert-over">已过期</a>
+			</div>
 			<div class="cert-top clearfix">
 				<div class="search-box">
 					<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号或零件号">
 					<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 				</div>
-				<a href="javascript:;" class="btn-upload" title="导入3C证书">导入3C证书</a>
-				<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
+				<a href="#" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
+				<a href="http://120.26.50.11:8010/index.php?r=benz/cert-import" class="btn-upload" title="导入3C证书">导入3C证书</a>
 			</div>
 			<div class="cert-list">
 				<div class="lists-titl">所有零件列表</div>
@@ -66,15 +66,48 @@ $this->params['breadcrumbs'][] = $this->title;
 					<table>
 						<thead>
 							<tr>
-								<th class="pl42">零件号</th>
-								<th><span class="l-line pl20">中文名</span></th>
-								<th><span class="l-line pl20">证书号</span></th>
-								<th><span class="l-line pl20">截止日期</span></th>
-								<th><span class="l-line pl20">3C证书文件</span></th>
-								<th><span class="l-line pl20">操作</span></th>
+								<th width="22%" class="pl42">零件号</th>
+								<th width="18%"><span class="l-line pl20">中文名</span></th>
+								<th width="20%"><span class="l-line pl20">证书号</span></th>
+								<th width="15%"><span class="l-line pl20">截止日期</span></th>
+								<th width="15%"><span class="l-line pl20">3C证书文件</span></th>
+								<th width="10%"><span class="l-line pl20">操作</span></th>
 							</tr>
 						</thead>
-						<tbody id="J_lists"></tbody>
+						<tbody id="J_lists">
+							<!-- <tr>
+								<td class="pl42">A 205 270 62 01</td>
+								<td><span class="l-line pl20">后视镜</span></td>
+								<td><span class="l-line pl20">201212154561234562215</span></td>
+								<td><span class="l-line pl20">2015-5-05-05</span></td>
+								<td><span class="l-line pl20 s-i">暂无证书</span></td>
+								<td><span class="l-line pl20">操作</span></td>
+							</tr>
+							<tr class="status0">
+								<td class="pl42">A 205 270 62 01</td>
+								<td><span class="l-line pl20">后视镜</span></td>
+								<td><span class="l-line pl20">201212154561234562215</span></td>
+								<td><span class="l-line pl20">2015-5-05-05</span></td>
+								<td><span class="l-line pl20 s-i">未过期</span></td>
+								<td><span class="l-line pl20">操作</span></td>
+							</tr>
+							<tr class="status1">
+								<td class="pl42">A 205 270 62 01</td>
+								<td><span class="l-line pl20">后视镜</span></td>
+								<td><span class="l-line pl20">201212154561234562215</span></td>
+								<td><span class="l-line pl20">2015-5-05-05</span></td>
+								<td><span class="l-line pl20 s-i">将过期</span></td>
+								<td><span class="l-line pl20">操作</span></td>
+							</tr>
+							<tr class="status2">
+								<td class="pl42">A 205 270 62 01</td>
+								<td><span class="l-line pl20">后视镜</span></td>
+								<td><span class="l-line pl20">201212154561234562215</span></td>
+								<td><span class="l-line pl20">2015-5-05-05</span></td>
+								<td><span class="l-line pl20 s-i">已过期</span></td>
+								<td><span class="l-line pl20">操作</span></td>
+							</tr> -->
+						</tbody>
 					</table>
 					<div class="lists-pages">
 						<div class="count">共<span id="J_count"></span>页</div>
@@ -84,20 +117,66 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div>
 		</div>
 	</div>
-	<div class="upload-popup popup" id="uploadSuc">
-		<h3>文件上传</h3>
-		<div class="upload-state" id="uploadState"></div>
-		<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
+</div>
+<div class="update-popup popup">
+	<a href="javascript:;" class="btn-close close-all" title="关闭">关闭</a>
+	<h3>更新零件信息</h3>
+	<div class="update-cont">
+		<table>
+			<tbody>
+				<tr>
+					<td class="tit">&lowast;零件号：</td>
+					<td class="con"><input type="text" class="part-text" name="" value="" placeholder="请输入零件号"></td>
+				</tr>
+				<tr>
+					<td class="tit">&lowast;中文名：</td>
+					<td class="con"><input type="text" class="part-text" name="" value="" placeholder="请输入中文名"></td>
+				</tr>
+				<tr>
+					<td class="tit">&lowast;证书号：</td>
+					<td class="con">
+						<input type="text" class="part-text" id="J_certNo" name="" value="" placeholder="请输入有效证书号">
+						<p class="msg"></p>
+					</td>
+				</tr>
+				<tr>
+					<td class="tit">&lowast;有效期：</td>
+					<td class="con"><input type="text" class="part-text w160" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly"> 至 <input type="text" class="part-text w160" name="" value="" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td class="tit">&lowast;PDF文件：</td>
+					<td class="con">
+						<input type="text" class="part-text w235 f-l" id="file-text" disabled="disabled" name="" value="" placeholder="请上传PDF文件">
+						<div class="btn-file-box f-l">
+							<a href="javascript:;" class="btn-upload" title="选择文件">选择文件</a>
+							<input name="file" type="file" id="J_upload_pdf" class="file-upload">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="#" class="btn-confirm" title="">确定</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
+
+
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/x-jquery-tmpl" id="shipmentListTmpl">
-<tr>
-	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
-	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
-	<td class="pl20"><a href="javascript:;" class="btn-delete"></a></td>
+<script type="text/javascript" src="/js/Calendar.js"></script>
+<script type="text/x-jquery-tmpl" id="certListTmpl">
+<tr {{if cert}} class="" {{/if}}>
+	<td class="pl42">${partNo}</td>
+	<td class="pl20" title="${name}">${name}</td>
+	<td class="pl20">{{if cert}} 有证书 {{else}} 暂无证书 {{/if}}</td>
+	<td class="pl20">{{if certExpireDate}} ${certExpireDate} {{else}} 暂无证书 {{/if}} </td>
+	<td class="pl20">{{if cert}} 有证书 {{else}} 暂无证书 {{/if}}</td>
+	<td><a href="javascript:;" class="btn-edit J_edit" title="更新零件信息"></a></td>
 </tr>
 </script>
 <script type="text/javascript" src="/js/cert.js"></script>
