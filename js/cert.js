@@ -57,9 +57,10 @@ $(function() {
 			startDate = $('.part-text').eq(1).val(),
 			endDate = $('.part-text').eq(2).val(),
 			file =  $('.part-text').eq(3).data('url'),
-			status = 0,
 			pdfStatus = 0,
 			dateStatus = 0,
+			startStatus = 0,
+			endStatus = 0,
 			certImport = {
 			cert: {
 				certNo: certNo,
@@ -75,32 +76,35 @@ $(function() {
 
 		// 证书更新
 		if($('#oldCertPDF').val() && $('#oldCertPDF').val() != file) {
-			status = 1;
 			pdfStatus = 1;
 		}
 
+		if(changeDate($('#oldStartDate').val(), startDate)) {
+			startStatus = changeDate($('#oldStartDate').val(), startDate);
+			dateStatus = 1;
+		}
 		if(changeDate($('#oldEndDate').val(), endDate)) {
-			status = changeDate($('#oldEndDate').val(), endDate);
+			endStatus = changeDate($('#oldEndDate').val(), endDate);
 			dateStatus = 1;
 		}
 
-		switch(status) {
-			case 1 : 
-				if(!dateStatus) {
-					alert('PDF证书修改，请修改有效期！');
-					return;
-				}
-				break;
-			case 2 : 
-				if(!pdfStatus) {
-					alert('有效期修改，请重新上传PDF证书！');
-					return;
-				}
-				break;
-			case 3 : 
-				alert('有效期必须晚于之前的有效期！');
+		if(pdfStatus) {
+			if(!dateStatus) {
+				alert('PDF证书修改，请修改有效期！');
 				return;
+			}
 		}
+		if(startStatus != 2 && endStatus != 2) {
+			if(!pdfStatus) {
+				alert('有效期修改，请重新上传PDF证书！');
+				return;
+			}
+		}
+		else if(startStatus == 2 || endStatus == 2) {
+			alert('有效期必须晚于之前的有效期！');
+			return;
+		}
+
 
 		$.ajax({
 			type : "POST",

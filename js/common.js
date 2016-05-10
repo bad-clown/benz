@@ -55,10 +55,10 @@ function changeDate(a, b) {
 
 	if (starttimes > lktimes) {
 		//alert('有效期必须晚于之前的有效期！');
-		return 3;
+		return 2;
 	} else if (starttimes < lktimes) {
 		//alert('有效期修改，请重新上传PDF证书！');
-		return 2;
+		return 1;
 	} else {
 		return 0;
 	}
