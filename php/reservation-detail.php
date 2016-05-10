@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class="right-main">
 		<div class="shipment-detail">
 			<div class="shipment-detail-top clearfix">
+				<div class="s-n">检验日期：<?= $shipment->shipmentNo;?></div>
 				<div class="s-n">提单号：<?= $shipment->shipmentNo;?></div>
 				<div class="s-n">发货号：<?= $shipment->BLNo;?></div>
 				<div class="s-n">到厂日期：<?= $shipment->arrivalDate;?></div>
@@ -49,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<th width="22%"><span class="l-line pl10">零件号</span></th>
 							<th width="20%"><span class="l-line pl10">中文名</span></th>
 							<th width="10%"><span class="l-line pl10">数量</span></th>
+							<th width="10%"><span class="l-line pl10">3C证书</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -59,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
 							<td width="22%"><span class="pl10"><?= $v['partNo'];?></span></td>
 							<td width="20%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
+							<td width="10%"><span class="pl10"><?= $v['count'];?></span></td>
 							<td width="10%"><span class="pl10"><?= $v['count'];?></span></td>
 						</tr>
 						<?php };?>
@@ -71,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript">
 $(function() {
-	$('#benzMenu').find('li:eq(0)').addClass('active');
+	$('#benzMenu').find('li:eq(2)').addClass('active');
 })
 </script>
 <?php $this->endBlock();  ?>

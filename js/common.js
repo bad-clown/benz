@@ -27,6 +27,43 @@ function Extend(a) {
 	return b
 }
 
+function duibiDate(a, b) {
+	var arr = a.split("-");
+	var starttime = new Date(arr[0], arr[1], arr[2]);
+	var starttimes = starttime.getTime();
+
+	var arrs = b.split("-");
+	var lktime = new Date(arrs[0], arrs[1], arrs[2]);
+	var lktimes = lktime.getTime();
+
+	if (starttimes >= lktimes) {
+		alert('开始时间晚于结束时间，请检查！');
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function changeDate(a, b) {
+	var arr = a.split("-");
+	var starttime = new Date(arr[0], arr[1], arr[2]);
+	var starttimes = starttime.getTime();
+
+	var arrs = b.split("-");
+	var lktime = new Date(arrs[0], arrs[1], arrs[2]);
+	var lktimes = lktime.getTime();
+
+	if (starttimes > lktimes) {
+		alert('有效期必须晚于之前的有效期！');
+		return false;
+	} else if (starttimes < lktimes) {
+		alert('有效期修改，请重新上传PDF证书！');
+		return false;
+	} else if (starttimes = lktimes) { {
+		return true;
+	}
+}
+
 var PageTotal = {
 	/* 初始化 */
 	init : function(d) {

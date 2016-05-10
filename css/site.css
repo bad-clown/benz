@@ -200,8 +200,9 @@ a.desc:after {
     width: 321px;
     height: 44px;
     line-height: 44px;
-    padding: 0 12px 0 56px;
+    padding: 0 12px 0 12px;
     background: transparent;
+    margin-left: 44px;
 }
 .login-main .form-group .btn-primary{
     font-size: 22px;
@@ -301,16 +302,11 @@ a.desc:after {
     background-color: #e5e5e5;
 }
 
-
 /* 物流信息 */
 .shipment-top,.shipment-list{
     width: 790px;
     margin: 0 auto;
-}
-/* 搜索 */
-.shipment-top{
     padding-top: 23px;
-    padding-bottom: 23px;
 }
 /* 按钮 */
 .shipment-top .btn-download,.shipment-top .btn-upload,.shipment-top .btn-search{
@@ -470,7 +466,7 @@ a.desc:after {
     color: #ff0d0d;
 }
 .lists-cont table tr.status0 .s-i{
-    display: block;
+    /*display: block;*/
     background: url("/images/icon-guoqi0.png") no-repeat 20px center;
     padding-left: 50px;
 }
@@ -679,6 +675,56 @@ a.desc:after {
     padding: 0 12px;
     background: transparent;
 }
+
+/* 预约列表 */
+.reservation-list{
+    position: relative;
+    padding-top: 43px;
+}
+.reservation-list .search-box{
+    position: absolute;
+    top: 23px;
+    right: 0;
+    display: inline;
+    float: left;
+    margin-left: 21px;
+    /*width: 304px;*/
+    height: 44px;
+    background: url("/images/search-text.png") no-repeat;
+}
+.reservation-list .search-box .text-search{
+    display: block;
+    float: left;
+    width: 280px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    border: 0;
+    padding: 0 12px;
+    background: transparent;
+}
+.reservation-list .search-box .btn-search{
+    display: inline;
+    float: left;
+    width: 77px;
+    height: 44px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 44px;
+    overflow: hidden;
+    color: #033984;
+    background: url("/images/btn-search.png") no-repeat;
+}
+.reservation-list .search-box .btn-search:active{
+    background: url("/images/btn-search-active.png") no-repeat;
+}
+.reservation-list .search-box .btn-search:hover{
+    background: url("/images/btn-search-hover.png") no-repeat;
+}
+
+
+
 /* 按钮 */
 .cert-top .btn-download,.cert-top .btn-upload,.cert-top .btn-search{
     display: inline;
@@ -737,8 +783,6 @@ a.desc:after {
     margin-left: 24px;
     display: inline;
 }
-
-
 .cert-inc{
     width: 980px;
     margin: 0 auto;
@@ -771,7 +815,7 @@ a.desc:after {
     padding-left: 15px;
     text-align: left;
 }
-.cert-inc .cert-inc-cont .con .part-text{
+.cert-inc .cert-inc-cont .con .part-text,.cert-inc .cert-inc-cont .con .partNo-text,.cert-inc .cert-inc-cont .con .name-text{
     width: 300px;
     height: 36px;
     border: 0;
@@ -817,6 +861,9 @@ a.desc:after {
     display: none;
     color: #fda454;
 }
+.cert-inc .cert-inc-cont .con .tips{
+    color: #fda454;
+}
 
 .cert-inc .cert-inc-cont .btn-del{
     width: 80px;
@@ -856,14 +903,67 @@ a.desc:after {
     text-align: center;
     line-height: 39px;
     text-decoration: none;
+    border: 0;
+    cursor: pointer;
 }
 
 
 /* --------- 弹出窗 --------- */
-/* 上传提示窗 */
 .popup{
-    display: -none;
+    display: none;
 }
+/* 删除确认 */
+.delete-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 408px;
+    height: 188px;
+    margin-left: -204px;
+    margin-top: -94px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+.delete-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.delete-popup .msg{
+    text-align: center;
+    font-size: 16px;
+    color: #191919;
+    margin: 30px 0;
+}
+.delete-popup .btn-control{
+    width: 100%;
+    text-align: center;
+}
+.delete-popup .btn1,.delete-popup .btn2{
+    display: inline-block;
+    width: 112px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #438BDA;
+    border: 1px solid #438BDA;
+    border-radius: 3px;
+    margin: 0 4px;
+}
+.delete-popup .btn2{
+    color: #8c8c8c;
+    background-color: #fff;
+    border: 1px solid #8c8c8c;
+}
+
+/* 上传提示窗 */
 .upload-popup{
     position: absolute;
     top: 50%;
@@ -876,6 +976,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    display: none;
 }
 .upload-popup h3{
     height: 40px;
@@ -987,7 +1088,7 @@ a.desc:after {
     width: 80%;
     text-align: left;
 }
-.update-cont .con .part-text{
+.update-cont .con .part-text,.update-cont .con .partNo-text,.update-cont .con .name-text{
     width: 360px;
     height: 36px;
     border: 0;
@@ -1051,4 +1152,5 @@ a.desc:after {
     background: #438ada;
     text-align: center;
     line-height: 39px;
+    border: 0;
 }

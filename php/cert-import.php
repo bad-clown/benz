@@ -30,20 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<!-- 登录信息 -->
 	</div>
 	<div class="left-nav">
-		<ul>
-			<li>
-				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
-			</li>
-			<li class="active">
-				<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
-			</li>
-			<li>
-				<a href="#" class="icon-yy" title="预约查询"><span>预约查询</span></a>
-			</li>
-			<li>
-				<a href="#" class="icon-zh" title="账户管理"><span>账户管理</span></a>
-			</li>
-		</ul>
+		<?= $this->render('menu') ?>
 	</div>
 	<div class="right-main">
 		<div class="cert-main">
@@ -83,32 +70,19 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<td class="tit">&lowast;零件号：</td>
 								<td class="con">
-									<input type="text" class="part-text check_rep" name="" value="" placeholder="请输入零件号">
+									<input type="text" class="partNo-text check_rep" name="" value="" placeholder="请输入零件号">
 								</td>
 								<td class="tit">&lowast;中文名：</td>
 								<td class="con">
-									<input type="text" class="part-text" name="" value="" placeholder="请输入中文名">
+									<input type="text" class="name-text" name="" value="" placeholder="请输入中文名">
 								</td>
 								<td></td>
 							</tr>
-							<!-- <tr>
-								<td class="tit">&lowast;零件号：</td>
-								<td class="con">
-									<input type="text" class="part-text check_rep" name="" value="" placeholder="请输入零件号">
-								</td>
-								<td class="tit">&lowast;中文名：</td>
-								<td class="con">
-									<input type="text" class="part-text" name="" value="" placeholder="请输入中文名">
-								</td>
-								<td>
-									<a href="#" class="btn-del part-del" title="删除">删除</a>
-								</td>
-							</tr> -->
 						</tbody>
 					</table>
 					<a href="javascript:;" class="btn-add" id="J_part_add" title="添加零件">添加零件</a>
 				</div>
-				<a href="javascript:;" class="btn-confirm" title="确定">确定</a>
+				<button class="btn-confirm" id="J_Upload" title="确定">确定</button>
 			</div>
 		</div>
 	</div>
@@ -118,5 +92,5 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/Calendar.js"></script>
-<script type="text/javascript" src="/js/cert-import.js"></script>
+<script type="text/javascript" src="/js/cert.js"></script>
 <?php $this->endBlock();  ?>

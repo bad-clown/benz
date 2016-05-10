@@ -33,26 +33,20 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?= $this->render('menu') ?>
 	</div>
 	<div class="right-main">
-		<div class="shipment-top clearfix">
-			<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="下载模版">下载模版</a>
-			<div class="upload-box">
-				<a href="javascript:;" class="btn-upload" title="上传信息">上传信息</a>
-				<input name="file" type="file" id="J_upload_xlsx" class="file-upload">
-			</div>
+		<div class="shipment-list reservation-list">
 			<div class="search-box">
 				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入单号">
 				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 			</div>
-		</div>
-		<div class="shipment-list">
-			<div class="lists-titl">物流信息列表</div>
+			<div class="lists-titl">所有预约列表</div>
 			<div class="lists-cont">
 				<table>
 					<thead>
 						<tr>
-							<th width="60%" class="pl42">提单号</th>
-							<th width="25%"><span class="l-line pl20">上传时间</span></th>
-							<th width="15%"><span class="l-line pl20">操作</span></th>
+							<th width="40%" class="pl42">检验日期</th>
+							<th width="20%"><span class="l-line pl20">提单号</span></th>
+							<th width="20%"><span class="l-line pl20">发货号</span></th>
+							<th width="20%"><span class="l-line pl20">到厂日期</span></th>
 						</tr>
 					</thead>
 					<tbody id="J_lists"></tbody>
@@ -65,19 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
 	</div>
 </div>
-<div class="upload-popup popup" id="uploadSuc">
-	<h3>文件上传</h3>
-	<div class="upload-state" id="uploadState"></div>
-	<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
-</div>
-<!-- <div class="delete-popup popup">
-	<h3>删除确认</h3>
-	<div class="msg">确定要删除吗？</div>
-	<div class="btn-control clearfix">
-		<a href="javascript:;" class="btn1 J_delBtn" title="确定">确定</a>
-		<a href="javascript:;" class="btn2 J_closeBtn" title="取消">取消</a>
-	</div>
-</div> -->
 
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
@@ -85,10 +66,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr>
-	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/reservation-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
 	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
-	<td class="pl20"><a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a></td>
+	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
+	<td class="pl20"></td>
 </tr>
 </script>
-<script type="text/javascript" src="/js/shipment.js"></script>
+<script type="text/javascript" src="/js/reservation.js"></script>
 <?php $this->endBlock();  ?>

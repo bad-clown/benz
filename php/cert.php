@@ -30,20 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<!-- 登录信息 -->
 	</div>
 	<div class="left-nav">
-		<ul>
-			<li>
-				<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
-			</li>
-			<li class="active">
-				<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
-			</li>
-			<li>
-				<a href="#" class="icon-yy" title="预约查询"><span>预约查询</span></a>
-			</li>
-			<li>
-				<a href="#" class="icon-zh" title="账户管理"><span>账户管理</span></a>
-			</li>
-		</ul>
+		<?= $this->render('menu') ?>
 	</div>
 	<div class="right-main">
 		<div class="cert-main">
@@ -119,18 +106,18 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 <div class="update-popup popup">
-	<a href="javascript:;" class="btn-close close-all" title="关闭">关闭</a>
+	<a href="javascript:;" class="btn-close" id="update-close" title="关闭">关闭</a>
 	<h3>更新零件信息</h3>
 	<div class="update-cont">
 		<table>
 			<tbody>
 				<tr>
 					<td class="tit">&lowast;零件号：</td>
-					<td class="con"><input type="text" class="part-text" name="" value="" placeholder="请输入零件号"></td>
+					<td class="con"><input type="text" class="partNo-text" name="" value="" placeholder="请输入零件号"></td>
 				</tr>
 				<tr>
 					<td class="tit">&lowast;中文名：</td>
-					<td class="con"><input type="text" class="part-text" name="" value="" placeholder="请输入中文名"></td>
+					<td class="con"><input type="text" class="name-text" name="" value="" placeholder="请输入中文名"></td>
 				</tr>
 				<tr>
 					<td class="tit">&lowast;证书号：</td>
@@ -141,11 +128,12 @@ $this->params['breadcrumbs'][] = $this->title;
 				</tr>
 				<tr>
 					<td class="tit">&lowast;有效期：</td>
-					<td class="con"><input type="text" class="part-text w160" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly"> 至 <input type="text" class="part-text w160" name="" value="" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
+					<td class="con"><input type="hidden" id="oldStartDate" /><input type="hidden" id="oldEndDate" /><input type="text" class="part-text w160" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly"> 至 <input type="text" class="part-text w160" name="" value="" id="EndDate" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td class="tit">&lowast;PDF文件：</td>
 					<td class="con">
+						<input type="hidden" id="oldCertPDF" />
 						<input type="text" class="part-text w235 f-l" id="file-text" disabled="disabled" name="" value="" placeholder="请上传PDF文件">
 						<div class="btn-file-box f-l">
 							<a href="javascript:;" class="btn-upload" title="选择文件">选择文件</a>
@@ -155,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				</tr>
 				<tr>
 					<td colspan="2">
-						<a href="#" class="btn-confirm" title="">确定</a>
+						<button class="btn-confirm" id="J_Upload" title="确定">确定</button>
 					</td>
 				</tr>
 			</tbody>
@@ -170,14 +158,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/x-jquery-tmpl" id="certListTmpl">
-<tr {{if cert}} class="" {{/if}}>
+<tr {{if cert}} class="status${cert['status']}" {{/if}}>
 	<td class="pl42">${partNo}</td>
 	<td class="pl20" title="${name}">${name}</td>
-	<td class="pl20">{{if cert}} 有证书 {{else}} 暂无证书 {{/if}}</td>
+	<td class="pl20">{{if cert}} ${cert['certNo']} {{else}} 暂无证书 {{/if}}</td>
 	<td class="pl20">{{if certExpireDate}} ${certExpireDate} {{else}} 暂无证书 {{/if}} </td>
-	<td class="pl20">{{if cert}} 有证书 {{else}} 暂无证书 {{/if}}</td>
+	<td class="pl20 s-i">{{if cert}} {{if cert['status'] == 0}} 未过期 {{else cert['status'] == 1}} 将过期 {{else cert['status'] == 2}} 已过期 {{/if}} {{else}} 暂无证书 {{/if}}</td>
 	<td><a href="javascript:;" class="btn-edit J_edit" title="更新零件信息"></a></td>
 </tr>
 </script>
 <script type="text/javascript" src="/js/cert.js"></script>
+<script type="text/javascript">
+$(function() {
+	_GetData()
+})
+</script>
 <?php $this->endBlock();  ?>

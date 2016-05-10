@@ -1,4 +1,5 @@
 $(function() {
+	$('#benzMenu').find('li:eq(0)').addClass('active');
 	/* 上传xls文件 */
 	$('#J_upload_xlsx').on('change', function() {
 		var imgPath = $("#J_upload_xlsx").val();
@@ -51,6 +52,33 @@ $(function() {
 		});
 	})
 
+	/* 删除 */
+	$(document).on('click', '.btn-delete', function() {
+		var delHTML = '<div class="delete-popup popup"><h3>删除确认</h3><div class="msg">确定要删除吗？</div><div class="btn-control clearfix"><a href="javascript:;" class="btn1 J_del" title="确定">确定</a><a href="javascript:;" class="btn2 J_closeDel" title="取消">取消</a></div></div>';
+		var delId = $(this).data('delid');
+
+		$('body').append(delHTML);
+
+		$(document).on('click', '.J_del', function() {
+			$.ajax({
+				type : "GET",
+				url : urlPort.shipmentDel,
+				data : {
+					id : delId
+				},
+				success : function(data) {
+					$('.delete-popup').remove();
+					_GetData()
+				}
+			})
+		})
+
+		$(document).on('click', '.J_closeDel', function() {
+			$('.delete-popup').remove();
+		})
+	})
+
+	/* 提单列表 */
 	var _key_ = "";
 	function _GetData(n) {
 		var d = {
@@ -83,16 +111,15 @@ $(function() {
 	}
 	_GetData()
 
+	/* 搜索 */
 	$('#J_searchBtn').on('click', function() {
 		searchKey($('#J_searchTxt'))
 	})
-
 	$('#J_searchTxt').on('keypress', function(e) {
 		if(e.keyCode == 13) {
 			searchKey($('#J_searchTxt'))
 		}
 	});
-
 	function searchKey(o) {
 		_key_ = $(o).val();
 		_GetData()
@@ -101,7 +128,7 @@ $(function() {
 	/* 确认隐藏 */
 	$('.J_closeBtn').on('click', function() {
 		$(this).parents('.popup').hide()
-		window.location.reload();
+		_GetData()
 	})
 
 	window._GetData = _GetData;
