@@ -54,25 +54,25 @@ function changeDate(a, b) {
 	var lktimes = lktime.getTime();
 
 	if (starttimes > lktimes) {
-		alert('有效期必须晚于之前的有效期！');
-		return false;
+		//alert('有效期必须晚于之前的有效期！');
+		return 3;
 	} else if (starttimes < lktimes) {
-		alert('有效期修改，请重新上传PDF证书！');
-		return false;
-	} else if (starttimes = lktimes) { {
-		return true;
+		//alert('有效期修改，请重新上传PDF证书！');
+		return 2;
+	} else {
+		return 0;
 	}
 }
 
 var PageTotal = {
 	/* 初始化 */
 	init : function(d) {
-		this.current = d.page, 	//当前页
-		this.pageCount = 10, 			//每页显示的数据量
+		this.current = d.page, 		//当前页
+		this.pageCount = 10, 		//每页显示的数据量
 		this.total = d.pageCount, 	//总共的页码
-		this.first = 1, 				//首页
+		this.first = 1, 			//首页
 		this.last = 0, 				//尾页
-		this.pre = 0, 					//上一页
+		this.pre = 0, 				//上一页
 		this.next = 0, 				//下一页
 		this.getData(this.current, this.total)
 	},

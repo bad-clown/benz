@@ -45,19 +45,21 @@ $(function() {
 	/* 证书上传 */
 	$('#J_Upload').on('click', function() {
 		// 检测为空
-		for(var i=0; i<$('.part-text').length; i++) {
-			if(!$('.part-text').eq(i).val()){
+		for(var i=0; i<$('.cknull').length; i++) {
+			if(!$('.cknull').eq(i).val()){
 				alert('证书和零件不能为空！')
 				return
 			}
 		}
+
 		// data
 		var certNo = $('.part-text').eq(0).val(),
 			startDate = $('.part-text').eq(1).val(),
 			endDate = $('.part-text').eq(2).val(),
 			file =  $('.part-text').eq(3).data('url'),
-			startDateVer = 0,
-			endDateVer = 0,
+			status = 0,
+			pdfStatus = 0,
+			dateStatus = 0,
 			certImport = {
 			cert: {
 				certNo: certNo,
@@ -70,18 +72,35 @@ $(function() {
 
 		// 日期对比
 		if(!duibiDate(startDate, endDate)) return;
-		if(!changeDate($('#oldStartDate').val(), startDate)) {
-			startDateVer = 1;
-		};
-		if(!changeDate($('#oldEndDate').val(), endDate)) {
-			endDateVer = 1;
-		};
 
 		// 证书更新
 		if($('#oldCertPDF').val() && $('#oldCertPDF').val() != file) {
-			alert('PDF证书修改，请修改有效期！');
-			return;
-		};
+			status = 1;
+			pdfStatus = 1;
+		}
+
+		if(changeDate($('#oldEndDate').val(), endDate)) {
+			status = changeDate($('#oldEndDate').val(), endDate);
+			dateStatus = 1;
+		}
+
+		switch(status) {
+			case 1 : 
+				if(!dateStatus) {
+					alert('PDF证书修改，请修改有效期！');
+					return;
+				}
+				break;
+			case 2 : 
+				if(!pdfStatus) {
+					alert('有效期修改，请重新上传PDF证书！');
+					return;
+				}
+				break;
+			case 3 : 
+				alert('有效期必须晚于之前的有效期！');
+				return;
+		}
 
 		$.ajax({
 			type : "POST",
@@ -134,11 +153,9 @@ $(function() {
 				certNo : $(this).val()
 			},
 			success : function(data) {
-				console.log(data)
 				var _d = data.data
 
 				if(_d) {
-
 					if(data.has) {
 						$('#J_certNo').next('.msg').show().html('已有此证书，若需要更新请重新选择有效期和PDF文件');
 						// $('.part-text').eq(0).val(_d.certNo),
@@ -151,9 +168,14 @@ $(function() {
 					}
 					else{
 						$('#J_certNo').next('.msg').hide().html('')
+						$('.part-text').eq(1).val(''),
+						$('.part-text').eq(2).val(''),
+						$('.part-text').eq(3).data('url', '').val('')
+						$('#oldCertPDF').val('');
+						$('#oldStartDate').val('');
+						$('#oldEndDate').val('');
 					}
 				}
-
 			}
 		})
 	})
@@ -187,7 +209,7 @@ $(function() {
 
 	/* 添加零件 */
 	$('#J_part_add').on('click', function() {
-		$('#part-list').append('<tr><td class="tit">&lowast;零件号：</td><td class="con"><input type="text" class="part-text check_rep" name="" value="" placeholder="请输入零件号"></td><td class="tit">&lowast;中文名：</td><td class="con"><input type="text" class="part-text" name="" value="" placeholder="请输入中文名"></td><td><a href="javascript:;" class="btn-del part-del" title="删除">删除</a></td></tr>');
+		$('#part-list').append('<tr><td class="tit">&lowast;零件号：</td><td class="con"><input type="text" class="partNo-text check_rep cknull" name="" value="" placeholder="请输入零件号"></td><td class="tit">&lowast;中文名：</td><td class="con"><input type="text" class="name-text cknull" name="" value="" placeholder="请输入中文名"></td><td><a href="javascript:;" class="btn-del part-del" title="删除">删除</a></td></tr>');
 	})
 	/* 删除零件 */
 	$(document).on('click', '.part-del', function() {

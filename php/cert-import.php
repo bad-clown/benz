@@ -42,18 +42,24 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<td class="tit">&lowast;证书号：</td>
 								<td class="con">
-									<input type="text" class="part-text" id="J_certNo" name="" value="" placeholder="请输入有效证书号">
+									<input type="text" class="part-text cknull" id="J_certNo" name="" value="" placeholder="请输入有效证书号">
 									<p class="msg"></p>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit">&lowast;有效期：</td>
-								<td class="con"><input type="text" class="part-text" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly"> 至 <input type="text" class="part-text w160" name="" value="" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
+								<td class="con">
+									<input type="hidden" id="oldStartDate" />
+									<input type="hidden" id="oldEndDate" />
+									<input type="text" class="part-text cknull" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly">
+									至
+									<input type="text" class="part-text w160 cknull" name="" value="" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
 							</tr>
 							<tr>
 								<td class="tit">&lowast;PDF文件：</td>
 								<td class="con">
-									<input type="text" class="part-text f-l" id="file-text" disabled="disabled" name="" value="" placeholder="请上传PDF文件">
+									<input type="hidden" id="oldCertPDF" />
+									<input type="text" class="part-text f-l cknull" id="file-text" disabled="disabled" name="" value="" placeholder="请上传PDF文件">
 									<div class="btn-file-box f-l">
 										<a href="javascript:;" class="btn-upload" title="选择文件">选择文件</a>
 										<input name="file" type="file" id="J_upload_pdf" class="file-upload">
@@ -70,11 +76,11 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<td class="tit">&lowast;零件号：</td>
 								<td class="con">
-									<input type="text" class="partNo-text check_rep" name="" value="" placeholder="请输入零件号">
+									<input type="text" class="partNo-text check_rep cknull" name="" value="" placeholder="请输入零件号">
 								</td>
 								<td class="tit">&lowast;中文名：</td>
 								<td class="con">
-									<input type="text" class="name-text" name="" value="" placeholder="请输入中文名">
+									<input type="text" class="name-text cknull" name="" value="" placeholder="请输入中文名">
 								</td>
 								<td></td>
 							</tr>
