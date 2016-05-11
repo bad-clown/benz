@@ -18,9 +18,10 @@ var urlPort = {
 	//预约列表
 	reservationList : 'http://120.26.50.11:8010/index.php?r=benz/reservation-list',
 	//证书列表
-	partCertList : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-list'
-
-
+	partCertList : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-list',
+	//证书删除
+	partCertDel : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-del'
+	
 }
 
 

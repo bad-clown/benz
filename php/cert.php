@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号或零件号">
 					<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 				</div>
-				<a href="#" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
+				<a href="http://120.26.50.11:8010/index.php?r=benz/export-cert" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
 				<a href="http://120.26.50.11:8010/index.php?r=benz/cert-import" class="btn-upload" title="导入3C证书">导入3C证书</a>
 			</div>
 			<div class="cert-list">
@@ -61,40 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								<th width="10%"><span class="l-line pl20">操作</span></th>
 							</tr>
 						</thead>
-						<tbody id="J_lists">
-							<!-- <tr>
-								<td class="pl42">A 205 270 62 01</td>
-								<td><span class="l-line pl20">后视镜</span></td>
-								<td><span class="l-line pl20">201212154561234562215</span></td>
-								<td><span class="l-line pl20">2015-5-05-05</span></td>
-								<td><span class="l-line pl20 s-i">暂无证书</span></td>
-								<td><span class="l-line pl20">操作</span></td>
-							</tr>
-							<tr class="status0">
-								<td class="pl42">A 205 270 62 01</td>
-								<td><span class="l-line pl20">后视镜</span></td>
-								<td><span class="l-line pl20">201212154561234562215</span></td>
-								<td><span class="l-line pl20">2015-5-05-05</span></td>
-								<td><span class="l-line pl20 s-i">未过期</span></td>
-								<td><span class="l-line pl20">操作</span></td>
-							</tr>
-							<tr class="status1">
-								<td class="pl42">A 205 270 62 01</td>
-								<td><span class="l-line pl20">后视镜</span></td>
-								<td><span class="l-line pl20">201212154561234562215</span></td>
-								<td><span class="l-line pl20">2015-5-05-05</span></td>
-								<td><span class="l-line pl20 s-i">将过期</span></td>
-								<td><span class="l-line pl20">操作</span></td>
-							</tr>
-							<tr class="status2">
-								<td class="pl42">A 205 270 62 01</td>
-								<td><span class="l-line pl20">后视镜</span></td>
-								<td><span class="l-line pl20">201212154561234562215</span></td>
-								<td><span class="l-line pl20">2015-5-05-05</span></td>
-								<td><span class="l-line pl20 s-i">已过期</span></td>
-								<td><span class="l-line pl20">操作</span></td>
-							</tr> -->
-						</tbody>
+						<tbody id="J_lists"></tbody>
 					</table>
 					<div class="lists-pages">
 						<div class="count">共<span id="J_count"></span>页</div>
@@ -164,8 +131,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/x-jquery-tmpl" id="certListTmpl">
 <tr {{if cert}} class="status${cert['status']}" {{/if}}>
-	<td class="pl42">${partNo}</td>
-	<td class="pl20" title="${name}">${name}</td>
+	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/part-cert-history&partId=${_id['$id']}" title="${partNo}">${partNo}</a></td>
+	<td title="${name}"><span class="partName pl20">${name}</span></td>
 	<td class="pl20">{{if cert}}${cert['certNo']}{{else}} 暂无证书 {{/if}}</td>
 	<td class="pl20">{{if certExpireDate}}${certExpireDate}{{else}}暂无证书{{/if}} </td>
 	<td class="pl20 s-i">{{if cert}}{{if cert['status'] == 0}}未过期{{else cert['status'] == 1}}将过期{{else cert['status'] == 2}}已过期{{/if}} {{else}}暂无证书{{/if}}</td>

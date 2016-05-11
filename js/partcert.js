@@ -26,35 +26,26 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td style="text-align:center;color:#ff7d26;">找不到相关证书！</td></tr>')
+					$('#J_lists').html('<tr><td style="text-align:center;color:#ff7d26;padding:20px 0;">找不到相关证书！</td></tr>')
 				}
 			}
 		});
 	}
+	_GetData()
 
-	/* 删除 */
-	$(document).on('click', '.btn-delete', function() {
-		var delHTML = '<div class="delete-popup popup"><h3>删除确认</h3><div class="msg">确定要删除吗？</div><div class="btn-control clearfix"><a href="javascript:;" class="btn1 J_del" title="确定">确定</a><a href="javascript:;" class="btn2 J_closeDel" title="取消">取消</a></div></div>';
+	/* 确定删除 */
+	$(document).on('click', '#J_confirmDel', function() {
 		var delId = $(this).data('delid');
-
-		$('body').append(delHTML);
-
-		$(document).on('click', '.J_del', function() {
-			$.ajax({
-				type : "GET",
-				url : urlPort.shipmentDel,
-				data : {
-					id : delId
-				},
-				success : function(data) {
-					$('.delete-popup').remove();
-					_GetData()
-				}
-			})
-		})
-
-		$(document).on('click', '.J_closeDel', function() {
-			$('.delete-popup').remove();
+		$.ajax({
+			type : "GET",
+			url : urlPort.partCertDel,
+			data : {
+				id : delId
+			},
+			success : function(data) {
+				$('.delete-popup').remove();
+				_GetData()
+			}
 		})
 	})
 

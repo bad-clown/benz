@@ -70,14 +70,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class="upload-state" id="uploadState"></div>
 	<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
 </div>
-<!-- <div class="delete-popup popup">
-	<h3>删除确认</h3>
-	<div class="msg">确定要删除吗？</div>
-	<div class="btn-control clearfix">
-		<a href="javascript:;" class="btn1 J_delBtn" title="确定">确定</a>
-		<a href="javascript:;" class="btn2 J_closeBtn" title="取消">取消</a>
-	</div>
-</div> -->
 
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>

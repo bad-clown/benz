@@ -64,6 +64,7 @@ function changeDate(a, b) {
 	}
 }
 
+/* 分页 */
 var PageTotal = {
 	/* 初始化 */
 	init : function(d) {
@@ -134,3 +135,16 @@ var PageTotal = {
 		}
 	}
 };
+
+/* 删除提示 */
+$(document).on('click', '.btn-delete', function() {
+	var delHTML = '<div class="delete-popup popup"><h3>删除确认</h3><div class="msg">确定要删除吗？</div><div class="btn-control clearfix"><a href="javascript:;" class="btn1" id="J_confirmDel" title="确定">确定</a><a href="javascript:;" class="btn2 J_closeDel" title="取消">取消</a></div></div>';
+
+	$('body').append(delHTML);
+	$('.delete-popup').show();
+	$('#J_confirmDel').data('delid', $(this).data('delid'));
+
+	$(document).on('click', '.J_closeDel', function() {
+		$('.delete-popup').remove();
+	})
+})

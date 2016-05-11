@@ -305,9 +305,9 @@ $(function() {
 	/* 打开更新弹窗 */
 	$(document).on('click', '.J_edit', function() {
 		var $parent = $(this).parents('tr');
-		var part = $.trim($parent.find('td:eq(0)').html());
-		var name = $.trim($parent.find('td:eq(1)').html());
-		var cert = $.trim($parent.find('td:eq(2)').html());
+		var part = $.trim($parent.find('td:eq(0)').text());
+		var name = $.trim($parent.find('td:eq(1)').text());
+		var cert = $.trim($parent.find('td:eq(2)').text());
 
 		$('#J_certNo').next('.msg').hide().html('');
 		$('.partNo-text').val('')

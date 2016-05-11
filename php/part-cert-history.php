@@ -46,18 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								<th>全部3C证书</th>
 							</tr>
 						</thead>
-						<tbody id="J_lists">
-							<tr>
-								<td>
-									<div class="list clearfix">
-										<div class="certNo">证书号：21231546431-8<br>有效日期：2015-01-11 至 2016-01-11</div>
-										<div class="upTime">上传时间：2015-01-11 14:36</div>
-										<div class="downld"><a href="#" title="下载">下载</a></div>
-										<div class="delete"><a href="#" title="删除">删除</a></div>
-									</div>
-								</td>
-							</tr>
-						</tbody>
+						<tbody id="J_lists"></tbody>
 					</table>
 					<div class="lists-pages">
 						<div class="count">共<span id="J_count"></span>页</div>
@@ -81,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="certNo">证书号：${filename}<br>有效日期：${startDate} 至 ${endDate}</div>
 			<div class="upTime">上传时间：${uploadTime}</div>
 			<div class="downld"><a href="http://120.26.50.11:8010${file}" title="下载">下载</a></div>
-			<div class="delete"><a href="javascript:;" class="btn-delete" title="删除">删除</a></div>
+			<div class="delete"><a href="javascript:;" class="btn-delete" data-delid="${id}" title="删除">删除</a></div>
 		</div>
 	</td>
 </tr>

@@ -417,6 +417,8 @@ a.desc:after {
     text-align: left;
     font-size: 14px;
     color: #191919;
+    *border-bottom: 1px solid #d6d6d6;
+    *height: 49px;
 }
 .lists-cont table td a{
     color: #191919;
@@ -428,6 +430,14 @@ a.desc:after {
     background-color: #f7f7f7;
 }
 
+.lt-ie9 .lists-cont table td,.lt-ie8 .lists-cont table td,.lt-ie7 .lists-cont table td{
+    height: 50px;
+    text-align: left;
+    font-size: 14px;
+    color: #191919;
+    border-bottom: 1px solid #d6d6d6;
+    height: 49px;
+}
 .lists-cont th .l-line {
     display: block;
     height: 24px;
@@ -459,10 +469,10 @@ a.desc:after {
 .lists-cont table .c7f7e7e{
     color: #7f7e7e;
 }
-.lists-cont table tr.status1 td{
+.lists-cont table tr.status1 td,.lists-cont table tr.status1 td a{
     color: #ff8400;
 }
-.lists-cont table tr.status2 td{
+.lists-cont table tr.status2 td,.lists-cont table tr.status2 td a{
     color: #ff0d0d;
 }
 .lists-cont table tr.status0 .s-i{
@@ -471,12 +481,12 @@ a.desc:after {
     padding-left: 50px;
 }
 .lists-cont table tr.status1 .s-i{
-    display: block;
+    /*display: block;*/
     background: url("/images/icon-guoqi1.png") no-repeat 20px center;
     padding-left: 50px;
 }
 .lists-cont table tr.status2 .s-i{
-     display: block;
+     /*display: block;*/
     background: url("/images/icon-guoqi2.png") no-repeat 20px center;
     padding-left: 50px;
 }
@@ -503,6 +513,7 @@ a.desc:after {
     line-height: 22px;
     color: #555;
     margin-right: 10px;
+    display: inline;
 }
 .lists-pages li a{
     color: #797979;
@@ -604,6 +615,14 @@ a.desc:after {
 .shipment-detail-list table tr:nth-child(even) {
     background-color: #f7f7f7;
 }
+.lt-ie9 .shipment-detail-list table td,.lt-ie8 .shipment-detail-list table td,.lt-ie7 .shipment-detail-list table td{
+    height: 50px;
+    text-align: left;
+    font-size: 14px;
+    color: #191919;
+    border-bottom: 1px solid #d6d6d6;
+    height: 49px;
+}
 .shipment-detail-list th .l-line {
     display: block;
     height: 24px;
@@ -672,6 +691,13 @@ a.desc:after {
     border: 0;
     padding: 0 12px;
     background: transparent;
+}
+.cert-list table .partName{
+    display: block;
+    width:  160px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 /* 预约列表 */
@@ -930,6 +956,7 @@ a.desc:after {
 .cert-3c-list{
     border: 1px solid #d8dad9;
     border-radius: 3px;
+    margin-top: 15px;
 }
 .cert-3c-list table{
     width: 100%;
@@ -946,9 +973,11 @@ a.desc:after {
 .cert-3c-list .list{
     width: 813px;
     margin: 0 auto;
-    padding: 24px 0 24px 63px;
+    padding: 26px 0 26px 63px;
     border-bottom: 1px solid #d6d6d6;
     background: url("/images/icon-pdf.png") no-repeat 0 center;
+    margin-bottom: -1px;
+    position: relative;
 }
 .cert-3c-list .certNo,.cert-3c-list .upTime,.cert-3c-list .downld,.cert-3c-list .delete{
     float: left;
@@ -978,6 +1007,7 @@ a.desc:after {
     margin-top: 3px;
     margin-left: 25px;
 }
+
 .cert-3c-list .delete a{
     background-color: #fff;
     color: #a3a3a3;
