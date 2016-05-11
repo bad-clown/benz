@@ -16,7 +16,9 @@ var urlPort = {
 	//证书上传
 	doCertImport : 'http://120.26.50.11:8010/index.php?r=benz/do-cert-import',
 	//预约列表
-	reservationList : 'http://120.26.50.11:8010/index.php?r=benz/reservation-list'
+	reservationList : 'http://120.26.50.11:8010/index.php?r=benz/reservation-list',
+	//证书列表
+	partCertList : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-list'
 
 
 }

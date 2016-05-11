@@ -59,7 +59,7 @@ function changeDate(a, b) {
 	} else if (starttimes < lktimes) {
 		alert('有效期修改，请重新上传PDF证书！');
 		return false;
-	} else if (starttimes = lktimes) { {
+	} else if (starttimes = lktimes) {
 		return true;
 	}
 }
