@@ -905,6 +905,84 @@ a.desc:after {
     cursor: pointer;
 }
 
+/* 全部3C证书 */
+.cert-3c{
+    width: 950px;
+    margin: 0 auto;
+}
+
+.cert-3c-top{
+    padding-left: 18px;
+    padding-top: 40px;
+    padding-bottom: 16px;
+}
+.cert-3c-top .s-n{
+    float: left;
+    font-size: 18px;
+    color: #848484;
+    line-height: 18px;
+    height: 18px;
+    margin-right: 60px;
+    padding-left: 8px;
+    display: inline;
+    border-left: 4px solid #53a0f1;
+}
+.cert-3c-list{
+    border: 1px solid #d8dad9;
+    border-radius: 3px;
+}
+.cert-3c-list table{
+    width: 100%;
+}
+.cert-3c-list th{
+    height: 50px;
+    padding-left: 24px;
+    background: #f7f9f8;
+    border-bottom: 1px solid #7491c9;
+    font-size: 18px;
+    text-align: left;
+    color: #191919;
+}
+.cert-3c-list .list{
+    width: 813px;
+    margin: 0 auto;
+    padding: 24px 0 24px 63px;
+    border-bottom: 1px solid #d6d6d6;
+    background: url("/images/icon-pdf.png") no-repeat 0 center;
+}
+.cert-3c-list .certNo,.cert-3c-list .upTime,.cert-3c-list .downld,.cert-3c-list .delete{
+    float: left;
+    height: 48px;
+    font-size: 14px;
+    color: #191919;
+}
+.cert-3c-list .certNo{
+    width: 377px;
+    line-height: 24px;
+}
+.cert-3c-list .upTime{
+    width: 226px;
+    line-height: 48px;
+}
+.cert-3c-list .downld a,.cert-3c-list .delete a{
+    display: block;
+    width: 78px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #438ada;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #438ada;
+    margin-top: 3px;
+    margin-left: 25px;
+}
+.cert-3c-list .delete a{
+    background-color: #fff;
+    color: #a3a3a3;
+    border: 1px solid #a3a3a3;
+}
 
 /* --------- 弹出窗 --------- */
 .popup{

@@ -166,9 +166,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr {{if cert}} class="status${cert['status']}" {{/if}}>
 	<td class="pl42">${partNo}</td>
 	<td class="pl20" title="${name}">${name}</td>
-	<td class="pl20">{{if cert}} ${cert['certNo']} {{else}} 暂无证书 {{/if}}</td>
-	<td class="pl20">{{if certExpireDate}} ${certExpireDate} {{else}} 暂无证书 {{/if}} </td>
-	<td class="pl20 s-i">{{if cert}} {{if cert['status'] == 0}} 未过期 {{else cert['status'] == 1}} 将过期 {{else cert['status'] == 2}} 已过期 {{/if}} {{else}} 暂无证书 {{/if}}</td>
+	<td class="pl20">{{if cert}}${cert['certNo']}{{else}} 暂无证书 {{/if}}</td>
+	<td class="pl20">{{if certExpireDate}}${certExpireDate}{{else}}暂无证书{{/if}} </td>
+	<td class="pl20 s-i">{{if cert}}{{if cert['status'] == 0}}未过期{{else cert['status'] == 1}}将过期{{else cert['status'] == 2}}已过期{{/if}} {{else}}暂无证书{{/if}}</td>
 	<td><a href="javascript:;" class="btn-edit J_edit" title="更新零件信息"></a></td>
 </tr>
 </script>
