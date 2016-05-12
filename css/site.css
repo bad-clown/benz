@@ -158,7 +158,7 @@ a.desc:after {
     height: 768px;
     margin: 0 auto;
     position: relative;
-    background: url("/images/login-bg.jpg") no-repeat center 0;
+    background: url("../images/login-bg.jpg") no-repeat center 0;
 }
 .login-main{
     position: absolute;
@@ -168,7 +168,7 @@ a.desc:after {
     height: 389px;
     padding-left: 62px;
     padding-top: 83px;
-    background: url("/images/login-b.png") no-repeat;
+    background: url("../images/login-b.png") no-repeat;
 }
 .login-main .login-title{
     font-size: 27px;
@@ -181,11 +181,11 @@ a.desc:after {
     width: 389px;
 }
 .login-main .field-login-form-login{
-    background: url("/images/user.png") no-repeat;
+    background: url("../images/user.png") no-repeat;
     height: 70px;
 }
 .login-main .field-login-form-password{
-    background: url("/images/pswd.png") no-repeat;
+    background: url("../images/pswd.png") no-repeat;
     height: 70px;
     margin-bottom: 5px;
 }
@@ -223,7 +223,7 @@ a.desc:after {
 .top-bar{
     width: 100%;
     height: 72px;
-    background: url("/images/top-bg.png") no-repeat;
+    background: url("../images/top-bg.png") no-repeat;
 }
 .left-nav,.right-main{
     position: absolute;
@@ -262,22 +262,22 @@ a.desc:after {
     background-color: #545960;
 }
 .left-nav li a.icon-wl{
-    background-image: url("/images/icon-wl.png");
+    background-image: url("../images/icon-wl.png");
     background-repeat: no-repeat;
     background-position: 35px center;
 }
 .left-nav li a.icon-3c{
-    background-image: url("/images/icon-3c.png");
+    background-image: url("../images/icon-3c.png");
     background-repeat: no-repeat;
     background-position: 35px center;
 }
 .left-nav li a.icon-yy{
-    background-image: url("/images/icon-yy.png");
+    background-image: url("../images/icon-yy.png");
     background-repeat: no-repeat;
     background-position: 35px center;
 }
 .left-nav li a.icon-zh{
-    background-image: url("/images/icon-zh.png");
+    background-image: url("../images/icon-zh.png");
     background-repeat: no-repeat;
     background-position: 35px center;
 }
@@ -287,7 +287,7 @@ a.desc:after {
 .left-nav li.active span{
     display: block;
     height: 60px;
-    background: url("/images/icon-jt.png") no-repeat right center;
+    background: url("../images/icon-jt.png") no-repeat right center;
 }
 /* 右主体 */
 .right-main{
@@ -321,35 +321,35 @@ a.desc:after {
 }
 .shipment-top .btn-download{
     color: #033984;
-    background: url("/images/btn-download.png") no-repeat;
+    background: url("../images/btn-download.png") no-repeat;
 }
 .shipment-top .btn-download:active{
-    background: url("/images/btn-download-active.png") no-repeat;
+    background: url("../images/btn-download-active.png") no-repeat;
 }
 .shipment-top .btn-download:hover{
-    background: url("/images/btn-download-hover.png") no-repeat;
+    background: url("../images/btn-download-hover.png") no-repeat;
 }
 .shipment-top .btn-upload{
     color: #fff;
-    background: url("/images/btn-upload.png") no-repeat;
+    background: url("../images/btn-upload.png") no-repeat;
 }
 .shipment-top .btn-upload:active{
-    background: url("/images/btn-upload-active.png") no-repeat;
+    background: url("../images/btn-upload-active.png") no-repeat;
 }
 .shipment-top .btn-upload:hover{
     color: #fff;
-    background: url("/images/btn-upload-hover.png") no-repeat;
+    background: url("../images/btn-upload-hover.png") no-repeat;
 }
 .shipment-top .btn-search{
     width: 77px;
     color: #033984;
-    background: url("/images/btn-search.png") no-repeat;
+    background: url("../images/btn-search.png") no-repeat;
 }
 .shipment-top .btn-search:active{
-    background: url("/images/btn-search-active.png") no-repeat;
+    background: url("../images/btn-search-active.png") no-repeat;
 }
 .shipment-top .btn-search:hover{
-    background: url("/images/btn-search-hover.png") no-repeat;
+    background: url("../images/btn-search-hover.png") no-repeat;
 }
 
 /* 上传按钮 */
@@ -376,7 +376,7 @@ a.desc:after {
     margin-left: 21px;
     /*width: 304px;*/
     height: 44px;
-    background: url("/images/search-text.png") no-repeat;
+    background: url("../images/search-text.png") no-repeat;
 }
 .shipment-top .search-box .text-search{
     display: block;
@@ -450,7 +450,7 @@ a.desc:after {
     height: 15px;
     overflow: hidden;
     margin-left: 10px;
-    background: url("/images/icon-del.png") no-repeat;
+    background: url("../images/icon-del.png") no-repeat;
 }
 .lists-cont table .btn-edit{
     display: block;
@@ -458,13 +458,16 @@ a.desc:after {
     height: 16px;
     overflow: hidden;
     margin-left: 20px;
-    background: url("/images/icon-edit.png") no-repeat;
+    background: url("../images/icon-edit.png") no-repeat;
 }
 .lists-cont table .pl42{
     padding-left: 42px;
 }
 .lists-cont table .pl20{
     padding-left: 20px;
+}
+.lists-cont table .pl10{
+    padding-left: 10px;
 }
 .lists-cont table .c7f7e7e{
     color: #7f7e7e;
@@ -477,17 +480,17 @@ a.desc:after {
 }
 .lists-cont table tr.status0 .s-i{
     /*display: block;*/
-    background: url("/images/icon-guoqi0.png") no-repeat 20px center;
+    background: url("../images/icon-guoqi0.png") no-repeat 20px center;
     padding-left: 50px;
 }
 .lists-cont table tr.status1 .s-i{
     /*display: block;*/
-    background: url("/images/icon-guoqi1.png") no-repeat 20px center;
+    background: url("../images/icon-guoqi1.png") no-repeat 20px center;
     padding-left: 50px;
 }
 .lists-cont table tr.status2 .s-i{
      /*display: block;*/
-    background: url("/images/icon-guoqi2.png") no-repeat 20px center;
+    background: url("../images/icon-guoqi2.png") no-repeat 20px center;
     padding-left: 50px;
 }
 /* 分页 */
@@ -536,13 +539,13 @@ a.desc:after {
     padding: 0 7px;
     text-indent: -999em;
     overflow: hidden;
-    background: url("/images/page-prev.png") no-repeat center center;
+    background: url("../images/page-prev.png") no-repeat center center;
 }
 .lists-pages li a.next{
     padding: 0 7px;
     text-indent: -999em;
     overflow: hidden;
-    background: url("/images/page-next.png") no-repeat center center;
+    background: url("../images/page-next.png") no-repeat center center;
 }
 .lists-pages li.pt {
     min-width: 20px;
@@ -679,7 +682,7 @@ a.desc:after {
     float: left;
     /*width: 304px;*/
     height: 44px;
-    background: url("/images/search-text.png") no-repeat;
+    background: url("../images/search-text.png") no-repeat;
 }
 .cert-top .search-box .text-search{
     display: block;
@@ -714,7 +717,7 @@ a.desc:after {
     margin-left: 21px;
     /*width: 304px;*/
     height: 44px;
-    background: url("/images/search-text.png") no-repeat;
+    background: url("../images/search-text.png") no-repeat;
 }
 .reservation-list .search-box .text-search{
     display: block;
@@ -738,13 +741,13 @@ a.desc:after {
     line-height: 44px;
     overflow: hidden;
     color: #033984;
-    background: url("/images/btn-search.png") no-repeat;
+    background: url("../images/btn-search.png") no-repeat;
 }
 .reservation-list .search-box .btn-search:active{
-    background: url("/images/btn-search-active.png") no-repeat;
+    background: url("../images/btn-search-active.png") no-repeat;
 }
 .reservation-list .search-box .btn-search:hover{
-    background: url("/images/btn-search-hover.png") no-repeat;
+    background: url("../images/btn-search-hover.png") no-repeat;
 }
 
 
@@ -764,13 +767,13 @@ a.desc:after {
 .cert-top .btn-search{
     width: 77px;
     color: #033984;
-    background: url("/images/btn-search.png") no-repeat;
+    background: url("../images/btn-search.png") no-repeat;
 }
 .cert-top .btn-search:active{
-    background: url("/images/btn-search-active.png") no-repeat;
+    background: url("../images/btn-search-active.png") no-repeat;
 }
 .cert-top .btn-search:hover{
-    background: url("/images/btn-search-hover.png") no-repeat;
+    background: url("../images/btn-search-hover.png") no-repeat;
 }
 .cert-top .btn-download{
     width: 165px;
@@ -912,7 +915,7 @@ a.desc:after {
     padding-left: 40px;
     margin-left: 30px;
     border-radius: 3px;
-    background: url("/images/icon-add.png") no-repeat 14px center;
+    background: url("../images/icon-add.png") no-repeat 14px center;
     text-decoration: none;
 }
 .cert-inc .btn-confirm{
@@ -975,7 +978,7 @@ a.desc:after {
     margin: 0 auto;
     padding: 26px 0 26px 63px;
     border-bottom: 1px solid #d6d6d6;
-    background: url("/images/icon-pdf.png") no-repeat 0 center;
+    background: url("../images/icon-pdf.png") no-repeat 0 center;
     margin-bottom: -1px;
     position: relative;
 }
@@ -1012,6 +1015,74 @@ a.desc:after {
     background-color: #fff;
     color: #a3a3a3;
     border: 1px solid #a3a3a3;
+}
+
+/* 账号管理 */
+.manager-top,.manager-list{
+    width: 1010px;
+    margin: 0 auto;
+    padding-top: 23px;
+}
+/* 按钮 */
+.manager-top .btn-adduser,.manager-top .btn-search{
+    display: inline;
+    float: left;
+    width: 114px;
+    height: 44px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 44px;
+}
+.manager-top .btn-adduser{
+    color: #fff;
+    background: url("../images/btn-upload.png") no-repeat;
+}
+.manager-top .btn-adduser:active{
+    background: url("../images/btn-upload-active.png") no-repeat;
+}
+.manager-top .btn-adduser:hover{
+    color: #fff;
+    background: url("../images/btn-upload-hover.png") no-repeat;
+}
+.manager-top .btn-search{
+    width: 77px;
+    color: #033984;
+    background: url("../images/btn-search.png") no-repeat;
+}
+.manager-top .btn-search:active{
+    background: url("../images/btn-search-active.png") no-repeat;
+}
+.manager-top .btn-search:hover{
+    background: url("../images/btn-search-hover.png") no-repeat;
+}
+.manager-top .search-box{
+    display: inline;
+    float: left;
+    margin-left: 21px;
+    /*width: 304px;*/
+    height: 44px;
+    background: url("../images/search-text.png") no-repeat;
+}
+.manager-top .search-box .text-search{
+    display: block;
+    float: left;
+    width: 280px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    border: 0;
+    padding: 0 12px;
+    background: transparent;
+}
+.manager-list table .btn-res,.manager-list table .btn-off{
+    color: #033984;
+}
+.manager-list table .off td,.manager-list table .off .btn-res{
+    color: #a5a5a5;
+}
+.manager-list table .off .btn-off{
+    color: #f21c00;
 }
 
 /* --------- 弹出窗 --------- */
@@ -1113,7 +1184,7 @@ a.desc:after {
 .upload-popup .upload-suc .cont2{
     float: right;
     padding-right: 22px;
-    background: url("/images/icon-right.png") no-repeat right center;
+    background: url("../images/icon-right.png") no-repeat right center;
 }
 .upload-popup .btn-suc{
     display: block;
@@ -1142,7 +1213,7 @@ a.desc:after {
     height: 14px;
     text-indent: -999em;
     overflow: hidden;
-    background: url("/images/icon-close.png") no-repeat;
+    background: url("../images/icon-close.png") no-repeat;
 }
 .update-popup{
     position: absolute;
@@ -1165,7 +1236,7 @@ a.desc:after {
     height: 14px;
     text-indent: -999em;
     overflow: hidden;
-    background: url("/images/icon-close.png") no-repeat;
+    background: url("../images/icon-close.png") no-repeat;
 }
 .update-popup h3{
     height: 40px;
