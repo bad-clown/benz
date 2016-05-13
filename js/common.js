@@ -37,7 +37,8 @@ function duibiDate(a, b) {
 	var lktimes = lktime.getTime();
 
 	if (starttimes >= lktimes) {
-		alert('开始时间晚于结束时间，请检查！');
+		layer.msg('开始时间晚于结束时间，请检查！');
+		// alert('开始时间晚于结束时间，请检查！');
 		return false;
 	} else {
 		return true;

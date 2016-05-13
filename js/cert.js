@@ -2,17 +2,18 @@ $(function() {
 	$('#benzMenu').find('li:eq(1)').addClass('active');
 	/* 上传pdf文件 */
 	$('#J_upload_pdf').on('change', function() {
-		var imgPath = $("#J_upload_pdf").val();
+		var pdfPath = $("#J_upload_pdf").val();
 		var data = new FormData()
 		$.each($("#J_upload_pdf")[0].files, function(i, f) {
 			data.append('file', f)
 		})
 
 		//判断上传文件的后缀名
-		var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+		var strExtension = pdfPath.substr(pdfPath.lastIndexOf('.') + 1);
 		strExtension = strExtension.toLowerCase();
 		if (strExtension != 'pdf') {
-			alert("请选择.pdf文件");
+			layer.msg('请选择.pdf文件');
+			// alert("请选择.pdf文件");
 			return;
 		}
 
@@ -32,12 +33,14 @@ $(function() {
 				//$('#uploadState').append("上传成功！")
 			},
 			success: function(data) {
-				alert('上传成功！')
+				layer.msg('上传成功！');
+				// alert('上传成功！')
 
 				$('#file-text').val(data.name).data('url', data.url)
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("上传失败，请检查网络后重试");
+				layer.msg('上传失败，请检查网络后重试!');
+				// alert("上传失败，请检查网络后重试");
 			}
 		});
 	})
@@ -47,7 +50,7 @@ $(function() {
 		// 检测为空
 		for(var i=0; i<$('.cknull').length; i++) {
 			if(!$('.cknull').eq(i).val()){
-				alert('证书和零件不能为空！')
+				layer.msg('证书和零件不能为空！');
 				return
 			}
 		}
@@ -90,18 +93,18 @@ $(function() {
 
 		if(pdfStatus) {
 			if(!dateStatus) {
-				alert('PDF证书修改，请修改有效期！');
+				layer.msg('您已上传新PDF证书，请修改有效期！');
 				return;
 			}
 		}
 		if(startStatus != 2 && endStatus != 2) {
 			if(!pdfStatus) {
-				alert('有效期修改，请重新上传PDF证书！');
+				layer.msg('您已修改有效期，请重新上传PDF证书！');
 				return;
 			}
 		}
 		else if(startStatus == 2 || endStatus == 2) {
-			alert('有效期必须晚于之前的有效期！');
+			layer.msg('有效期必须晚于之前的有效期！');
 			return;
 		}
 

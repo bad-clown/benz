@@ -2,11 +2,7 @@ $(function() {
 	$('#benzMenu').find('li:eq(0)').addClass('active');
 	/* 上传xls文件 */
 	$('#J_upload_xlsx').on('change', function() {
-		var imgPath = $("#J_upload_xlsx").val();
-		if (imgPath == "") {
-			alert("请选择上传图片！");
-			return;
-		}
+		var xlsPath = $("#J_upload_xlsx").val();
 
 		var data = new FormData()
 		$.each($("#J_upload_xlsx")[0].files, function(i, f) {
@@ -14,10 +10,10 @@ $(function() {
 		})
 
 		//判断上传文件的后缀名
-		var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+		var strExtension = xlsPath.substr(xlsPath.lastIndexOf('.') + 1);
 		strExtension = strExtension.toLowerCase();
 		if (strExtension != 'xlsx' && strExtension != 'xls') {
-			alert("请选择.xlsx,.xls文件");
+			layer.msg('请选择.xlsx,.xls文件');
 			return;
 		}
 
@@ -47,7 +43,7 @@ $(function() {
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("上传失败，请检查网络后重试");
+				layer.msg('上传失败，请检查网络后重试！');
 			}
 		});
 	})

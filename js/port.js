@@ -20,8 +20,18 @@ var urlPort = {
 	//证书列表
 	partCertList : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-list',
 	//证书删除
-	partCertDel : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-del'
-	
+	partCertDel : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-del',
+	//账号列表
+	userList : 'http://120.26.50.11:8010/index.php?r=benz/user-list',
+	//新增账号
+	createUser : 'http://120.26.50.11:8010/index.php?r=benz/create-user',
+	//禁用/启用
+	blockUser : 'http://120.26.50.11:8010/index.php?r=benz/block-user',
+	//重置密码：
+	resetPwd : 'http://120.26.50.11:8010/index.php?r=benz/reset-user-password',
+	//修改用户信息：
+	modifyPersonal : 'http://120.26.50.11:8010/index.php?r=benz/modify-personal'
+
 }
 
 

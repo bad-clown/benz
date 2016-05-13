@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="zh-CN"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="zh-CN" ><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="zh-CN" ><![endif]-->
+<!--[if gt IE 8]><!--><html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="eU1uVTIyMHgUElwxW1FfETR7FxdrZ2kKCB9aEl5xQRlAJl4dWWZ/EQ==">
+    <title>登录</title>
+<link href="../css/site.css" rel="stylesheet"></head>
+<body>
+
+<div class="wrap">
+    <!-- <nav id="w0" class="navbar-inverse navbar-fixed-top navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w0-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="/index.php">My Company</a></div><div id="w0-collapse" class="collapse navbar-collapse"><ul id="w1" class="navbar-nav navbar-right nav"><li><a href="/index.php?r=site%2Findex">Home</a></li>
+<li><a href="/index.php?r=site%2Fabout">About</a></li>
+<li><a href="/index.php?r=site%2Fcontact">Contact</a></li>
+<li><a href="/index.php?r=site%2Flogin">Login</a></li></ul></div></div></nav> -->
+    <!--<div class="container">
+         <ul class="breadcrumb"><li><a href="/index.php">首页</a></li>
+<li class="active">登录</li>
+</ul>        
+    </div> -->
+
+    
+<div class="benzContainer">
+	<div class="top-bar">
+		<!-- 登录信息 -->
+	</div>
+	<div class="left-nav">
+		<ul id="benzMenu">
+	<li>
+		<a href="http://120.26.50.11:8010/index.php?r=benz/shipment" class="icon-wl" title="物流信息"><span>物流信息</span></a>
+	</li>
+	<li>
+		<a href="http://120.26.50.11:8010/index.php?r=benz/cert" class="icon-3c" title="3C证书"><span>3C证书</span></a>
+	</li>
+	<li>
+		<a href="http://120.26.50.11:8010/index.php?r=benz/reservation" class="icon-yy" title="预约查询"><span>预约查询</span></a>
+	</li>
+	<li>
+		<a href="#" class="icon-zh" title="账户管理"><span>账户管理</span></a>
+	</li>
+</ul>	</div>
+	<div class="right-main">
+		<div class="manager-top clearfix">
+			<a href="javascript:;" class="btn-adduser" title="新增账号">新增账号</a>
+			<div class="search-box">
+				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入姓名">
+				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
+			</div>
+		</div>
+		<div class="manager-list">
+			<div class="lists-titl">所有账号列表</div>
+			<div class="lists-cont">
+				<table>
+					<thead>
+						<tr>
+							<th width="16%" class="pl20">用户名</th>
+							<th width="10%"><span class="l-line pl10">姓名</span></th>
+							<th width="14%"><span class="l-line pl10">工号</span></th>
+							<th width="10%"><span class="l-line pl10">部门</span></th>
+							<th width="13%"><span class="l-line pl10">手机号</span></th>
+							<th width="25%"><span class="l-line pl10">邮箱</span></th>
+							<th width="6%"><span class="l-line pl10">密码</span></th>
+							<th width="6%"><span class="l-line pl10">状态</span></th>
+						</tr>
+					</thead>
+					<tbody id="J_lists">
+						<tr>
+							<td class="pl20">zhangliang</td>
+							<td><span class="pl10">张亮</span></td>
+							<td><span class="pl10">0123456789</span></td>
+							<td><span class="pl10">研发部门门</span></td>
+							<td><span class="pl10">13666627001</span></td>
+							<td><span class="pl10">fuguangmeng@163.com</span></td>
+							<td><span class="pl10"><a href="#" class="btn-res" title="重置">重置</a></span></td>
+							<td><span class="pl10"><a href="#" class="btn-off" title="禁用">禁用</a></span></td>
+						</tr>
+						<tr>
+							<td class="pl20">zhangliang</td>
+							<td><span class="pl10">上官凌枫</span></td>
+							<td><span class="pl10">0123456789</span></td>
+							<td><span class="pl10">研发部门门</span></td>
+							<td><span class="pl10">13666627001</span></td>
+							<td><span class="pl10">fuguangmeng@163.com</span></td>
+							<td><span class="pl10"><a href="#" class="btn-res" title="重置">重置</a></span></td>
+							<td><span class="pl10"><a href="#" class="btn-off" title="禁用">禁用</a></span></td>
+						</tr>
+						<tr class="off">
+							<td class="pl20">zhangliang</td>
+							<td><span class="pl10">张亮</span></td>
+							<td><span class="pl10">0123456789</span></td>
+							<td><span class="pl10">研发部门门</span></td>
+							<td><span class="pl10">13666627001</span></td>
+							<td><span class="pl10">fuguangmeng@163.com</span></td>
+							<td><span class="pl10"><a href="#" class="btn-res" title="重置">重置</a></span></td>
+							<td><span class="pl10"><a href="#" class="btn-off" title="启用">启用</a></span></td>
+						</tr>
+						<tr>
+							<td class="pl20">zhangliang</td>
+							<td><span class="pl10">张亮</span></td>
+							<td><span class="pl10">0123456789</span></td>
+							<td><span class="pl10">研发部门门</span></td>
+							<td><span class="pl10">13666627001</span></td>
+							<td><span class="pl10">fuguangmeng@163.com</span></td>
+							<td><span class="pl10"><a href="#" class="btn-res" title="重置">重置</a></span></td>
+							<td><span class="pl10"><a href="#" class="btn-off" title="禁用">禁用</a></span></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="lists-pages">
+					<div class="count">共<span id="J_count"></span>页</div>
+					<ul class="pages clearfix" id="J_pages"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="upload-popup popup" id="uploadSuc">
+	<h3>文件上传</h3>
+	<div class="upload-state" id="uploadState"></div>
+	<a href="javascript:;" class="btn-suc J_closeBtn" title="确定">确定</a>
+</div>
+
+</div>
+
+<!-- <footer class="footer">
+    <div class="container">
+        <p class="pull-left">&copy; My Company 2016</p>
+
+        <p class="pull-right">Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></p>
+    </div>
+</footer> -->
+
+<script src="../js/jquery.1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/port.js"></script>
+<script type="text/x-jquery-tmpl" id="shipmentListTmpl">
+<tr>
+	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
+	<td class="pl20"><a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a></td>
+</tr>
+</script>
+<script type="text/javascript" src="../js/shipment.js"></script>
+</body>
+</html>

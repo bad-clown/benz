@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="benzContainer">
 	<div class="top-bar">
-		<!-- 登录信息 -->
+		<?= $this->render('username') ?>
 	</div>
 	<div class="left-nav">
 		<?= $this->render('menu') ?>

@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="benzContainer">
 	<div class="top-bar">
-		<!-- 登录信息 -->
+		<?= $this->render('username') ?>
 	</div>
 	<div class="left-nav">
 		<?= $this->render('menu') ?>
@@ -95,6 +95,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/Calendar.js"></script>
