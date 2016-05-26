@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="right-main">
 		<div class="manager-top clearfix">
-			<a href="javascript:;" class="btn-createUser" id="createUser-open" title="新增账号">新增账号</a>
+			<a href="javascript:;" class="btn-createUser" <?php if(\Yii::$app->user->identity->isAdmin){ ?>id="createUser-open"<?php };?> title="新增账号">新增账号</a>
 			<div class="search-box">
 				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入姓名">
 				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
@@ -56,18 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<th width="6%"><span class="l-line pl10">状态</span></th>
 						</tr>
 					</thead>
-					<tbody id="J_lists">
-						<!-- <tr>
-							<td class="pl20">zhangliang</td>
-							<td><span class="pl10">张亮</span></td>
-							<td><span class="pl10">0123456789</span></td>
-							<td><span class="pl10">研发部门门</span></td>
-							<td><span class="pl10">13666627001</span></td>
-							<td><span class="pl10">fuguangmeng@163.com</span></td>
-							<td><span class="pl10"><a href="#" class="btn-res" title="重置">重置</a></span></td>
-							<td><span class="pl10"><a href="#" class="btn-off" title="禁用">禁用</a></span></td>
-						</tr> -->
-					</tbody>
+					<tbody id="J_lists"></tbody>
 				</table>
 				<div class="lists-pages">
 					<div class="count">共<span id="J_count"></span>页</div>
@@ -124,6 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/x-jquery-tmpl" id="userListTmpl">
+<?php if(\Yii::$app->user->identity->isAdmin){ ?>
 <tr {{if blocked_at}} class="off" {{/if}}>
 	<td class="pl20">${username}</td>
 	<td><span class="pl10">${name}</span></td>
@@ -134,6 +124,18 @@ $this->params['breadcrumbs'][] = $this->title;
 	<td><span class="pl10"><a href="javascript:;" class="btn-res {{if !blocked_at}} J_ResetPwd {{/if}}" data-resid="${_id['$id']}" title="重置">重置</a></span></td>
 	<td><span class="pl10"><a href="javascript:;" class="btn-off J_OffPwd" data-offid="${_id['$id']}" title="{{if blocked_at}}启用{{else}}禁用{{/if}}">{{if blocked_at}}启用{{else}}禁用{{/if}}</a></span></td>
 </tr>
+<?php }else{ ?>
+<tr {{if blocked_at}} class="off" {{/if}}>
+	<td class="pl20">${username}</td>
+	<td><span class="pl10">${name}</span></td>
+	<td><span class="pl10">${id}</span></td>
+	<td><span class="pl10">${department}</span></td>
+	<td><span class="pl10">${phone}</span></td>
+	<td><span class="pl10">${email}</span></td>
+	<td><span class="pl10"><a href="javascript:;" class="btn-res btn-disabled" title="重置">重置</a></span></td>
+	<td><span class="pl10"><a href="javascript:;" class="btn-off btn-disabled" title="{{if blocked_at}}启用{{else}}禁用{{/if}}">{{if blocked_at}}启用{{else}}禁用{{/if}}</a></span></td>
+</tr>
+<?php };?>
 </script>
 <script type="text/javascript" src="/js/user.js"></script>
 <?php $this->endBlock();  ?>

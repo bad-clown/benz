@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="right-main">
 		<div class="cert-main">
-			<div class="cert-nav clearfix">
+			<div class="nav clearfix">
 				<a href="javascript:;" class="active" title="全部" id="cert-all">全部</a>
 				<a href="javascript:;" title="将过期" id="cert-soon">将过期</a>
 				<a href="javascript:;" title="已过期" id="cert-over">已过期</a>

@@ -177,6 +177,9 @@ a.desc:after {
     background: transparent;
     margin-left: 44px;
 }
+.login-main .help-block{
+    margin-left: 56px;
+}
 .login-main .form-group .btn-primary{
     font-size: 22px;
     color: #fff;
@@ -205,11 +208,15 @@ a.desc:after {
     top: 27px;
     padding-left: 28px;
     background: url("/images/user-icon.png") no-repeat 0 center;
+    _background: url("/images/_user-icon.png") no-repeat 0 center;
 }
 .username .name,.username .logout{
     font-size: 16px;
     color: #fff;
     text-decoration: none;
+}
+.username a:hover{
+    color: #fff;
 }
 .username span{
     font-size: 16px;
@@ -260,21 +267,25 @@ a.desc:after {
     background-image: url("/images/icon-wl.png");
     background-repeat: no-repeat;
     background-position: 35px center;
+    _background-image: url("/images/_icon-wl.png");
 }
 .left-nav li a.icon-3c{
     background-image: url("/images/icon-3c.png");
     background-repeat: no-repeat;
     background-position: 35px center;
+    _background-image: url("/images/_icon-3c.png");
 }
 .left-nav li a.icon-yy{
     background-image: url("/images/icon-yy.png");
     background-repeat: no-repeat;
     background-position: 35px center;
+    _background-image: url("/images/_icon-yy.png");
 }
 .left-nav li a.icon-zh{
     background-image: url("/images/icon-zh.png");
     background-repeat: no-repeat;
     background-position: 35px center;
+    _background-image: url("/images/_icon-zh.png");
 }
 .left-nav li.active a{
     background-color: #373a41;
@@ -283,6 +294,7 @@ a.desc:after {
     display: block;
     height: 60px;
     background: url("/images/icon-jt.png") no-repeat right center;
+    _background: url("/images/_icon-jt.png") no-repeat right center;
 }
 /* 右主体 */
 .right-main{
@@ -317,23 +329,29 @@ a.desc:after {
 .shipment-top .btn-download{
     color: #033984;
     background: url("/images/btn-download.png") no-repeat;
+    _background: url("/images/_btn-download.png") no-repeat;
 }
 .shipment-top .btn-download:active{
     background: url("/images/btn-download-active.png") no-repeat;
+    _background: url("/images/_btn-download-active.png") no-repeat;
 }
 .shipment-top .btn-download:hover{
     background: url("/images/btn-download-hover.png") no-repeat;
+    _background: url("/images/_btn-download-hover.png") no-repeat;
 }
 .shipment-top .btn-upload{
     color: #fff;
     background: url("/images/btn-upload.png") no-repeat;
+    _background: url("/images/_btn-upload.png") no-repeat;
 }
 .shipment-top .btn-upload:active{
     background: url("/images/btn-upload-active.png") no-repeat;
+    _background: url("/images/_btn-upload-active.png") no-repeat;
 }
 .shipment-top .btn-upload:hover{
     color: #fff;
     background: url("/images/btn-upload-hover.png") no-repeat;
+    _background: url("/images/_btn-upload-hover.png") no-repeat;
 }
 .shipment-top .btn-search{
     width: 77px;
@@ -352,6 +370,7 @@ a.desc:after {
     position: relative;
     float: left;
     margin-left: 21px;
+    overflow: hidden;
 }
 .upload-box .file-upload{
     position: absolute;
@@ -362,8 +381,8 @@ a.desc:after {
     font-size: 30px;
     overflow: hidden;
     opacity: 0;
-    filter: alpha(opacity=0);
-    _filter: alpha(opacity=0);
+    filter:alpha(opacity=0);
+    margin-left: -5px;
 }
 .shipment-top .search-box{
     display: inline;
@@ -455,6 +474,7 @@ a.desc:after {
     overflow: hidden;
     margin-left: 20px;
     background: url("/images/icon-edit.png") no-repeat;
+    _background: url("/images/_icon-edit.png") no-repeat;
 }
 .lists-cont table .pl42{
     padding-left: 42px;
@@ -477,18 +497,22 @@ a.desc:after {
 .lists-cont table tr.status0 .s-i{
     /*display: block;*/
     background: url("/images/icon-guoqi0.png") no-repeat 20px center;
+    _background: url("/images/_icon-guoqi0.png") no-repeat 20px center;
     padding-left: 50px;
 }
 .lists-cont table tr.status1 .s-i{
     /*display: block;*/
     background: url("/images/icon-guoqi1.png") no-repeat 20px center;
+    _background: url("/images/_icon-guoqi1.png") no-repeat 20px center;
     padding-left: 50px;
 }
 .lists-cont table tr.status2 .s-i{
      /*display: block;*/
     background: url("/images/icon-guoqi2.png") no-repeat 20px center;
+    _background: url("/images/_icon-guoqi2.png") no-repeat 20px center;
     padding-left: 50px;
 }
+
 /* 分页 */
 .lists-pages{
     float: right;
@@ -536,12 +560,14 @@ a.desc:after {
     text-indent: -999em;
     overflow: hidden;
     background: url("/images/page-prev.png") no-repeat center center;
+    _background: url("/images/_page-prev.png") no-repeat center center;
 }
 .lists-pages li a.next{
     padding: 0 7px;
     text-indent: -999em;
     overflow: hidden;
     background: url("/images/page-next.png") no-repeat center center;
+    _background: url("/images/_page-next.png") no-repeat center center;
 }
 .lists-pages li.pt {
     min-width: 20px;
@@ -643,13 +669,13 @@ a.desc:after {
 }
 
 /* 证书导航 */
-.cert-nav{
+.nav{
     width: 100%;
     height: 47px;
     line-height: 47px;
     background-color: #e5e5e5;
 }
-.cert-nav a{
+.nav a{
     display: block;
     float: left;
     width: 130px;
@@ -660,7 +686,7 @@ a.desc:after {
     text-align: center;
     text-decoration: none;
 }
-.cert-nav .active{
+.nav .active{
     background-color: #fff;
 }
 /* 零件列表 */
@@ -854,6 +880,8 @@ a.desc:after {
 }
 .cert-inc .cert-inc-cont .btn-file-box{
     position: relative;
+    margin-left: 17px;
+    overflow: hidden;
 }
 .cert-inc .cert-inc-cont .btn-file-box .file-upload{
     position: absolute;
@@ -877,7 +905,6 @@ a.desc:after {
     text-decoration: none;
     line-height: 36px;
     color: #fff;
-    margin-left: 17px;
     background: #fda454;
     border-radius: 3px;
 }
@@ -914,6 +941,7 @@ a.desc:after {
     border-radius: 3px;
     background: url("/images/icon-add.png") no-repeat 14px center;
     text-decoration: none;
+    _background: url("/images/_icon-add.png") no-repeat 14px center;
 }
 .cert-inc .btn-confirm{
     display: block;
@@ -976,6 +1004,7 @@ a.desc:after {
     padding: 26px 0 26px 63px;
     border-bottom: 1px solid #d6d6d6;
     background: url("/images/icon-pdf.png") no-repeat 0 center;
+    _background: url("/images/_icon-pdf.png") no-repeat 0 center;
     margin-bottom: -1px;
     position: relative;
 }
@@ -1034,13 +1063,16 @@ a.desc:after {
 .manager-top .btn-createUser{
     color: #fff;
     background: url("/images/btn-upload.png") no-repeat;
+    _background: url("/images/_btn-upload.png") no-repeat;
 }
 .manager-top .btn-createUser:active{
     background: url("/images/btn-upload-active.png") no-repeat;
+    _background: url("/images/_btn-upload-active.png") no-repeat;
 }
 .manager-top .btn-createUser:hover{
     color: #fff;
     background: url("/images/btn-upload-hover.png") no-repeat;
+    _background: url("/images/_btn-upload-hover.png") no-repeat;
 }
 .manager-top .btn-search{
     width: 77px;
@@ -1081,10 +1113,16 @@ a.desc:after {
 .manager-list table .off .btn-off{
     color: #f21c00;
 }
+.manager-list table .btn-disabled{
+    color: #a5a5a5;
+}
 
 /* 个人信息 */
-.personal-main{
-    /*height: 777px;*/
+.PersonalBox .left-nav{
+    height: 984px;
+}
+.PersonalBox .personal-main{
+    height: 946px;
     padding-bottom: 40px;
     background: #fff;
 }
@@ -1150,6 +1188,7 @@ a.desc:after {
     font-size: 16px;
     text-align: center;
     line-height: 40px;
+    margin-top: 24px;
 }
 .personal-cont .btn-alter,.personal-cont .btn-submit{
     margin-left: 56px;
@@ -1157,6 +1196,9 @@ a.desc:after {
 .personal-cont td a.btn-cancel{
     background-color: #c8c8c8;
     margin-left: 35px;
+}
+.personal-cont .new-pwd{
+    display: none;
 }
 
 
@@ -1213,6 +1255,34 @@ a.desc:after {
     background-color: #c8c8c8;
     margin-left: 35px;
 }
+
+/* ----------- 局端 ---------- */
+.lists-cont table tr.reservation td,.lists-cont table tr.reservation td a{
+    color: #0752bc;
+}
+.shipment-detail-list table tr.status0 .s-i{
+    /*display: block;*/
+    background: url("/images/icon-guoqi0.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi0.png") no-repeat 10px center;
+    padding-left: 40px;
+}
+.shipment-detail-list table tr.status1 .s-i{
+    /*display: block;*/
+    background: url("/images/icon-guoqi1.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi1.png") no-repeat 10px center;
+    padding-left: 40px;
+}
+.shipment-detail-list table tr.status2 .s-i{
+     /*display: block;*/
+    background: url("/images/icon-guoqi2.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi2.png") no-repeat 10px center;
+    padding-left: 40px;
+}
+.manager-main{
+    height: 777px;
+    background: #fff;
+}
+
 
 
 
@@ -1316,6 +1386,7 @@ a.desc:after {
     float: right;
     padding-right: 22px;
     background: url("/images/icon-right.png") no-repeat right center;
+    _background: url("/images/_icon-right.png") no-repeat right center;
 }
 .upload-popup .btn-suc{
     display: block;
@@ -1345,6 +1416,7 @@ a.desc:after {
     text-indent: -999em;
     overflow: hidden;
     background: url("/images/icon-close.png") no-repeat;
+    _background: url("/images/_icon-close.png") no-repeat;
 }
 .update-popup{
     position: absolute;
@@ -1368,6 +1440,7 @@ a.desc:after {
     text-indent: -999em;
     overflow: hidden;
     background: url("/images/icon-close.png") no-repeat;
+    _background: url("/images/_icon-close.png") no-repeat;
 }
 .update-popup h3{
     height: 40px;
@@ -1422,6 +1495,8 @@ a.desc:after {
 }
 .update-cont .btn-file-box{
     position: relative;
+    margin-left: 17px;
+    overflow: hidden;
 }
 .update-cont .btn-file-box .file-upload{
     position: absolute;
@@ -1445,7 +1520,6 @@ a.desc:after {
     text-decoration: none;
     line-height: 36px;
     color: #fff;
-    margin-left: 17px;
     background: #fda454;
     border-radius: 3px;
 }
