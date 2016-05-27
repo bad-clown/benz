@@ -73,5 +73,11 @@ $this->params['breadcrumbs'][] = $this->title;
 	<td class="pl20"></td>
 </tr>
 </script>
+<script type="text/javascript">
+$(function() {
+	$('#benzMenu').find('li:eq(2)').addClass('active');
+	window.reservationUrl = urlPort.reservationList;
+})
+</script>
 <script type="text/javascript" src="/js/reservation.js"></script>
 <?php $this->endBlock();  ?>

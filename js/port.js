@@ -39,6 +39,8 @@ var urlPort = {
 	BureauReservationList : 'http://120.26.50.11:8010/index.php?r=bureau/reservation-list',
 	//提交预约：
 	BureauDoReservation : 'http://120.26.50.11:8010/index.php?r=bureau/do-reservation',
+	//修改预约：
+	BureauModReservation : 'http://120.26.50.11:8010/index.php?r=bureau/mod-reservation',
 	//国检\企业 账号列表：
 	BureauUserList : 'http://120.26.50.11:8010/index.php?r=bureau/user-list',
 	//创建国检账号：

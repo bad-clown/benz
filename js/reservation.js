@@ -1,5 +1,4 @@
 $(function() {
-	$('#benzMenu').find('li:eq(2)').addClass('active');
 	/* 预约列表 */
 	var _key_ = "";
 	function _GetData(n) {
@@ -10,7 +9,7 @@ $(function() {
 
 		$.ajax({
 			type: 'GET',
-			url: urlPort.reservationList,
+			url: reservationUrl,
 			dataType : 'json',
 			data: d,
 			success : function(data) {

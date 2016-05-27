@@ -590,7 +590,7 @@ a.desc:after {
 }
 .shipment-detail-top .s-n{
     float: left;
-    font-size: 18px;
+    font-size: 16px;
     color: #848484;
     line-height: 18px;
     height: 18px;
@@ -1260,6 +1260,11 @@ a.desc:after {
 .lists-cont table tr.reservation td,.lists-cont table tr.reservation td a{
     color: #0752bc;
 }
+.bureau-reservation-detail .shipment-detail-list{
+    height: auto;
+    max-height: 500px;
+    _height: 500px;
+}
 .shipment-detail-list table tr.status0 .s-i{
     /*display: block;*/
     background: url("/images/icon-guoqi0.png") no-repeat 10px center;
@@ -1278,13 +1283,61 @@ a.desc:after {
     _background: url("/images/_icon-guoqi2.png") no-repeat 10px center;
     padding-left: 40px;
 }
+.shipment-detail-list .checkbox-list,.shipment-detail-list tr input{
+    display: none;
+}
+.bureau-reservation-detail .check-time{
+    display: block;
+    width: 355px;
+    height: 39px;
+    border-radius: 3px;
+    margin: 30px auto 0;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 39px;
+    border: 0;
+}
 .manager-main{
     height: 777px;
     background: #fff;
 }
-
-
-
+.shipment-state{
+    position: relative;
+    top: 26px;
+}
+.shipment-state h3{
+    height: 44px;
+    line-height: 44px;
+    font-size: 22px;
+    color: #1f4883;
+    font-weight: 400;
+    float: left;
+}
+.shipment-state .btn-add,.shipment-state .btn-cancel{
+    display: block;
+    float: right;
+    width: 114px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background: url("/images/btn-upload.png") no-repeat;
+    _background: url("/images/_btn-upload.png") no-repeat;
+    text-decoration: none;
+}
+.shipment-state .btn-cancel{
+    background: url("/images/btn-cancel.png") no-repeat;
+    _background: url("/images/_btn-cancel.png") no-repeat;
+}
+.shipment-detail-list table tr.bge1{
+    background: #E1E1E1;
+}
+.shipment-detail-list table tr.nopass{
+    display: none;
+}
 
 /* --------- 弹出窗 --------- */
 .popup{
@@ -1407,7 +1460,7 @@ a.desc:after {
 }
 
 /* 更新零件信息 */
-.popup .btn-close{
+.btn-close{
     position: absolute;
     right: 28px;
     top: 14px;
@@ -1580,13 +1633,13 @@ a.desc:after {
     text-align: left;
 }
 .createUser-cont .con .user-text{
-    width: 360px;
+    width: 342px;
     height: 36px;
     line-height: 36px;
     border: 0;
     font-size: 14px;
     color: #191919;
-    padding-left: 18px;
+    padding: 0 18px;
     background: #f4f4f4;
     border-radius: 3px;
     display: block;
@@ -1611,4 +1664,164 @@ a.desc:after {
     color: #fda454;
     left: auto;
     bottom: auto;
+}
+.createUser-cont .con .contact-guo{
+    cursor: pointer;
+    background: url("/images/icon-down.png") #f4f4f4 no-repeat 352px center;
+}
+.createUser-cont .contact{
+    display: none;
+    position: relative;
+}
+.createUser-cont .contact-pop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -150px;
+    margin-left: 230px;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 0 4px #ccc;
+}
+.createUser-cont .contact-pop .btn-confirm2{
+    display: block;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 3px;
+}
+.createUser-cont .contact-pop ul{
+    width: 140px;
+    height: 300px;
+    overflow-y: auto;
+}
+.createUser-cont .contact-pop li{
+    text-align: center;
+    color: #191919;
+    font-size: 14px;
+    vertical-align: middle;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px 0;
+}
+
+.checkout-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 470px;
+    height: 240px;
+    margin-left: -235px;
+    margin-top: -120px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+.checkout-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.checkout-cont{
+    padding-top: 25px;
+}
+.checkout-cont table{
+    width: 100%;
+}
+.checkout-cont td{
+    height: 66px;
+}
+.checkout-cont .tit{
+    width: 20%;
+    font-size: 14px;
+    color: #191919;
+    text-align: right;
+}
+.checkout-cont .con{
+    width: 80%;
+    text-align: left;
+}
+.checkout-cont .con .time-text{
+    width: 320px;
+    height: 36px;
+    line-height: 36px;
+    border: 0;
+    font-size: 14px;
+    color: #191919;
+    padding-left: 18px;
+    background: #f4f4f4;
+    border-radius: 3px;
+}
+.checkout-cont .btn-confirm{
+    display: block;
+    width: 355px;
+    height: 39px;
+    border-radius: 3px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 39px;
+    border: 0;
+}
+
+.yuyuesuc-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 410px;
+    height: 200px;
+    margin-left: -205px;
+    margin-top: -100px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.yuyuesuc-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.yuyuesuc-popup .yuyuesuc-msg{
+    padding-top: 26px;
+}
+.yuyuesuc-popup .msg1{
+    font-size: 18px;
+    color: #ff6613;
+    text-align: center;
+    line-height: 26px;
+}
+.yuyuesuc-popup .msg2{
+    font-size: 16px;
+    color: #8c8c8c;
+    text-align: center;
+    line-height: 26px;
+}
+.yuyuesuc-popup .btn-suc{
+    display: block;
+    width: 174px;
+    height: 36px;
+    border-radius: 3px;
+    margin: 20px auto 0;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 36px;
+    border: 0;
+    text-decoration: none;
 }

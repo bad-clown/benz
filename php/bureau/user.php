@@ -27,10 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="benzContainer">
 	<div class="top-bar">
-
+		<?= $this->render('username') ?>
 	</div>
 	<div class="left-nav">
-
+		<?= $this->render('menu') ?>
 	</div>
 	<div class="right-main">
 		<div class="manager-main">
@@ -72,9 +72,9 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 
-<div class="createUser-popup popup">
+<div class="createUser-popup">
 	<a href="javascript:;" class="btn-close" id="createUser-close" title="关闭">关闭</a>
-	<h3>新增国检账号</h3>
+	<h3>新增企业账号</h3>
 	<div class="createUser-cont">
 		<table>
 			<tbody>
@@ -87,8 +87,8 @@ $this->params['breadcrumbs'][] = $this->title;
 					<td class="con"><input type="text" class="user-text" name="name" value="" placeholder="请输入姓名"><p class="msg"></p></td>
 				</tr>
 				<tr>
-					<td class="tit">部门：</td>
-					<td class="con"><input type="text" class="user-text" name="department" value="" placeholder="请输入部门"><p class="msg"></p></td>
+					<td class="tit">关联国检账号：</td>
+					<td class="con"><input type="text" class="user-text contact-guo" disabled="disabled" name="department" value="" placeholder="请输入部门"><p class="msg"></p><div class="contact"><div class="contact-pop"><ul><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li><li><input type="checkbox" name="" value=""> xiaoma</li></ul><a href="javascript:;" class="btn-confirm2" title="确定">确定</a></div></div></td>
 				</tr>
 				<tr>
 					<td class="tit">手机号：</td>
@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				</tr>
 				<tr>
 					<td class="tit">密码：</td>
-					<td class="con"><input type="text" class="user-text" name="password" value="" placeholder="请输入至少6位数密码"><p class="msg"></p></td>
+					<td class="con"><input type="password" class="user-text" name="password" value="" placeholder="请输入至少6位数密码"><p class="msg"></p></td>
 				</tr>
 				<tr>
 					<td colspan="2">
@@ -122,10 +122,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr {{if blocked_at}} class="off" {{/if}}>
 	<td class="pl20">${username}</td>
 	<td><span class="pl10">${name}</span></td>
-	<td><span class="pl10">${id}</span></td>
-	<td><span class="pl10">${department}</span></td>
 	<td><span class="pl10">${phone}</span></td>
 	<td><span class="pl10">${email}</span></td>
+	<td><span class="pl10">${department}</span></td>
 	<td><span class="pl10"><a href="javascript:;" class="btn-res {{if !blocked_at}} J_ResetPwd {{/if}}" data-resid="${_id['$id']}" title="重置">重置</a></span></td>
 	<td><span class="pl10"><a href="javascript:;" class="btn-off J_OffPwd" data-offid="${_id['$id']}" title="{{if blocked_at}}启用{{else}}禁用{{/if}}">{{if blocked_at}}启用{{else}}禁用{{/if}}</a></span></td>
 </tr>
@@ -133,10 +132,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr {{if blocked_at}} class="off" {{/if}}>
 	<td class="pl20">${username}</td>
 	<td><span class="pl10">${name}</span></td>
-	<td><span class="pl10">${id}</span></td>
-	<td><span class="pl10">${department}</span></td>
 	<td><span class="pl10">${phone}</span></td>
 	<td><span class="pl10">${email}</span></td>
+	<td><span class="pl10">${department}</span></td>
 	<td><span class="pl10"><a href="javascript:;" class="btn-res btn-disabled" title="重置">重置</a></span></td>
 	<td><span class="pl10"><a href="javascript:;" class="btn-off btn-disabled" title="{{if blocked_at}}启用{{else}}禁用{{/if}}">{{if blocked_at}}启用{{else}}禁用{{/if}}</a></span></td>
 </tr>
@@ -144,7 +142,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </script>
 <script type="text/javascript">
 $(function() {
-	$('#benzMenu').find('li:eq(3)').addClass('active');
+	$('#benzMenu').find('li:eq(1)').addClass('active');
+
 	/* 提单列表 */
 	var _key_ = "";
 	function _GetData(n) {
@@ -197,16 +196,16 @@ $(function() {
 	$('.createUser-cont').find('.user-text').on('focus', function() {
 		$(this).next('.msg').html('')
 	})
-	$('#J_CreateUser').on('click', function() {
+	$(document).on('click', '#J_CreateUser', function() {
 		var obj = $('.createUser-cont').find('.user-text'),
 			options = ['username','name','id','department','phone','email']
 			data = {
 				username : obj.eq(0).val(),
 				name : obj.eq(1).val(),
-				id : obj.eq(2).val(),
-				department : obj.eq(3).val(),
-				phone : obj.eq(4).val(),
-				email : obj.eq(5).val()
+				department : obj.eq(2).val(),
+				phone : obj.eq(3).val(),
+				email : obj.eq(4).val(),
+				password : obj.eq(5).val()
 			}
 
 		$.ajax({
@@ -226,7 +225,7 @@ $(function() {
 					for(var n in errors) {
 						switch (n) {
 							case 'username' :
-								obj.eq(0).next('.msg').html(errors[n])
+								obj.eq(	0).next('.msg').html(errors[n])
 								break;
 							case 'name' :
 								obj.eq(1).next('.msg').html(errors[n])
@@ -251,6 +250,27 @@ $(function() {
 				layer.msg('添加失败，请检查网络后重试！')
 			}
 		});
+	})
+
+	function createHtml(str) {
+		if(str == '新增国检账号') {
+			return '<div class="createUser-popup"><a href="javascript:;" class="btn-close" id="createUser-close" title="关闭">关闭</a><h3>新增国检账号</h3><div class="createUser-cont"><table><tbody><tr><td class="tit">用户名：</td><td class="con"><input type="text" class="user-text" name="username" value="" placeholder="请输入用户名"><p class="msg"></p></td></tr><tr><td class="tit">姓名：</td><td class="con"><input type="text" class="user-text" name="name" value="" placeholder="请输入姓名"><p class="msg"></p></td></tr><tr><td class="tit">部门：</td><td class="con"><input type="text" class="user-text" name="department" value="" placeholder="请输入部门"><p class="msg"></p></td></tr><tr><td class="tit">手机号：</td><td class="con"><input type="text" class="user-text" name="phone" value="" placeholder="请输入有效手机号"><p class="msg"></p></td></tr><tr><td class="tit">邮箱：</td><td class="con"><input type="text" class="user-text" name="email" value="" placeholder="请输入有效邮箱"><p class="msg"></p></td></tr><tr><td class="tit">密码：</td><td class="con"><input type="password" class="user-text" name="password" value="" placeholder="请输入至少6位数密码"><p class="msg"></p></td></tr><tr><td colspan="2"><button class="btn-confirm" id="J_CreateUser" title="确定">确定</button></td></tr></tbody></table></div></div>';
+		}
+	}
+
+	function createUserPop(str) {
+		var html = createHtml(str);
+		$('body').append(html);
+	}
+
+	/* 打开添加账号 */
+	$('#createUser-open').on('click', function() {
+		createUserPop($.trim($(this).html()))
+	})
+
+	/* 关闭添加账号 */
+	$(document).on('click', '#createUser-close', function() {
+		$('.createUser-popup').remove()
 	})
 
 	/* 重置密码 */
@@ -289,17 +309,6 @@ $(function() {
 				}
 			}
 		})
-	})
-
-	/* 关闭添加账号 */
-	$('#createUser-close').on('click', function() {
-		$('.user-text').val('')
-		$('.msg').html('')
-		$(this).parents('.popup').hide();
-	})
-	/* 打开添加账号 */
-	$('#createUser-open').on('click', function() {
-		$('.createUser-popup').eq(0).show();
 	})
 
 	window._GetData = _GetData;
