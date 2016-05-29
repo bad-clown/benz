@@ -383,6 +383,7 @@ a.desc:after {
     opacity: 0;
     filter:alpha(opacity=0);
     margin-left: -5px;
+    cursor: pointer;
 }
 .shipment-top .search-box{
     display: inline;
@@ -413,10 +414,15 @@ a.desc:after {
     margin-top: 14px;
     width: 100%;
 }
+.lists-table-cont{
+    width: 100%;
+    height: 553px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+}
 .lists-cont table{
     width: 100%;
     border-radius: 4px;
-    border: 1px solid #d9d9d9;
 }
 .lists-cont table th{
     height: 50px;
@@ -489,7 +495,7 @@ a.desc:after {
     color: #7f7e7e;
 }
 .lists-cont table tr.status1 td,.lists-cont table tr.status1 td a{
-    color: #ff8400;
+    color: #ff8900;
 }
 .lists-cont table tr.status2 td,.lists-cont table tr.status2 td a{
     color: #ff0d0d;
@@ -600,16 +606,33 @@ a.desc:after {
     border-left: 4px solid #53a0f1;
 }
 .shipment-detail-list{
-    width: 100%;
+    width: 1030px;
     border-radius: 4px;
-    overflow: hidden;
-    height: 640px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    position: relative;
     /*box-shadow: 0 0 5px #ccc;*/
 }
+.shipment-detail-thead{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1010px;
+    z-index: 99;
+}
+.shipment-detail-tbody{
+    position: absolute;
+    top: 51px;
+    left: 0;
+    width: 1010px;
+    height: 590px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 98;
+}
+.shipment-detail-list .h500{
+    height: 500px;
+}
 .shipment-detail-list table{
-    width: 100%;
+    width: 1010px;
 }
 .shipment-detail-list .table-tbody{
     height: 600px;
@@ -662,7 +685,7 @@ a.desc:after {
 }
 .shipment-detail-list table .partName{
     display: block;
-    width:  200px;
+    width:  160px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
@@ -788,14 +811,14 @@ a.desc:after {
 }
 .cert-top .btn-search{
     width: 77px;
-    color: #033984;
-    background: url("/images/btn-search.png") no-repeat;
+    color: #fff;
+    background: url("/images/btn-search2.png") no-repeat;
 }
 .cert-top .btn-search:active{
-    background: url("/images/btn-search-active.png") no-repeat;
+    background: url("/images/btn-search2-active.png") no-repeat;
 }
 .cert-top .btn-search:hover{
-    background: url("/images/btn-search-hover.png") no-repeat;
+    background: url("/images/btn-search2-hover.png") no-repeat;
 }
 .cert-top .btn-download{
     width: 165px;
@@ -943,12 +966,15 @@ a.desc:after {
     text-decoration: none;
     _background: url("/images/_icon-add.png") no-repeat 14px center;
 }
-.cert-inc .btn-confirm{
-    display: block;
-    width: 355px;
+.cert-inc .btn-cont{
+    text-align: center;
+}
+.cert-inc .btn-confirm,.cert-inc .btn-cancel{
+    display: inline-block;
+    width: 160px;
     height: 39px;
     border-radius: 3px;
-    margin: 0 auto;
+    margin: 0 10px;
     color: #fff;
     font-size: 16px;
     background: #438ada;
@@ -957,6 +983,9 @@ a.desc:after {
     text-decoration: none;
     border: 0;
     cursor: pointer;
+}
+.cert-inc .btn-cancel{
+    background: #AFAFAF;
 }
 
 /* 全部3C证书 */
@@ -1061,6 +1090,7 @@ a.desc:after {
     line-height: 44px;
 }
 .manager-top .btn-createUser{
+    margin-right: 21px;
     color: #fff;
     background: url("/images/btn-upload.png") no-repeat;
     _background: url("/images/_btn-upload.png") no-repeat;
@@ -1088,7 +1118,7 @@ a.desc:after {
 .manager-top .search-box{
     display: inline;
     float: left;
-    margin-left: 21px;
+    /*margin-left: 21px;*/
     /*width: 304px;*/
     height: 44px;
     background: url("/images/search-text.png") no-repeat;
@@ -1107,7 +1137,7 @@ a.desc:after {
 .manager-list table .btn-res,.manager-list table .btn-off{
     color: #033984;
 }
-.manager-list table .off td,.manager-list table .off .btn-res{
+.manager-list table .off td,.manager-list table .off a,.manager-list table .off .btn-res{
     color: #a5a5a5;
 }
 .manager-list table .off .btn-off{
@@ -1260,27 +1290,42 @@ a.desc:after {
 .lists-cont table tr.reservation td,.lists-cont table tr.reservation td a{
     color: #0752bc;
 }
+.lists-cont table tr td .contact-span{
+    display: block;
+    width:  200px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+
 .bureau-reservation-detail .shipment-detail-list{
-    height: auto;
+    height: 500px;
     max-height: 500px;
     _height: 500px;
+}
+.bureau-reservation-detail .shipment-detail-list .h450{
+    height: 450px;
 }
 .shipment-detail-list table tr.status0 .s-i{
     /*display: block;*/
     background: url("/images/icon-guoqi0.png") no-repeat 10px center;
     _background: url("/images/_icon-guoqi0.png") no-repeat 10px center;
+    background-color: none;
     padding-left: 40px;
 }
 .shipment-detail-list table tr.status1 .s-i{
     /*display: block;*/
     background: url("/images/icon-guoqi1.png") no-repeat 10px center;
     _background: url("/images/_icon-guoqi1.png") no-repeat 10px center;
+    background-color: none;
     padding-left: 40px;
 }
 .shipment-detail-list table tr.status2 .s-i{
      /*display: block;*/
     background: url("/images/icon-guoqi2.png") no-repeat 10px center;
     _background: url("/images/_icon-guoqi2.png") no-repeat 10px center;
+    background-color: none;
     padding-left: 40px;
 }
 .shipment-detail-list .checkbox-list,.shipment-detail-list tr input{
@@ -1342,6 +1387,7 @@ a.desc:after {
 /* --------- 弹出窗 --------- */
 .popup{
     display: none;
+    z-index: 999;
 }
 /* 删除确认 */
 .delete-popup{
@@ -1356,6 +1402,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    z-index: 999;
 }
 .delete-popup h3{
     height: 40px;
@@ -1408,6 +1455,7 @@ a.desc:after {
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
     display: none;
+    z-index: 999;
 }
 .upload-popup h3{
     height: 40px;
@@ -1483,6 +1531,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    z-index: 999;
 }
 .popup .btn-close{
     position: absolute;
@@ -1521,6 +1570,7 @@ a.desc:after {
 .update-cont .con{
     width: 80%;
     text-align: left;
+    position: relative;
 }
 .update-cont .con .part-text,.update-cont .con .partNo-text,.update-cont .con .name-text{
     width: 360px;
@@ -1536,6 +1586,10 @@ a.desc:after {
 .update-cont .con .msg{
     display: none;
     color: #FF851D;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    padding-left: 20px;
 }
 .update-cont .con .w160{
     width: 160px;
@@ -1604,6 +1658,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    z-index: 999;
 }
 .createUser-popup h3{
     height: 40px;
@@ -1631,6 +1686,7 @@ a.desc:after {
 .createUser-cont .con{
     width: 80%;
     text-align: left;
+    position: relative;
 }
 .createUser-cont .con .user-text{
     width: 342px;
@@ -1665,9 +1721,17 @@ a.desc:after {
     left: auto;
     bottom: auto;
 }
-.createUser-cont .con .contact-guo{
+.createUser-cont .con .options{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 378px;
+    height: 36px;
+    margin-top: -18px;
+    border: 0;
+    display: block;
     cursor: pointer;
-    background: url("/images/icon-down.png") #f4f4f4 no-repeat 352px center;
+    background: url("/images/icon-down.png") transparent no-repeat 352px center;
 }
 .createUser-cont .contact{
     display: none;
@@ -1687,12 +1751,14 @@ a.desc:after {
     display: block;
     width: 120px;
     height: 30px;
+    line-height: 30px;
     color: #fff;
     font-size: 16px;
     background: #438ada;
     text-align: center;
     margin: 10px auto;
     border-radius: 3px;
+    text-decoration: none;
 }
 .createUser-cont .contact-pop ul{
     width: 140px;
@@ -1700,7 +1766,6 @@ a.desc:after {
     overflow-y: auto;
 }
 .createUser-cont .contact-pop li{
-    text-align: center;
     color: #191919;
     font-size: 14px;
     vertical-align: middle;
@@ -1708,7 +1773,14 @@ a.desc:after {
     line-height: 20px;
     padding: 10px 0;
 }
-
+.createUser-cont .contact-pop li input{
+    float: left;
+    margin-left: 20px;
+}
+.createUser-cont .contact-pop li span{
+    float: left;
+    margin-left: 15px;
+}
 .checkout-popup{
     position: absolute;
     top: 50%;
@@ -1721,6 +1793,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    z-index: 999;
 }
 .checkout-popup h3{
     height: 40px;
@@ -1786,6 +1859,7 @@ a.desc:after {
     background: #fff;
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
+    z-index: 999;
 }
 
 .yuyuesuc-popup h3{
@@ -1812,6 +1886,57 @@ a.desc:after {
     line-height: 26px;
 }
 .yuyuesuc-popup .btn-suc{
+    display: block;
+    width: 174px;
+    height: 36px;
+    border-radius: 3px;
+    margin: 20px auto 0;
+    color: #fff;
+    font-size: 16px;
+    background: #438ada;
+    text-align: center;
+    line-height: 36px;
+    border: 0;
+    text-decoration: none;
+}
+.mailContent-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 400px;
+    margin-left: -250px;
+    margin-top: -200px;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+    z-index: 999;
+}
+.mailContent-popup h3{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 16px;
+    background: #438bda;
+}
+.mailContent-popup .mailContent-msg{
+    padding-top: 26px;
+}
+.mailContent-popup .msg1{
+    font-size: 18px;
+    color: #ff6613;
+    text-align: center;
+    line-height: 26px;
+}
+.mailContent-popup .msg2{
+    font-size: 16px;
+    color: #8c8c8c;
+    text-align: center;
+    line-height: 26px;
+}
+.mailContent-popup .btn-suc{
     display: block;
     width: 174px;
     height: 36px;

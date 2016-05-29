@@ -25,7 +25,13 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td colspan="4" style="text-align:center;color:#ff7d26;">查询不到相关提单号，请重新输入！</td></tr>')
+					if(_key_ == '') {
+						var c = '暂无预约信息';
+					}
+					else {
+						var c = '查询不到相关提单号，请重新输入！';
+					}
+					$('#J_lists').html('<tr><td colspan="4" style="text-align:center;color:#ff7d26;">'+c+'</td></tr>')
 				}
 			}
 		});

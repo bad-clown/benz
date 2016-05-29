@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form

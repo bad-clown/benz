@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -40,16 +39,19 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div>
 			<div class="lists-titl">物流预约列表</div>
 			<div class="lists-cont">
-				<table>
-					<thead>
-						<tr>
-							<th width="40%" class="pl42">到厂日期</th>
-							<th width="20%"><span class="l-line pl20">提单号</span></th>
-							<th width="20%"><span class="l-line pl20">发货号</span></th>
-						</tr>
-					</thead>
-					<tbody id="J_lists"></tbody>
-				</table>
+				<div class="lists-table-cont">
+					<table>
+						<thead>
+							<tr>
+								<th width="30%" class="pl42">到厂日期</th>
+								<th width="20%"><span class="l-line pl20">提单号</span></th>
+								<th width="20%"><span class="l-line pl20">发货号</span></th>
+								<th width="10%"><span class="l-line pl20">预约状态</span></th>
+							</tr>
+						</thead>
+						<tbody id="J_lists"></tbody>
+					</table>
+				</div>
 				<div class="lists-pages">
 					<div class="count">共<span id="J_count"></span>页</div>
 					<ul class="pages clearfix" id="J_pages"></ul>
@@ -67,13 +69,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr {{if !reservation}}class="reservation"{{/if}}>
 	<td class="pl42">${arrivalDate}</td>
-	<td class="pl20"><a href="http://120.26.50.11:8010/index.php?r=bureau/reservation-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl20"><a href="<?= $Path;?>index.php?r=bureau/reservation-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
 	<td class="pl20">${BLNo}</td>
+	<td class="pl20">{{if reservation}}已预约{{else}}未预约{{/if}}</td>
 </tr>
 </script>
 <script type="text/javascript">
 $(function() {
-	$('#benzMenu').find('li:eq(0)').addClass('active');
+	$('#benzMenu').find('.icon-yy').parent('li:eq(0)').addClass('active');
 	window.reservationUrl = urlPort.BureauReservationList;
 })
 </script>

@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -34,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="right-main">
 		<div class="shipment-top clearfix">
-			<a href="http://120.26.50.11:8010/提单号.xls" class="btn-download" title="下载模版">下载模版</a>
+			<a href="<?= $Path;?>提单号.xls" class="btn-download" title="下载模版">下载模版</a>
 			<div class="upload-box">
 				<a href="javascript:;" class="btn-upload" title="上传信息">上传信息</a>
 				<input name="file" type="file" id="J_upload_xlsx" class="file-upload">
@@ -47,16 +46,18 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="shipment-list">
 			<div class="lists-titl">物流信息列表</div>
 			<div class="lists-cont">
-				<table>
-					<thead>
-						<tr>
-							<th width="60%" class="pl42">提单号</th>
-							<th width="25%"><span class="l-line pl20">上传时间</span></th>
-							<th width="15%"><span class="l-line pl20">操作</span></th>
-						</tr>
-					</thead>
-					<tbody id="J_lists"></tbody>
-				</table>
+				<div class="lists-table-cont">
+					<table>
+						<thead>
+							<tr>
+								<th width="60%" class="pl42">提单号</th>
+								<th width="25%"><span class="l-line pl20">上传时间</span></th>
+								<th width="15%"><span class="l-line pl20">操作</span></th>
+							</tr>
+						</thead>
+						<tbody id="J_lists"></tbody>
+					</table>
+				</div>
 				<div class="lists-pages">
 					<div class="count">共<span id="J_count"></span>页</div>
 					<ul class="pages clearfix" id="J_pages"></ul>
@@ -78,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr>
-	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl42"><a href="<?= $Path;?>index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
 	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
 	<td class="pl20"><a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a></td>
 </tr>

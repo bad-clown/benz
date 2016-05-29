@@ -53,14 +53,14 @@ $this->params['breadcrumbs'][] = $this->title;
 									<span class="msg"></span>
 								</td>
 							</tr>
-							<tr>
+							<tr style="display:none;">
 								<td class="tit"><span class="lowast">&lowast;</span>工号：</td>
 								<td class="con">
 									<input type="text" class="user-text" disabled="disabled" name="id" value="<?php if(\Yii::$app->user->identity->id){echo \Yii::$app->user->identity->id;}else{echo '暂无工号';};?>" <?php if(!\Yii::$app->user->identity->id){echo 'data-mold="read"';};?> placeholder="请输入工号">
 									<span class="msg"></span>
 								</td>
 							</tr>
-							<tr>
+							<tr <?php if($role == 'benz'){?>style="display:none;"<?php };?>>
 								<td class="tit"><span class="lowast">&lowast;</span>部门：</td>
 								<td class="con">
 									<input type="text" class="user-text" disabled="disabled" name="department" value="<?php if(\Yii::$app->user->identity->department){echo \Yii::$app->user->identity->department;}else{echo '暂无部门';};?>" <?php if(!\Yii::$app->user->identity->department){echo 'data-mold="read"';};?> placeholder="请输入部门">
@@ -143,7 +143,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 
-
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
@@ -152,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/personal.js"></script>
 <script type="text/javascript">
 $(function() {
-	$('#benzMenu').find('li:eq(3)').addClass('active');
+	$('#benzMenu').find('.icon-zh').parent('li:eq(0)').addClass('active');
 })
 </script>
 <?php $this->endBlock();  ?>

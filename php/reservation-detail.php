@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -35,38 +34,44 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class="right-main">
 		<div class="shipment-detail">
 			<div class="shipment-detail-top clearfix">
-				<div class="s-n">检验日期：<?= $shipment->shipmentNo;?></div>
-				<div class="s-n">提单号：<?= $shipment->shipmentNo;?></div>
-				<div class="s-n">发货号：<?= $shipment->BLNo;?></div>
-				<div class="s-n">到厂日期：<?= $shipment->arrivalDate;?></div>
+				<div class="s-n">检验日期：<?= $rsv['checkDate'];?></div>
+				<div class="s-n">提单号：<?= $rsv['shipmentNo'];?></div>
+				<div class="s-n">发货号：<?= $rsv['BLNo'];?></div>
+				<div class="s-n">到厂日期：<?= $rsv['arrivalDate'];?></div>
 			</div>
 			<div class="shipment-detail-list">
-				<table>
-					<thead>
-						<tr>
-							<th width="20%" class="pl32">集装箱号</th>
-							<th width="13%"><span class="l-line pl10">装船号</span></th>
-							<th width="15%"><span class="l-line pl10">船号</span></th>
-							<th width="22%"><span class="l-line pl10">零件号</span></th>
-							<th width="20%"><span class="l-line pl10">中文名</span></th>
-							<th width="10%"><span class="l-line pl10">数量</span></th>
-							<th width="10%"><span class="l-line pl10">3C证书</span></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach($detail as $k => $v){	?>
-						<tr>
-							<td width="20%" class="pl32"><?= $v['containerNo'];?></td>
-							<td width="13%"><span class="pl10"><?= $v['vesselNo'];?></span></td>
-							<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
-							<td width="22%"><span class="pl10"><?= $v['partNo'];?></span></td>
-							<td width="20%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
-							<td width="10%"><span class="pl10"><?= $v['count'];?></span></td>
-							<td width="10%"><span class="pl10"><?= $v['count'];?></span></td>
-						</tr>
-						<?php };?>
-					</tbody>
-				</table>
+				<div class="shipment-detail-thead">
+					<table>
+						<thead>
+							<tr>
+								<th width="20%" class="pl32">集装箱号</th>
+								<th width="13%"><span class="l-line pl10">装船号</span></th>
+								<th width="15%"><span class="l-line pl10">船号</span></th>
+								<th width="17%"><span class="l-line pl10">零件号</span></th>
+								<th width="15%"><span class="l-line pl10">中文名</span></th>
+								<th width="8%"><span class="l-line pl10">数量</span></th>
+								<th width="22%"><span class="l-line pl10">3C证书</span></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="shipment-detail-tbody">
+					<table>
+						<tbody>
+							<?php foreach($detail as $k => $v){	?>
+							<tr class="status<?php if($v['certExpireDate']){echo $v['certStatus'];};?>">
+								<td width="20%" class="pl32"><?= $v['containerNo'];?></td>
+								<td width="13%"><span class="pl10"><?= $v['vesselNo'];?></span></td>
+								<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
+								<td width="17%"><span class="pl10"><?= $v['partNo'];?></span></td>
+								<td width="15%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
+								<td width="8%"><span class="pl10"><?= $v['count'];?></span></td>
+								<td width="22%" class="pl10 s-i"><?php if($v['certExpireDate']){if($v['certStatus'] == 0){echo '未过期';}elseif($v['certStatus'] == 1){echo '将过期';}elseif($v['certStatus'] == 2){echo '已过期';}}else{echo '暂无证书';};?></td>
+							</tr>
+							<?php };?>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

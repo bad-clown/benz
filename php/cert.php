@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -44,25 +43,28 @@ $this->params['breadcrumbs'][] = $this->title;
 					<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号或零件号">
 					<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 				</div>
-				<a href="http://120.26.50.11:8010/index.php?r=benz/export-cert" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
-				<a href="http://120.26.50.11:8010/index.php?r=benz/cert-import" class="btn-upload" title="导入3C证书">导入3C证书</a>
+				<a href="<?= $Path;?>index.php?r=benz/export-cert" class="btn-download" title="导出全部3C证书">导出全部3C证书</a>
+				<a href="<?= $Path;?>index.php?r=benz/cert-import" class="btn-upload" title="导入3C证书">导入3C证书</a>
 			</div>
 			<div class="cert-list">
 				<div class="lists-titl">所有零件列表</div>
 				<div class="lists-cont">
-					<table>
-						<thead>
-							<tr>
-								<th width="22%" class="pl42">零件号</th>
-								<th width="18%"><span class="l-line pl20">中文名</span></th>
-								<th width="20%"><span class="l-line pl20">证书号</span></th>
-								<th width="15%"><span class="l-line pl20">截止日期</span></th>
-								<th width="15%"><span class="l-line pl20">3C证书文件</span></th>
-								<th width="10%"><span class="l-line pl20">操作</span></th>
-							</tr>
-						</thead>
-						<tbody id="J_lists"></tbody>
-					</table>
+					<div class="lists-table-cont">
+						<table>
+							<thead>
+								<tr>
+									<th width="22%" class="pl42">零件号</th>
+									<th width="18%"><span class="l-line pl20">中文名</span></th>
+									<th width="20%"><span class="l-line pl20">证书号</span></th>
+									<th width="15%"><span class="l-line pl20">截止日期</span></th>
+									<th width="15%"><span class="l-line pl20">3C证书文件</span></th>
+									<th width="10%"><span class="l-line pl20">操作</span></th>
+								</tr>
+							</thead>
+							<tbody id="J_lists"></tbody>
+						</table>
+					</div>
+						
 					<div class="lists-pages">
 						<div class="count">共<span id="J_count"></span>页</div>
 						<ul class="pages clearfix" id="J_pages"></ul>
@@ -132,7 +134,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/x-jquery-tmpl" id="certListTmpl">
 <tr {{if cert}} class="status${cert['status']}" {{/if}}>
-	<td class="pl42"><a href="http://120.26.50.11:8010/index.php?r=benz/part-cert-history&partId=${_id['$id']}" title="${partNo}">${partNo}</a></td>
+	<td class="pl42"><a href="<?= $Path;?>index.php?r=benz/part-cert-history&partId=${_id['$id']}" title="${partNo}">${partNo}</a></td>
 	<td title="${name}"><span class="partName pl20">${name}</span></td>
 	<td class="pl20">{{if cert}}${cert['certNo']}{{else}} 暂无证书 {{/if}}</td>
 	<td class="pl20">{{if certExpireDate}}${certExpireDate}{{else}}暂无证书{{/if}} </td>

@@ -26,7 +26,13 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td colspan="8" style="text-align:center;color:#ff7d26;">找不到该用户，请重新输入！</td></tr>')
+					if(_key_ == '') {
+						var c = '暂无用户信息';
+					}
+					else {
+						var c = '找不到该用户，请重新输入！';
+					}
+					$('#J_lists').html('<tr><td colspan="8" style="text-align:center;color:#ff7d26;">'+c+'</td></tr>')
 				}
 			}
 		});

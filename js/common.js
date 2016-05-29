@@ -153,7 +153,7 @@ $(document).on('click', '.btn-delete', function() {
 $('#logout').on('click', function() {
 	$.ajax({
 		type : "POST",
-		url : 'http://120.26.50.11:8010/index.php?r=user/security/logout',
+		url : $_Path+'index.php?r=user/security/logout',
 		success : function(data) {
 			//console.log(data)
 		}

@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -88,7 +87,10 @@ $this->params['breadcrumbs'][] = $this->title;
 					</table>
 					<a href="javascript:;" class="btn-add" id="J_part_add" title="添加零件">添加零件</a>
 				</div>
-				<button class="btn-confirm" id="J_Upload" title="确定">确定</button>
+				<div class="btn-cont">
+					<button class="btn-confirm" id="J_Upload" title="确定">确定</button>
+					<a href="<?= $Path;?>index.php?r=benz/cert" class="btn-cancel"  title="取消">取消</a>
+				</div>
 			</div>
 		</div>
 	</div>

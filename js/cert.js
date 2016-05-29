@@ -19,7 +19,7 @@ $(function() {
 
 		$.ajax({
 			type: "POST",
-			url: "http://120.26.50.11:8010/index.php?r=benz/upload-cert",
+			url: urlPort.uploadCert,
 			data: data,
 			cache: false,
 			contentType: false,
@@ -120,7 +120,7 @@ $(function() {
 
 				if(data.code == "0") {
 					// alert('成功！')
-					window.location.href = 'http://120.26.50.11:8010/index.php?r=benz/cert'
+					window.location.href = $_Path+'index.php?r=benz/cert';
 				}
 			}
 		})
@@ -255,7 +255,13 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td colspan="6" style="text-align:center;color:#ff7d26;">找不到相关零件，请重新输入！</td></tr>')
+					if(_key_ == "") {
+						var c = '暂无零件信息';
+					}
+					else {
+						var c = '找不到相关零件，请重新输入！';
+					}
+					$('#J_lists').html('<tr><td colspan="6" style="text-align:center;color:#ff7d26;">'+c+'</td></tr>')
 				}
 			}
 		});

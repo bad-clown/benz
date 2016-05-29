@@ -1,58 +1,67 @@
 /*
 
  */
+var _host_ = $_Path + 'index.php';
 
 var urlPort = {
 	//物流列表
-	shipment : 'http://120.26.50.11:8010/index.php?r=benz/shipment-list',
+	shipment : _host_+'?r=benz/shipment-list',
 	//物流删除
-	shipmentDel : 'http://120.26.50.11:8010/index.php?r=benz/shipment-del',
+	shipmentDel : _host_+'?r=benz/shipment-del',
+	//上传xls文件
+	shipmentUpload : _host_+'?r=benz/shipment-upload',
 	//零件列表
-	certList : 'http://120.26.50.11:8010/index.php?r=benz/cert-list',
+	certList : _host_+'?r=benz/cert-list',
 	//证书检测
-	certLatest : 'http://120.26.50.11:8010/index.php?r=benz/cert-latest',
+	certLatest : _host_+'?r=benz/cert-latest',
 	//零件检测
-	hasPart : 'http://120.26.50.11:8010/index.php?r=benz/has-part',
+	hasPart : _host_+'?r=benz/has-part',
 	//证书上传
-	doCertImport : 'http://120.26.50.11:8010/index.php?r=benz/do-cert-import',
+	doCertImport : _host_+'?r=benz/do-cert-import',
+	//上传PDF文件
+	uploadCert : _host_+'?r=benz/upload-cert',
 	//预约列表
-	reservationList : 'http://120.26.50.11:8010/index.php?r=benz/reservation-list',
+	reservationList : _host_+'?r=benz/reservation-list',
 	//证书列表
-	partCertList : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-list',
+	partCertList : _host_+'?r=benz/part-cert-list',
 	//证书删除
-	partCertDel : 'http://120.26.50.11:8010/index.php?r=benz/part-cert-del',
+	partCertDel : _host_+'?r=benz/part-cert-del',
 	//账号列表
-	userList : 'http://120.26.50.11:8010/index.php?r=benz/user-list',
+	userList : _host_+'?r=benz/user-list',
 	//新增账号
-	createUser : 'http://120.26.50.11:8010/index.php?r=benz/create-user',
+	createUser : _host_+'?r=benz/create-user',
 	//禁用/启用
-	blockUser : 'http://120.26.50.11:8010/index.php?r=benz/block-user',
+	blockUser : _host_+'?r=benz/block-user',
 	//重置密码：
-	resetPwd : 'http://120.26.50.11:8010/index.php?r=benz/reset-user-password',
+	resetPwd : _host_+'?r=benz/reset-user-password',
 	//修改用户信息：
-	modifyPersonal : 'http://120.26.50.11:8010/index.php?r=benz/modify-personal',
+	modifyPersonal : _host_+'?r=benz/modify-personal',
 	//修改密码：
-	changePwd : 'http://120.26.50.11:8010/index.php?r=benz/change-password',
+	changePwd : _host_+'?r=benz/change-password',
 
 	/* 局端 */
 	//预约查检列表：
-	BureauReservationList : 'http://120.26.50.11:8010/index.php?r=bureau/reservation-list',
+	BureauReservationList : _host_+'?r=bureau/reservation-list',
 	//提交预约：
-	BureauDoReservation : 'http://120.26.50.11:8010/index.php?r=bureau/do-reservation',
+	BureauDoReservation : _host_+'?r=bureau/do-reservation',
 	//修改预约：
-	BureauModReservation : 'http://120.26.50.11:8010/index.php?r=bureau/mod-reservation',
+	BureauModReservation : _host_+'?r=bureau/mod-reservation',
 	//国检\企业 账号列表：
-	BureauUserList : 'http://120.26.50.11:8010/index.php?r=bureau/user-list',
+	BureauUserList : _host_+'?r=bureau/user-list',
 	//创建国检账号：
-	BureauCreateGuoUser : 'http://120.26.50.11:8010/index.php?r=bureau/create-guo-user',
+	BureauCreateGuoUser : _host_+'?r=bureau/create-guo-user',
 	//创建企业账号：
-	BureauCreateQiUser : 'http://120.26.50.11:8010/index.php?r=bureau/create-qi-user',
+	BureauCreateQiUser : _host_+'?r=bureau/create-qi-user',
+	//修改国检账号：
+	BureauUpdateGuoUser : _host_+'?r=bureau/update-guo-user',
+	//修改企业账号：
+	BureauUpdateQiUser : _host_+'?r=bureau/update-qi-user',
 	//关联国检账号：
-	BureauGuoUserList : 'http://120.26.50.11:8010/index.php?r=bureau/guo-user-list',
+	BureauGuoUserList : _host_+'?r=bureau/guo-user-list',
 	//禁用/启用
-	BureauBlockUser : 'http://120.26.50.11:8010/index.php?r=bureau/block-user',
+	BureauBlockUser : _host_+'?r=bureau/block-user',
 	//重置密码：
-	BureauResetPwd : 'http://120.26.50.11:8010/index.php?r=bureau/reset-user-password'
+	BureauResetPwd : _host_+'?r=bureau/reset-user-password'
 
 }
 

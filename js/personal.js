@@ -1,6 +1,4 @@
 $(function() {
-	$('#benzMenu').find('li:eq(3)').addClass('active');
-
 	$(document).on('click', '#J_AlterUser', function() {
 		$(this).after('<a href="javascript:;" class="btns btn-submit" id="J_SubmitUser" title="提交">提交</a><a href="javascript:;" class="btns btn-cancel" id="J_CancelUser" title="取消">取消</a>');
 		$(this).remove();

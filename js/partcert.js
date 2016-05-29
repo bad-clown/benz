@@ -26,7 +26,7 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td style="text-align:center;color:#ff7d26;padding:20px 0;">找不到相关证书！</td></tr>')
+					$('#J_lists').html('<tr><td style="text-align:center;color:#ff7d26;padding:20px 0;">暂无证书</td></tr>')
 				}
 			}
 		});

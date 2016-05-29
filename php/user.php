@@ -12,9 +12,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use hipstercreative\user\widgets\Connect;
-use app\modules\admin\models\Dictionary;
-use app\modules\admin\logic\DictionaryLogic;
-//$Path = DictionaryLogic::indexKeyValue('App', 'Host', false);
+use app\models\Dictionary;
+$Path = Dictionary::indexKeyValue('App', 'Host', false);
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
@@ -34,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<div class="right-main">
 		<div class="manager-top clearfix">
-			<a href="javascript:;" class="btn-createUser" <?php if(\Yii::$app->user->identity->isAdmin){ ?>id="createUser-open"<?php };?> title="新增账号">新增账号</a>
+			<?php if(\Yii::$app->user->identity->isAdmin){ ?><a href="javascript:;" class="btn-createUser" id="createUser-open" title="新增账号">新增账号</a><?php };?>
 			<div class="search-box">
 				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入姓名">
 				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
@@ -43,21 +42,23 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="manager-list">
 			<div class="lists-titl">所有账号列表</div>
 			<div class="lists-cont">
-				<table>
-					<thead>
-						<tr>
-							<th width="16%" class="pl20">用户名</th>
-							<th width="10%"><span class="l-line pl10">姓名</span></th>
-							<th width="14%"><span class="l-line pl10">工号</span></th>
-							<th width="10%"><span class="l-line pl10">部门</span></th>
-							<th width="13%"><span class="l-line pl10">手机号</span></th>
-							<th width="25%"><span class="l-line pl10">邮箱</span></th>
-							<th width="6%"><span class="l-line pl10">密码</span></th>
-							<th width="6%"><span class="l-line pl10">状态</span></th>
-						</tr>
-					</thead>
-					<tbody id="J_lists"></tbody>
-				</table>
+				<div class="lists-table-cont">
+					<table>
+						<thead>
+							<tr>
+								<th width="16%" class="pl20">用户名</th>
+								<th width="10%"><span class="l-line pl10">姓名</span></th>
+								<th width="14%"><span class="l-line pl10">工号</span></th>
+								<th width="10%"><span class="l-line pl10">部门</span></th>
+								<th width="13%"><span class="l-line pl10">手机号</span></th>
+								<th width="25%"><span class="l-line pl10">邮箱</span></th>
+								<th width="6%"><span class="l-line pl10">密码</span></th>
+								<th width="6%"><span class="l-line pl10">状态</span></th>
+							</tr>
+						</thead>
+						<tbody id="J_lists"></tbody>
+					</table>
+				</div>
 				<div class="lists-pages">
 					<div class="count">共<span id="J_count"></span>页</div>
 					<ul class="pages clearfix" id="J_pages"></ul>

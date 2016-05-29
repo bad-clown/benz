@@ -19,7 +19,7 @@ $(function() {
 
 		$.ajax({
 			type: "POST",
-			url: "http://120.26.50.11:8010/index.php?r=benz/shipment-upload",
+			url: urlPort.shipmentUpload,
 			data: data,
 			cache: false,
 			contentType: false,
@@ -48,6 +48,19 @@ $(function() {
 		});
 	})
 
+	$('#J_upload_xlsx').hover(function() {
+		$('.btn-upload').eq(0).css({
+			'background': 'url("/images/btn-upload-hover.png") no-repeat',
+			'_background': 'url("/images/_btn-upload-hover.png") no-repeat'
+		})
+	}, function() {
+		$('.btn-upload').eq(0).css({
+			'background': 'url("/images/btn-upload.png") no-repeat',
+			'_background': 'url("/images/_btn-upload.png") no-repeat'
+		})
+	})
+
+
 	/* 确定删除 */
 	$(document).on('click', '#J_confirmDel', function() {
 		var delId = $(this).data('delid');
@@ -66,7 +79,7 @@ $(function() {
 
 	/* 提单列表 */
 	var _key_ = "";
-	function _GetData(n) {
+	function _GetData(n, str) {
 		var d = {
 			key : _key_ || "",
 			page : n || 1
@@ -90,7 +103,13 @@ $(function() {
 				} else {
 					$('#J_count').html(data.pageCount)
 					$("#J_pages").empty();
-					$('#J_lists').html('<tr><td colspan="3" style="text-align:center;color:#ff7d26;">找不到该提单号，请重新输入！</td></tr>')
+					if(_key_ == '') {
+						var c = '暂无物流信息';
+					}
+					else {
+						var c = '找不到该提单号，请重新输入！';
+					}
+					$('#J_lists').html('<tr><td colspan="3" style="text-align:center;color:#ff7d26;">'+c+'</td></tr>')
 				}
 			}
 		});
