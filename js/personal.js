@@ -117,10 +117,16 @@ $(function() {
 				current_password : obj.eq(0).val(),
 				password : obj.eq(1).val()
 			}
+		if(obj.eq(1).val().length < 6) {
+			layer.msg('新密码不能少于6位数');
+			obj.eq(1).focus();
+			return;
+		}
 
 		if(obj.eq(1).val() != obj.eq(2).val()) {
 			layer.msg('新密码不一致，请重新输入');
 			obj.eq(2).focus();
+			return;
 		}
 
 		$.ajax({

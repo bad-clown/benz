@@ -122,7 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								</td>
 							</tr>
 							<tr class="new-pwd">
-								<td class="tit"><span class="lowast">&lowast;</span>新密码：</td>
+								<td class="tit"><span class="lowast">&lowast;</span>确认新密码：</td>
 								<td class="con">
 									<input type="password" class="pwd-text" disabled="disabled" name="password" value="" placeholder="请再次输入新密码">
 									<span class="msg"></span>

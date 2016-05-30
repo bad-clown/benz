@@ -122,7 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								</td>
 							</tr>
 							<tr class="new-pwd">
-								<td class="tit"><span class="lowast">&lowast;</span>新密码：</td>
+								<td class="tit"><span class="lowast">&lowast;</span>确认新密码：</td>
 								<td class="con">
 									<input type="password" class="pwd-text" disabled="disabled" name="password" value="" placeholder="请再次输入新密码">
 									<span class="msg"></span>
@@ -148,10 +148,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/layer/layer.js"></script>
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/personal.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('#benzMenu').find('.icon-zh').parent('li:eq(0)').addClass('active');
+	urlPort.modifyPersonal = urlPort.BureauModifyPersonal;
+	urlPort.changePwd = urlPort.BureauChangePwd;
 })
 </script>
+<script type="text/javascript" src="/js/personal.js"></script>
 <?php $this->endBlock();  ?>

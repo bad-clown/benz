@@ -61,7 +61,11 @@ var urlPort = {
 	//禁用/启用
 	BureauBlockUser : _host_+'?r=bureau/block-user',
 	//重置密码：
-	BureauResetPwd : _host_+'?r=bureau/reset-user-password'
+	BureauResetPwd : _host_+'?r=bureau/reset-user-password',
+	//修改用户信息：
+	BureauModifyPersonal : _host_+'?r=bureau/modify-personal',
+	//修改密码：
+	BureauChangePwd : _host_+'?r=bureau/change-password'
 
 }
 
