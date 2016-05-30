@@ -33,8 +33,9 @@ $(function() {
 				//$('#uploadState').append("上传成功！")
 			},
 			success: function(data) {
+				$('#overlay__').show();
 				$('#uploadSuc').show()
-				var _code = ['上传成功。','格式错误，请使用最新模板填写。','发货号不一致，请重新上传。','提单号不一致，请重新上传。','到厂日期不一致，请重新上传。']
+				var _code = ['上传成功。','格式错误，请使用最新模板填写。','发货号不一致，请重新上传。','提单号不一致，请重新上传。','到厂日期不一致，请重新上传。', '已有该提单号。']
 				if(data.code == '0') {
 					$('#uploadState').prepend('<div class="clearfix upload-suc"><p class="cont1">'+ data.name +'</p><span class="cont2">已上传</span></div>')
 				}
@@ -72,6 +73,7 @@ $(function() {
 			},
 			success : function(data) {
 				$('.delete-popup').remove();
+				$('#overlay__').hide();
 				_GetData()
 			}
 		})
@@ -133,6 +135,7 @@ $(function() {
 	/* 确认隐藏 */
 	$('.J_closeBtn').on('click', function() {
 		$(this).parents('.popup').hide()
+		$('#overlay__').hide();
 		_GetData()
 	})
 

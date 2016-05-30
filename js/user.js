@@ -155,10 +155,12 @@ $(function() {
 	$('#createUser-close').on('click', function() {
 		$('.user-text').val('')
 		$('.msg').html('')
+		$('#overlay__').hide();
 		$(this).parents('.popup').hide();
 	})
 	/* 打开添加账号 */
 	$('#createUser-open').on('click', function() {
+		$('#overlay__').show();
 		$('.createUser-popup').eq(0).show();
 	})
 

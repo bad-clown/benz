@@ -139,6 +139,7 @@ var PageTotal = {
 
 /* 删除提示 */
 $(document).on('click', '.btn-delete', function() {
+	$('#overlay__').show();
 	var delHTML = '<div class="delete-popup popup"><h3>删除确认</h3><div class="msg">确定要删除吗？</div><div class="btn-control clearfix"><a href="javascript:;" class="btn1" id="J_confirmDel" title="确定">确定</a><a href="javascript:;" class="btn2 J_closeDel" title="取消">取消</a></div></div>';
 
 	$('body').append(delHTML);
@@ -147,15 +148,17 @@ $(document).on('click', '.btn-delete', function() {
 
 	$(document).on('click', '.J_closeDel', function() {
 		$('.delete-popup').remove();
+		$('#overlay__').hide();
 	})
 })
 
-$('#logout').on('click', function() {
+/*$('#logout').on('click', function() {
 	$.ajax({
 		type : "POST",
 		url : $_Path+'index.php?r=user/security/logout',
 		success : function(data) {
-			//console.log(data)
+			console.log(data)
+			window.location.reload();
 		}
 	})
-})
+})*/

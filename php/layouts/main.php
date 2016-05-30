@@ -28,7 +28,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<div id="overlay__"></div>
 <div class="wrap">
     <?= $content ?>
 </div>

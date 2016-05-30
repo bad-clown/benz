@@ -50,9 +50,9 @@ $this->params['breadcrumbs'][] = $this->title;
 								<td class="con">
 									<input type="hidden" id="oldStartDate" />
 									<input type="hidden" id="oldEndDate" />
-									<input type="text" class="part-text cknull" name="" value="" placeholder="请选择开始时间" onClick="new Calendar().show(this);" readonly="readonly">
+									<input type="text" class="part-text cknull" name="" value="" id="StartDate" placeholder="请选择开始时间" readonly="readonly">
 									至
-									<input type="text" class="part-text w160 cknull" name="" value="" placeholder="请选择结束时间" onClick="new Calendar().show(this);" readonly="readonly"></td>
+									<input type="text" class="part-text w160 cknull" name="" value="" id="EndDate" placeholder="请选择结束时间" readonly="readonly"></td>
 							</tr>
 							<tr>
 								<td class="tit">&lowast;PDF文件：</td>
@@ -98,8 +98,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
+<script type="text/javascript" src="/js/laydate/laydate.js"></script>
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/javascript" src="/js/cert.js"></script>
 <?php $this->endBlock();  ?>

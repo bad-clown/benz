@@ -52,6 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="s-n">提单号：<?= $shipment->shipmentNo;?></div>
 				<div class="s-n">发货号：<?= $shipment->BLNo;?></div>
 			</div>
+			<div class="checkTime" id="JcheckTime">
+				<label for="checkdate">查验时间</label>
+				<input type="text" class="time-text laydate-icon" id="checkdate" name="date" value="" placeholder="请选择查验时间" readonly="readonly"></td>
+			</div>
 			<div class="shipment-detail-list">
 				<div class="shipment-detail-thead">
 					<table>
@@ -108,46 +112,47 @@ $this->params['breadcrumbs'][] = $this->title;
 						</tbody>
 					</table>
 				</div>
-				<!-- <a href="javascript:;" class="check-time" title="选择查验时间">选择查验时间</a> -->
+			</div>
+			<div class="btnBox" id="JbtnBox">
+				<a href="javascript:;" class="btn-order" id="J_order" title="预约查验">预约查验</a>
+				<a href="javascript:;" class="btn-cancel" id="J_cancel" title="取消">取消</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- <div class="mailContent-popup">
-	<h3>发送预约邮件</h3>
-	<div class="mailContent-cont">
-		<textarea name="mailContent" id="mailContent"></textarea>
-		<button class="btn-confirm" id="J_Submit" title="发 送">发 送</button>
-	</div>
-</div> -->
-
-
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
+<script type="text/javascript" src="/js/laydate/laydate.js"></script>
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('#benzMenu').find('.icon-yy').parent('li:eq(0)').addClass('active');
 
 	$(document).on('click', '#J_check', function() {
+		$('.shipment-state').eq(0).hide();
 		$('.nopass').show();
+		$('#JbtnBox').show();
+		$('#JcheckTime').show()
 		$('.shipment-detail-list').find('input:checkbox').show()
-		$('.bureau-reservation-detail').append('<a href="javascript:;" id="J_checktime" class="check-time" title="选择查验时间">选择查验时间</a>')
-		$(this).data('r', $(this).html()).attr({id : 'J_cancel', class : 'btn-cancel'}).html('取消')
 	})
 	$(document).on('click', '#J_cancel', function() {
+		$('.checkbox-list').parents('tr').removeClass('bge1')
+		$('#mailContent-close').click();
+		$('.shipment-state').eq(0).show();
 		$('.nopass').hide();
-		$('#checkout-close').click();
+		$('#JbtnBox').hide();
+		$('#JcheckTime').hide()
 		$('.shipment-detail-list').find('input:checkbox').hide()
-		$('.bureau-reservation-detail').find('.check-time:eq(0)').remove();
-		$(this).attr({id : 'J_check', class : 'btn-add'}).html($(this).data('r'))
 	})
 
-	$(document).on('click', '#J_checktime', function() {
-		$('body').append('<div class="checkout-popup"><a href="javascript:;" class="btn-close" id="checkout-close" title="关闭">关闭</a><h3>查验时间</h3><div class="checkout-cont"><table><tbody><tr><td class="tit">&lowast;查验时间：</td><td class="con"><input type="text" class="time-text" name="" value="" placeholder="请选择查验时间" onClick="new Calendar().show(this);" readonly="readonly"></td></tr><tr><td colspan="2"><button class="btn-confirm" id="J_Submit" title="提 交">提 交</button></td></tr></tbody></table></div></div>');
+	$(document).on('click', '#J_order', function() {
+		var detailId = partId()
+		if(detailId.length == 0) {layer.msg('未选中零件！');return}
+		if(!$('.time-text').eq(0).val()) {layer.msg('未选择查验时间！');return}
+		$('body').append('<div class="mailContent-popup"><a href="javascript:;" class="btn-close" id="mailContent-close" title="关闭">关闭</a><h3>发送预约邮件</h3><div class="mailContent-cont"><table><tbody><tr><td><textarea id="mailContent" class="mailContent" name="mailContent">您好：\n\r北京出入境检验检疫局于<?= date('Y年m月d日 H:i');?>发起一次查验预约。\r查验预约的提单号为<?= $shipment->shipmentNo;?>，请注意查收。\n\r北京出入境检验检疫局</textarea><p class="mailContent-msg">点击“发送”按钮将会发送预约邮件给企业</p></td></tr><tr><td><button class="btn-confirm" id="J_Submit" title="发 送">发 送</button></td></tr></tbody></table></div></div>');
+		$('#overlay__').show();
 	})
 
 	$('.checkbox-list').on('click', function() {
@@ -169,24 +174,13 @@ $(function() {
 	})
 
 	$(document).on('click', '#J_Submit', function() {
-		var partId = function() {
-			var part = []
-			$('.checkbox-list').each(function(i,o) {
-				if($(o).is(':checked')){
-					part.push($('input[name="partId"]').eq(i).val())
-				}
-			})
-			return part
-		}
 		var detailId = partId()
 		var _data = {
 			shipmentId : '<?= $shipment->_id;?>',
 			detailIdList : detailId,
-			date : $.trim($('.time-text').eq(0).val())
+			date : $.trim($('.time-text').eq(0).val()),
+			mailContent : $('#mailContent').val()
 		}
-
-		if(detailId.length == 0) {layer.msg('未选中零件！');return}
-		if(!$('.time-text').eq(0).val()) {layer.msg('未选择查验时间！');return}
 
 		$.ajax({
 			type : "POST",
@@ -194,7 +188,7 @@ $(function() {
 			data : _data,
 			success : function(data) {
 				if(data.code == 0) {
-					$('#checkout-close').click()
+					$('#mailContent-close').click()
 					$('body').append('<div class="yuyuesuc-popup"><h3>新增预约</h3><div class="yuyuesuc-msg"><p class="msg1">预约查验成功！</p><p class="msg2">已发送提醒邮件给对方</p></div><a href="javascript:;" class="btn-suc" id="J_yuyuesuc" title="确定">确定</a></div>');
 				}
 			},
@@ -208,8 +202,23 @@ $(function() {
 		window.location.reload()
 	})
 
-	$(document).on('click', '#checkout-close', function() {
-		$('.checkout-popup').remove();
+	$(document).on('click', '#mailContent-close', function() {
+		$('#overlay__').hide();
+		$('.mailContent-popup').remove();
+	})
+
+	var partId = function() {
+		var part = []
+		$('.checkbox-list').each(function(i,o) {
+			if($(o).is(':checked')){
+				part.push($('input[name="partId"]').eq(i).val())
+			}
+		})
+		return part
+	}
+
+	laydate({
+		elem: '#checkdate'
 	})
 })
 </script>

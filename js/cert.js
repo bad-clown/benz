@@ -78,34 +78,38 @@ $(function() {
 		if(!duibiDate(startDate, endDate)) return;
 
 		// 证书更新
-		if($('#oldCertPDF').val() && $('#oldCertPDF').val() != file) {
-			pdfStatus = 1;
-		}
+		if(certNoB) {
+			if($('#oldCertPDF').val() && $('#oldCertPDF').val() != file) {
+				pdfStatus = 1;
+			}
 
-		if(changeDate($('#oldStartDate').val(), startDate)) {
-			startStatus = changeDate($('#oldStartDate').val(), startDate);
-			dateStatus = 1;
-		}
-		if(changeDate($('#oldEndDate').val(), endDate)) {
-			endStatus = changeDate($('#oldEndDate').val(), endDate);
-			dateStatus = 1;
-		}
+			if(changeDate($('#oldStartDate').val(), startDate)) {
+				startStatus = changeDate($('#oldStartDate').val(), startDate);
+				dateStatus = 1;
+				console.log(startStatus+' //// ' + dateStatus)
+			}
+			if(changeDate($('#oldEndDate').val(), endDate)) {
+				endStatus = changeDate($('#oldEndDate').val(), endDate);
+				dateStatus = 1;
+				console.log(endStatus+' //// ' + dateStatus)
+			}
 
-		if(pdfStatus) {
-			if(!dateStatus) {
-				layer.msg('您已上传新PDF证书，请修改有效期！');
+			if(pdfStatus) {
+				if(!dateStatus) {
+					layer.msg('您已上传新PDF证书，请修改有效期！');
+					return;
+				}
+			}
+			if(startStatus == 1 || endStatus == 1) {
+				if(!pdfStatus) {
+					layer.msg('您已修改有效期，请重新上传PDF证书！');
+					return;
+				}
+			}
+			else if(startStatus == 2 || endStatus == 2) {
+				layer.msg('有效期必须晚于之前的有效期！');
 				return;
 			}
-		}
-		if(startStatus != 2 && endStatus != 2) {
-			if(!pdfStatus) {
-				layer.msg('您已修改有效期，请重新上传PDF证书！');
-				return;
-			}
-		}
-		else if(startStatus == 2 || endStatus == 2) {
-			layer.msg('有效期必须晚于之前的有效期！');
-			return;
 		}
 
 
@@ -149,6 +153,7 @@ $(function() {
 		}
 	})
 
+	var certNoB = false;
 	/* 证书检测存在 */
 	$('#J_certNo').on('change', function() {
 		$.ajax({
@@ -163,6 +168,7 @@ $(function() {
 
 				if(_d) {
 					if(data.has) {
+						certNoB = true;
 						$('#J_certNo').next('.msg').show().html('已有此证书，若需要更新请重新选择有效期和PDF文件');
 						// $('.part-text').eq(0).val(_d.certNo),
 						$('.part-text').eq(1).val(_d.startDate),
@@ -173,6 +179,7 @@ $(function() {
 						$('#oldEndDate').val(_d.endDate);
 					}
 					else{
+						certNoB = false;
 						$('#J_certNo').next('.msg').hide().html('')
 						$('.part-text').eq(1).val(''),
 						$('.part-text').eq(2).val(''),
@@ -189,7 +196,6 @@ $(function() {
 	/* 零件检测重复 */
 	$(document).on('change', '.check_rep', function() {
 		var _self = $(this)
-		console.log(_self)
 		$.ajax({
 			type : 'GET',
 			url : urlPort.hasPart,
@@ -198,7 +204,6 @@ $(function() {
 				partNo : $(this).val()
 			},
 			success : function(data) {
-				console.log(data)
 
 				if(data.has) {
 					_self.next('p').remove();
@@ -270,18 +275,21 @@ $(function() {
 	/* 全部 */
 	$('#cert-all').on('click', function() {
 		$(this).siblings().removeClass('active').end().addClass('active')
+		_key_ = $('#J_searchTxt').val();
 		_status = 0;
 		_GetData()
 	})
 	/* 将过期 */
 	$('#cert-soon').on('click', function() {
 		$(this).siblings().removeClass('active').end().addClass('active')
+		_key_ = '';
 		_status = 1;
 		_GetData()
 	})
 	/* 已过期 */
 	$('#cert-over').on('click', function() {
 		$(this).siblings().removeClass('active').end().addClass('active')
+		_key_ = '';
 		_status = 2;
 		_GetData()
 	})
@@ -309,6 +317,7 @@ $(function() {
 		$('.part-text').val('')
 
 		$(this).parents('.popup').hide();
+		$('#overlay__').hide();
 	})
 	/* 打开更新弹窗 */
 	$(document).on('click', '.J_edit', function() {
@@ -328,7 +337,27 @@ $(function() {
 		$('.partNo-text').eq(0).val(part)
 		$('.name-text').eq(0).val(name)
 		$('.update-popup').eq(0).show();
+
+		$('#overlay__').show();
 	})
+
+	var start = {
+	    elem: '#StartDate',
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	var end = {
+	    elem: '#EndDate',
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，重置开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
 
 	window._GetData = _GetData;
 })

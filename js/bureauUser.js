@@ -203,12 +203,13 @@ $(function() {
 
 	/* 打开创建账号 */
 	$(document).on('click', '#createUser', function() {
-		$('.createUser-popup').remove()
+		$('#overlay__').show();
 		createUserPop($.trim($(this).data('role')))
 	})
 
 	/* 关闭创建账号 */
 	$(document).on('click', '#createUser-close', function() {
+		$('#overlay__').hide();
 		$('.createUser-popup').remove()
 	})
 
@@ -253,13 +254,17 @@ $(function() {
 	$('#J_guo').on('click', function() {
 		$('#createUser-close').click()
 		$(this).addClass('active').siblings().removeClass('active')
+		$('#J_searchTxt').val('')
 		_role = 'guo';
+		_key_ = '';
 		_GetData();
 	})
 	$('#J_qi').on('click', function() {
 		$('#createUser-close').click()
 		$(this).addClass('active').siblings().removeClass('active')
+		$('#J_searchTxt').val('')
 		_role = 'benz';
+		_key_ = '';
 		_GetData()
 	})
 	$(document).on('click', '#J_option', function() {
@@ -284,14 +289,14 @@ $(function() {
 	})
 
 	$(document).on('click', '.edit-guo', function() {
-		$('#createUser-close').click()
+		$('#overlay__').show();
 		var txt = $(this).parents('tr:eq(0)').find('td');
 		var html = '<div class="createUser-popup"><a href="javascript:;" class="btn-close" id="createUser-close" title="关闭">关闭</a><h3>新增国检账号</h3><div class="createUser-cont"><table><tbody><tr><td class="tit">用户名：</td><td class="con"><input type="text" class="user-text" name="username" value="'+ txt.eq(0).text() +'" placeholder="请输入用户名"><p class="msg"></p></td></tr><tr><td class="tit">姓名：</td><td class="con"><input type="text" class="user-text" name="name" value="'+ txt.eq(1).text() +'" placeholder="请输入姓名"><p class="msg"></p></td></tr><tr><td class="tit">部门：</td><td class="con"><input type="text" class="user-text" name="department" value="'+ txt.eq(4).text() +'" placeholder="请输入部门"><p class="msg"></p></td></tr><tr><td class="tit">手机号：</td><td class="con"><input type="text" class="user-text" name="phone" value="'+ txt.eq(2).text() +'" placeholder="请输入有效手机号"><p class="msg"></p></td></tr><tr><td class="tit">邮箱：</td><td class="con"><input type="text" class="user-text" name="email" value="'+ txt.eq(3).text() +'" placeholder="请输入有效邮箱"><p class="msg"></p></td></tr><tr><td colspan="2"><button class="btn-confirm" id="J_UpdateGuo" data-userid="'+ $(this).data('userid') +'" title="确定">确定</button></td></tr></tbody></table></div></div>';
 		$('body').append(html)
 	})
 
 	$(document).on('click', '.edit-benz', function() {
-		$('#createUser-close').click()
+		$('#overlay__').show();
 		var txt = $(this).parents('tr:eq(0)').find('td');
 		var html = '<div class="createUser-popup"><a href="javascript:;" class="btn-close" id="createUser-close" title="关闭">关闭</a><h3>新增国检账号</h3><div class="createUser-cont"><table><tbody><tr><td class="tit">用户名：</td><td class="con"><input type="text" class="user-text" name="username" value="'+ txt.eq(0).text() +'" placeholder="请输入用户名"><p class="msg"></p></td></tr><tr><td class="tit">姓名：</td><td class="con"><input type="text" class="user-text" name="name" value="'+ txt.eq(1).text() +'" placeholder="请输入姓名"><p class="msg"></p></td></tr><tr><td class="tit">关联国检账号：</td><td class="con"><input type="text" class="user-text" id="contact" disabled="disabled" name="department" value="'+ txt.eq(4).text() +'" placeholder="请选择关联账号"><div class="options" id="J_option"></div><p class="msg"></p><div class="contact" id="optionsBox"><div class="contact-pop"><ul></ul><a href="javascript:;" class="btn-confirm2" id="contact_conf" title="确定">确定</a></div></div></td></tr><tr><td class="tit">手机号：</td><td class="con"><input type="text" class="user-text" name="phone" value="'+ txt.eq(2).text() +'" placeholder="请输入有效手机号"><p class="msg"></p></td></tr><tr><td class="tit">邮箱：</td><td class="con"><input type="text" class="user-text" name="email" value="'+ txt.eq(3).text() +'" placeholder="请输入有效邮箱"><p class="msg"></p></td></tr><tr><td colspan="2"><button class="btn-confirm" id="J_UpdateQi" data-userid="'+ $(this).data('userid') +'" title="确定">确定</button></td></tr></tbody></table></div></div>';
 		$('body').append(html)

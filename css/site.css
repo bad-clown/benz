@@ -124,7 +124,20 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
-
+#overlay__{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    z-index: 100;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop));
+    display: none;
+}
 /* 登录 */
 .login-box{
     width: 1280px;
@@ -210,10 +223,15 @@ a.desc:after {
     background: url("/images/user-icon.png") no-repeat 0 center;
     _background: url("/images/_user-icon.png") no-repeat 0 center;
 }
+#logout-form{
+    display: inline-block;
+}
 .username .name,.username .logout{
     font-size: 16px;
     color: #fff;
     text-decoration: none;
+    float: left;
+    margin-top: 5px;
 }
 .username a:hover{
     color: #fff;
@@ -222,9 +240,13 @@ a.desc:after {
     font-size: 16px;
     color: #88aed6;
     margin: 0 12px;
+    float: left;
+    margin-top: 5px;
 }
 .username .logout{
     text-decoration: underline;
+    background: none;
+    border: 0;
 }
 
 .left-nav,.right-main{
@@ -592,7 +614,6 @@ a.desc:after {
 .shipment-detail-top{
     padding-left: 18px;
     padding-top: 40px;
-    padding-bottom: 16px;
 }
 .shipment-detail-top .s-n{
     float: left;
@@ -607,6 +628,7 @@ a.desc:after {
 }
 .shipment-detail-list{
     width: 1030px;
+    margin-top: 20px;
     border-radius: 4px;
     position: relative;
     /*box-shadow: 0 0 5px #ccc;*/
@@ -627,6 +649,7 @@ a.desc:after {
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 98;
+    background-color: #fff;
 }
 .shipment-detail-list .h500{
     height: 500px;
@@ -689,6 +712,30 @@ a.desc:after {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+}
+.shipment-detail-list table tr.status0 .s-i{
+    /*display: block;*/
+    background: url("/images/icon-guoqi0.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi0.png") no-repeat 10px center;
+    background-color: none;
+    padding-left: 40px;
+}
+.shipment-detail-list table tr.status1 .s-i{
+    /*display: block;*/
+    background: url("/images/icon-guoqi1.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi1.png") no-repeat 10px center;
+    background-color: none;
+    padding-left: 40px;
+}
+.shipment-detail-list table tr.status2 .s-i{
+     /*display: block;*/
+    background: url("/images/icon-guoqi2.png") no-repeat 10px center;
+    _background: url("/images/_icon-guoqi2.png") no-repeat 10px center;
+    background-color: none;
+    padding-left: 40px;
+}
+.shipment-detail-list .checkbox-list,.shipment-detail-list tr input{
+    display: none;
 }
 
 /* 证书导航 */
@@ -1298,8 +1345,44 @@ a.desc:after {
     white-space: nowrap;
 }
 
-
+.bureau-reservation-detail .shipment-state{
+    margin-top: 26px;
+}
+.bureau-reservation-detail .shipment-detail-top{
+    padding-top: 20px;
+}
+.bureau-reservation-detail .checkTime{
+    width: 380px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    border-top: 1px solid #ccc;
+    -webkit-box-shadow: 1px 1px 5px #ccc;
+    -moz-box-shadow: 1px 1px 5px #ccc;
+    box-shadow: 1px 1px 5px #ccc;
+    margin-top: 20px;
+    overflow: hidden;
+    display: none;
+}
+.bureau-reservation-detail .checkTime label{
+    display: block;
+    float: left;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #1b1b1b;
+}
+.bureau-reservation-detail .checkTime .time-text{
+    float: left;
+    width: 240px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    border: 0;
+}
 .bureau-reservation-detail .shipment-detail-list{
+    margin-top: 20px;
     height: 500px;
     max-height: 500px;
     _height: 500px;
@@ -1307,51 +1390,33 @@ a.desc:after {
 .bureau-reservation-detail .shipment-detail-list .h450{
     height: 450px;
 }
-.shipment-detail-list table tr.status0 .s-i{
-    /*display: block;*/
-    background: url("/images/icon-guoqi0.png") no-repeat 10px center;
-    _background: url("/images/_icon-guoqi0.png") no-repeat 10px center;
-    background-color: none;
-    padding-left: 40px;
-}
-.shipment-detail-list table tr.status1 .s-i{
-    /*display: block;*/
-    background: url("/images/icon-guoqi1.png") no-repeat 10px center;
-    _background: url("/images/_icon-guoqi1.png") no-repeat 10px center;
-    background-color: none;
-    padding-left: 40px;
-}
-.shipment-detail-list table tr.status2 .s-i{
-     /*display: block;*/
-    background: url("/images/icon-guoqi2.png") no-repeat 10px center;
-    _background: url("/images/_icon-guoqi2.png") no-repeat 10px center;
-    background-color: none;
-    padding-left: 40px;
-}
-.shipment-detail-list .checkbox-list,.shipment-detail-list tr input{
+.bureau-reservation-detail .btnBox{
+    text-align: center;
+    margin-top: 30px;
     display: none;
 }
-.bureau-reservation-detail .check-time{
-    display: block;
-    width: 355px;
+.bureau-reservation-detail .btn-order,.bureau-reservation-detail .btn-cancel{
+    display: inline-block;
+    width: 185px;
     height: 39px;
     border-radius: 3px;
-    margin: 30px auto 0;
     color: #fff;
     font-size: 16px;
     background: #438ada;
     text-align: center;
     line-height: 39px;
     border: 0;
+    margin: 0 5px;
+}
+.bureau-reservation-detail .btn-cancel{
+    width: 100px;
+    background: #c8c8c8;
 }
 .manager-main{
     height: 777px;
     background: #fff;
 }
-.shipment-state{
-    position: relative;
-    top: 26px;
-}
+
 .shipment-state h3{
     height: 44px;
     line-height: 44px;
@@ -1401,7 +1466,7 @@ a.desc:after {
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     z-index: 999;
 }
 .delete-popup h3{
@@ -1453,7 +1518,7 @@ a.desc:after {
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     display: none;
     z-index: 999;
 }
@@ -1530,7 +1595,7 @@ a.desc:after {
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     z-index: 999;
 }
 .popup .btn-close{
@@ -1657,7 +1722,7 @@ a.desc:after {
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     z-index: 999;
 }
 .createUser-popup h3{
@@ -1781,21 +1846,22 @@ a.desc:after {
     float: left;
     margin-left: 15px;
 }
-.checkout-popup{
-    position: absolute;
+.mailContent-popup{
+    position: fixed;
+    _position: absolute;
     top: 50%;
     left: 50%;
     width: 470px;
-    height: 240px;
+    height: 330px;
     margin-left: -235px;
-    margin-top: -120px;
+    margin-top: -165px;
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     z-index: 999;
 }
-.checkout-popup h3{
+.mailContent-popup h3{
     height: 40px;
     line-height: 40px;
     font-size: 16px;
@@ -1803,39 +1869,37 @@ a.desc:after {
     padding-left: 16px;
     background: #438bda;
 }
-.checkout-cont{
-    padding-top: 25px;
+.mailContent-cont{
+    padding-top: 15px;
 }
-.checkout-cont table{
+.mailContent-cont table{
     width: 100%;
 }
-.checkout-cont td{
-    height: 66px;
+.mailContent-cont td{
+    text-align: center;
 }
-.checkout-cont .tit{
-    width: 20%;
-    font-size: 14px;
-    color: #191919;
-    text-align: right;
-}
-.checkout-cont .con{
-    width: 80%;
-    text-align: left;
-}
-.checkout-cont .con .time-text{
-    width: 320px;
-    height: 36px;
-    line-height: 36px;
+.mailContent-cont .mailContent{
+    width: 380px;
+    height: 140px;
     border: 0;
     font-size: 14px;
     color: #191919;
-    padding-left: 18px;
+    padding: 15px;
     background: #f4f4f4;
     border-radius: 3px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    letter-spacing: 1px;
 }
-.checkout-cont .btn-confirm{
+.mailContent-cont .mailContent-msg{
+    text-align: center;
+    color:#A2A0A0;
+    padding: 10px 0;
+}
+
+.mailContent-cont .btn-confirm{
     display: block;
-    width: 355px;
+    width: 410px;
     height: 39px;
     border-radius: 3px;
     margin: 0 auto;
@@ -1858,7 +1922,7 @@ a.desc:after {
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #544949;
     z-index: 999;
 }
 
@@ -1886,57 +1950,6 @@ a.desc:after {
     line-height: 26px;
 }
 .yuyuesuc-popup .btn-suc{
-    display: block;
-    width: 174px;
-    height: 36px;
-    border-radius: 3px;
-    margin: 20px auto 0;
-    color: #fff;
-    font-size: 16px;
-    background: #438ada;
-    text-align: center;
-    line-height: 36px;
-    border: 0;
-    text-decoration: none;
-}
-.mailContent-popup{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 400px;
-    margin-left: -250px;
-    margin-top: -200px;
-    border-radius: 5px;
-    background: #fff;
-    overflow: hidden;
-    box-shadow: 0 0 10px #ccc;
-    z-index: 999;
-}
-.mailContent-popup h3{
-    height: 40px;
-    line-height: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding-left: 16px;
-    background: #438bda;
-}
-.mailContent-popup .mailContent-msg{
-    padding-top: 26px;
-}
-.mailContent-popup .msg1{
-    font-size: 18px;
-    color: #ff6613;
-    text-align: center;
-    line-height: 26px;
-}
-.mailContent-popup .msg2{
-    font-size: 16px;
-    color: #8c8c8c;
-    text-align: center;
-    line-height: 26px;
-}
-.mailContent-popup .btn-suc{
     display: block;
     width: 174px;
     height: 36px;
