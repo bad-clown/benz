@@ -218,13 +218,13 @@ a.desc:after {
 .username{
     position: absolute;
     right: 50px;
-    top: 27px;
+    top: 21px;
     padding-left: 28px;
     background: url("/images/user-icon.png") no-repeat 0 center;
     _background: url("/images/_user-icon.png") no-repeat 0 center;
 }
 #logout-form{
-    display: inline-block;
+    float: left;
 }
 .username .name,.username .logout{
     font-size: 16px;
@@ -1800,14 +1800,16 @@ a.desc:after {
 }
 .createUser-cont .contact{
     display: none;
-    position: relative;
-}
-.createUser-cont .contact-pop{
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: -150px;
-    margin-left: 230px;
+    z-index: 999;
+}
+.createUser-cont .contact-pop{
+    position: absolute;
+    top: 80px;
+    left: 345px;
+    width: 140px;
     z-index: 9999;
     background-color: #fff;
     box-shadow: 0 0 4px #ccc;

@@ -117,14 +117,15 @@ $(function() {
 				current_password : obj.eq(0).val(),
 				password : obj.eq(1).val()
 			}
-		if(obj.eq(1).val().length < 6) {
+		$('#pwdInfo').find('.msg').html('');
+		/*if(obj.eq(1).val().length < 6) {
 			layer.msg('新密码不能少于6位数');
 			obj.eq(1).focus();
 			return;
-		}
+		}*/
 
 		if(obj.eq(1).val() != obj.eq(2).val()) {
-			layer.msg('新密码不一致，请重新输入');
+			obj.eq(2).next('.msg').html('新密码不一致，请重新输入');
 			obj.eq(2).focus();
 			return;
 		}
@@ -135,22 +136,23 @@ $(function() {
 			data: data,
 			cache: false,
 			success: function(data) {
+				console.log(data)
 				if(data.code == 0) {
 					layer.msg('密码修改成功！')
 					$('#J_CancelPwd').click()
+					setTimeout(function() {
+						$('.logout').eq(0).submit()
+					}, 2000)
 				}
 				else{
 					var errors = data.errors;
 					for(var n in errors) {
 						switch (n) {
-							case 'username' :
+							case 'current_password' :
 								obj.eq(0).next('.msg').html(errors[n])
 								break;
-							case 'name' :
+							case 'password' :
 								obj.eq(1).next('.msg').html(errors[n])
-								break;
-							case 'id' :
-								obj.eq(2).next('.msg').html(errors[n])
 								break;
 						}
 					}

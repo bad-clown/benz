@@ -80,13 +80,13 @@ $this->params['breadcrumbs'][] = $this->title;
 								foreach($detail as $k => $v){
 							?>
 							<tr class="status<?= $v['certStatus'];?>">
-								<td width="20%" class="pl32"><input type="hidden" name="partId" value="<?= $v['partId'];?>" placeholder=""><input type="checkbox" class="checkbox-list" name="containerNo" value="" /> <?= $v['containerNo'];?></td>
+								<td width="20%" class="pl32"><input type="hidden" name="sid" value="<?= $v['_id'];?>" placeholder=""><input type="checkbox" class="checkbox-list" name="containerNo" value="" /> <?= $v['containerNo'];?></td>
 								<td width="13%"><span class="pl10"><?= $v['vesselNo'];?></span></td>
 								<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
 								<td width="17%"><span class="pl10"><?= $v['partNo'];?></span></td>
 								<td width="15%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
 								<td width="8%"><span class="pl10"><?= $v['count'];?></span></td>
-								<td width="22%" class="pl10 s-i"><?php if($v['certStatus'] == 0){echo '未过期';}elseif($v['certStatus'] == 1){echo '将过期';}elseif($v['certStatus'] == 2){echo '已过期';};?></td>
+								<td width="22%" class="pl10 s-i"><?php if($v['certStatus'] == 0){echo '未过期';}elseif($v['certStatus'] == 1){echo '将过期';}elseif($v['certStatus'] == 2){echo '已过期';}elseif($v['certStatus'] == 3){echo '暂无证书';};?></td>
 							</tr>
 							<?php }}else{
 								foreach($detail as $k => $v){
@@ -100,13 +100,13 @@ $this->params['breadcrumbs'][] = $this->title;
 									}
 							?>
 							<tr class="<?php if(!$judge){echo 'nopass';};?> status<?= $v['certStatus'];?>">
-								<td width="20%" class="pl32"><input type="hidden" name="partId" value="<?= $v['partId'];?>" placeholder=""><input type="checkbox" class="checkbox-list" name="containerNo" value="" /> <?= $v['containerNo'];?></td>
+								<td width="20%" class="pl32"><input type="hidden" name="sid" value="<?= $v['_id'];?>" placeholder=""><input type="checkbox" class="checkbox-list" name="containerNo" value="" /> <?= $v['containerNo'];?></td>
 								<td width="13%"><span class="pl10"><?= $v['vesselNo'];?></span></td>
 								<td width="15%"><span class="pl10"><?= $v['vesselName'];?></span></td>
 								<td width="17%"><span class="pl10"><?= $v['partNo'];?></span></td>
 								<td width="15%" title="<?= $v['partName'];?>"><span class="partName pl10"><?= $v['partName'];?></span></td>
 								<td width="8%"><span class="pl10"><?= $v['count'];?></span></td>
-								<td width="22%" class="pl10 s-i"><?php if($v['certStatus'] == 0){echo '未过期';}elseif($v['certStatus'] == 1){echo '将过期';}elseif($v['certStatus'] == 2){echo '已过期';};?></td>
+								<td width="22%" class="pl10 s-i"><?php if($v['certStatus'] == 0){echo '未过期';}elseif($v['certStatus'] == 1){echo '将过期';}elseif($v['certStatus'] == 2){echo '已过期';}elseif($v['certStatus'] == 3){echo '暂无证书';};?></td>
 							</tr>
 							<?php }};?>
 						</tbody>
@@ -148,7 +148,7 @@ $(function() {
 	})
 
 	$(document).on('click', '#J_order', function() {
-		var detailId = partId()
+		var detailId = sid()
 		if(detailId.length == 0) {layer.msg('未选中零件！');return}
 		if(!$('.time-text').eq(0).val()) {layer.msg('未选择查验时间！');return}
 		$('body').append('<div class="mailContent-popup"><a href="javascript:;" class="btn-close" id="mailContent-close" title="关闭">关闭</a><h3>发送预约邮件</h3><div class="mailContent-cont"><table><tbody><tr><td><textarea id="mailContent" class="mailContent" name="mailContent">您好：\n\r北京出入境检验检疫局于<?= date('Y年m月d日 H:i');?>发起一次查验预约。\r查验预约的提单号为<?= $shipment->shipmentNo;?>，请注意查收。\n\r北京出入境检验检疫局</textarea><p class="mailContent-msg">点击“发送”按钮将会发送预约邮件给企业</p></td></tr><tr><td><button class="btn-confirm" id="J_Submit" title="发 送">发 送</button></td></tr></tbody></table></div></div>');
@@ -174,20 +174,27 @@ $(function() {
 	})
 
 	$(document).on('click', '#J_Submit', function() {
-		var detailId = partId()
+		var detailId = sid()
 		var _data = {
 			shipmentId : '<?= $shipment->_id;?>',
 			detailIdList : detailId,
 			date : $.trim($('.time-text').eq(0).val()),
 			mailContent : $('#mailContent').val()
 		}
+		var layerLoad = null;
 
 		$.ajax({
 			type : "POST",
 			url : urlPort.BureauDoReservation,
 			data : _data,
+			beforeSend : function() {
+				layerLoad = layer.load(1, {
+				  shade: [0.5,'#000'] //0.1透明度的白色背景
+				});
+			},
 			success : function(data) {
 				if(data.code == 0) {
+					layer.close(layerLoad)
 					$('#mailContent-close').click()
 					$('body').append('<div class="yuyuesuc-popup"><h3>新增预约</h3><div class="yuyuesuc-msg"><p class="msg1">预约查验成功！</p><p class="msg2">已发送提醒邮件给对方</p></div><a href="javascript:;" class="btn-suc" id="J_yuyuesuc" title="确定">确定</a></div>');
 				}
@@ -207,11 +214,11 @@ $(function() {
 		$('.mailContent-popup').remove();
 	})
 
-	var partId = function() {
+	var sid = function() {
 		var part = []
 		$('.checkbox-list').each(function(i,o) {
 			if($(o).is(':checked')){
-				part.push($('input[name="partId"]').eq(i).val())
+				part.push($('input[name="sid"]').eq(i).val())
 			}
 		})
 		return part
