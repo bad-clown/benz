@@ -43,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
 					<table>
 						<thead>
 							<tr>
-								<th width="40%" class="pl42">检验日期</th>
 								<th width="20%"><span class="l-line pl20">提单号</span></th>
+								<th width="40%" class="pl42">检验日期</th>
 								<th width="20%"><span class="l-line pl20">发货号</span></th>
 								<th width="20%"><span class="l-line pl20">到厂日期</span></th>
 							</tr>
@@ -68,8 +68,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr>
-	<td class="pl42">${checkDate}</td>
 	<td class="pl20"><a href="<?= $Path;?>index.php?r=benz/reservation-detail&id=${_id}" title="">${shipmentNo}</a></td>
+	<td class="pl42">${checkDate}</td>
 	<td class="pl20">${BLNo}</td>
 	<td class="pl20">${arrivalDate}</td>
 </tr>

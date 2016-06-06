@@ -44,6 +44,7 @@ $(function() {
 			},
 			success : function(data) {
 				$('.delete-popup').remove();
+				$('#overlay__').hide();
 				_GetData()
 			}
 		})

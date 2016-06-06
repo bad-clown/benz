@@ -47,8 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
 						<thead>
 							<tr>
 								<th width="16%" class="pl20">用户名</th>
-								<th width="10%"><span class="l-line pl10">姓名</span></th>
-								<th width="14%"><span class="l-line pl10">工号</span></th>
+								<th width="14%"><span class="l-line pl10">姓名</span></th>
+								<th width="10%"><span class="l-line pl10">工号</span></th>
 								<th width="10%"><span class="l-line pl10">部门</span></th>
 								<th width="13%"><span class="l-line pl10">手机号</span></th>
 								<th width="25%"><span class="l-line pl10">邮箱</span></th>

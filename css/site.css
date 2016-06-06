@@ -463,7 +463,7 @@ a.desc:after {
     *height: 49px;
 }
 .lists-cont table td a{
-    text-decoration: none;
+    text-decoration: underline;
     color: #191919;
 }
 .lists-cont table tr{

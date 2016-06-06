@@ -151,6 +151,11 @@ $(function() {
 		var detailId = sid()
 		if(detailId.length == 0) {layer.msg('未选中零件！');return}
 		if(!$('.time-text').eq(0).val()) {layer.msg('未选择查验时间！');return}
+
+		if(!duibiDate('<?= $shipment->arrivalDate;?>', $('.time-text').eq(0).val())) {
+			layer.msg('查验时间必须晚于到厂时间！');
+			return
+		}
 		$('body').append('<div class="mailContent-popup"><a href="javascript:;" class="btn-close" id="mailContent-close" title="关闭">关闭</a><h3>发送预约邮件</h3><div class="mailContent-cont"><table><tbody><tr><td><textarea id="mailContent" class="mailContent" name="mailContent">您好：\n\r北京出入境检验检疫局于<?= date('Y年m月d日 H:i');?>发起一次查验预约。\r查验预约的提单号为<?= $shipment->shipmentNo;?>，请注意查收。\n\r北京出入境检验检疫局</textarea><p class="mailContent-msg">点击“发送”按钮将会发送预约邮件给企业</p></td></tr><tr><td><button class="btn-confirm" id="J_Submit" title="发 送">发 送</button></td></tr></tbody></table></div></div>');
 		$('#overlay__').show();
 	})

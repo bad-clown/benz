@@ -48,10 +48,39 @@ $(function() {
 	/* 证书上传 */
 	$('#J_Upload').on('click', function() {
 		// 检测为空
-		for(var i=0; i<$('.cknull').length; i++) {
-			if(!$('.cknull').eq(i).val()){
-				layer.msg('证书和零件不能为空！');
-				return
+		if(!$('.checkCertNo').eq(0).val()) {
+			layer.msg('证书号不能为空！');
+			return
+		}
+		else if(!$('.checkTime1').eq(0).val() || !$('.checkTime2').eq(0).val()) {
+			layer.msg('没有选择时间！');
+			return
+		}
+		else if(!$('.checkPDF').eq(0).val()) {
+			layer.msg('没有上传PDF文件！');
+			return
+		}
+		else {
+			for(var i=0; i<$('.checkPartNo').length; i++) {
+				if(!$('.checkPartNo').eq(i).val()){
+					layer.msg('零件号不能为空！');
+					return
+				}
+			}
+			for(var n=0; n<$('.checkName').length; n++) {
+				if(!$('.checkName').eq(n).val()){
+					layer.msg('中文名不能为空！');
+					return
+				}
+			}
+		}
+
+		for(var m=0; m<$('.checkPartNo').length; m++) {
+			for(var n=m+1; n<$('.checkPartNo').length; n++) {
+				if($('.checkPartNo').eq(m).val() == $('.checkPartNo').eq(n).val()){
+					layer.msg('零件号重复，请重新填写！');
+					return
+				}
 			}
 		}
 
@@ -67,7 +96,7 @@ $(function() {
 			certImport = {
 			cert: {
 				certNo: certNo,
-				startDate: startDate,
+				startDate: startDate, 
 				endDate: endDate,
 				file:  file
 			},
@@ -75,7 +104,10 @@ $(function() {
 		};
 
 		// 日期对比
-		if(!duibiDate(startDate, endDate)) return;
+		if(!duibiDate(startDate, endDate)) {
+			layer.msg('开始时间晚于结束时间，请检查！');
+			return;
+		}
 
 		// 证书更新
 		if(certNoB) {
@@ -220,7 +252,7 @@ $(function() {
 
 	/* 添加零件 */
 	$('#J_part_add').on('click', function() {
-		$('#part-list').append('<tr><td class="tit">&lowast;零件号：</td><td class="con"><input type="text" class="partNo-text check_rep cknull" name="" value="" placeholder="请输入零件号"></td><td class="tit">&lowast;中文名：</td><td class="con"><input type="text" class="name-text cknull" name="" value="" placeholder="请输入中文名"></td><td><a href="javascript:;" class="btn-del part-del" title="删除">删除</a></td></tr>');
+		$('#part-list').append('<tr><td class="tit">&lowast;零件号：</td><td class="con"><input type="text" class="partNo-text check_rep checkPartNo" name="" value="" placeholder="请输入零件号"></td><td class="tit">&lowast;中文名：</td><td class="con"><input type="text" class="name-text checkName" name="" value="" placeholder="请输入中文名"></td><td><a href="javascript:;" class="btn-del part-del" title="删除">删除</a></td></tr>');
 	})
 	/* 删除零件 */
 	$(document).on('click', '.part-del', function() {

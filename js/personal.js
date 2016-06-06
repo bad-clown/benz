@@ -5,7 +5,7 @@ $(function() {
 		$('#userInfo').addClass('user-text-change');
 
 		$('.user-text').each(function(i, o) {
-			$(o).data('val', $(o).val());
+			$(o).data('vals', $(o).val());
 			$(o).removeAttr('disabled');
 
 			if($(o).data('mold') == 'read') {
@@ -23,14 +23,10 @@ $(function() {
 
 		$('.user-text').each(function(i, o) {
 			$(o).attr('disabled','disabled');
+			$(o).val($(o).data('vals'));
 
-			if($(o).val() == '') {
-				// $(o).val($(o).data('val'));
-				$(o).val('暂无！');
-				if($(o).data('mold') == 'unread') {
-					$(o).val($(o).data('val'));
-					$(o).data('mold', 'read')
-				}
+			if($(o).data('mold') == 'unread') {
+				$(o).data('mold', 'read')
 			}
 		})
 	})
@@ -77,7 +73,16 @@ $(function() {
 			success: function(data) {
 				if(data.code == 0) {
 					layer.msg('个人信息修改成功！')
-					$('#J_CancelUser').click()
+					$('#J_CancelUser').after('<a href="javascript:;" id="J_AlterUser" class="btns btn-alter" title="修改">修改</a>');
+					$('#J_SubmitUser,#J_CancelUser').remove();
+					$('#userInfo').removeClass('user-text-change');
+					$('.user-text').each(function(i, o) {
+						$(o).attr('disabled','disabled');
+						if($(o).data('mold') == 'unread') {
+							$(o).val($(o).data('vals'));
+							$(o).data('mold', 'read')
+						}
+					})
 				}
 				else{
 					var errors = data.errors;

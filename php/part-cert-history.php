@@ -59,9 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->beginBlock("bottomcode"); ?>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
-<script type="text/javascript" src="/js/laydate/laydate.js"></script>
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/Calendar.js"></script>
 <script type="text/javascript">var $partId = '<?= $partId;?>';</script>
 <script type="text/x-jquery-tmpl" id="certListTmpl">
 <tr>
