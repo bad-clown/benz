@@ -47,6 +47,9 @@ $(function() {
 
 	/* 证书上传 */
 	$('#J_Upload').on('click', function() {
+
+		var simport = $(this).data('import')
+
 		// 检测为空
 		if(!$('.checkCertNo').eq(0).val()) {
 			layer.msg('证书号不能为空！');
@@ -153,13 +156,16 @@ $(function() {
 			//contentType: false,
 			//processData: false,
 			success : function(data) {
-
 				if(data.code == "0") {
 					// alert('成功！')
-					// window.location.href = $_Path+'index.php?r=benz/cert';
-					layer.msg('编辑成功！')
-					$('#update-close').click()
-					_GetData()
+					if(simport == 'import') {
+						window.location.href = $_Path+'index.php?r=benz/cert';
+					}
+					else {
+						layer.msg('编辑成功！')
+						$('#update-close').click()
+						_GetData()
+					}
 				}
 			}
 		})

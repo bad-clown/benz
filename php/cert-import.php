@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<a href="javascript:;" class="btn-add" id="J_part_add" title="添加零件">添加零件</a>
 				</div>
 				<div class="btn-cont">
-					<button class="btn-confirm" id="J_Upload" title="确定">确定</button>
+					<button class="btn-confirm" id="J_Upload" data-import="import" title="确定">确定</button>
 					<a href="<?= $Path;?>index.php?r=benz/cert" class="btn-cancel"  title="取消">取消</a>
 				</div>
 			</div>
