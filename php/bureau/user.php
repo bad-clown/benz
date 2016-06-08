@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </tr>
 <?php }else{ ?>
 <tr {{if blocked_at}} class="off" {{/if}}>
-	<td class="pl20"><a href="javascript:;">${username}</a></td>
+	<td class="pl20">${username}</td>
 	<td><span class="pl10">${name}</span></td>
 	<td><span class="pl10">${phone}</span></td>
 	<td><span class="pl10">${email}</span></td>

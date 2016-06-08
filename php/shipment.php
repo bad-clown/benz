@@ -36,10 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
 			<a href="<?= $Path;?>提单号.xls" class="btn-download" title="下载模版">下载模版</a>
 			<div class="upload-box">
 				<a href="javascript:;" class="btn-upload" title="上传信息">上传信息</a>
-				<input name="file" type="file" id="J_upload_xlsx" class="file-upload">
+				 <?php $form = ActiveForm::begin([
+                    'id' => 'upload-form',
+                ]) ?>
+                <input name="file" type="file" id="J_upload_xlsx" class="file-upload">
+				<?php ActiveForm::end(); ?>
+
 			</div>
 			<div class="search-box">
-				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入单号">
+				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号">
 				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 			</div>
 		</div>
@@ -73,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <?php $this->beginBlock("bottomcode"); ?>
+<script type="text/javascript" src="/js/upload/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>

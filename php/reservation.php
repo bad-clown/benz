@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class="right-main">
 		<div class="shipment-list reservation-list">
 			<div class="search-box">
-				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入单号">
+				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号">
 				<a href="javascript:;" class="btn-search" id="J_searchBtn" title="查询">查询</a>
 			</div>
 			<div class="lists-titl">所有预约列表</div>
@@ -43,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
 					<table>
 						<thead>
 							<tr>
-								<th width="20%"><span class="l-line pl20">提单号</span></th>
-								<th width="40%" class="pl42">检验日期</th>
+								<th width="40%" class=" pl42">提单号</th>
+								<th width="20%"><span class="l-line pl20">检验日期</span></th>
 								<th width="20%"><span class="l-line pl20">发货号</span></th>
 								<th width="20%"><span class="l-line pl20">到厂日期</span></th>
 							</tr>

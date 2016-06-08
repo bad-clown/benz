@@ -96,7 +96,7 @@ $(function() {
 			certImport = {
 			cert: {
 				certNo: certNo,
-				startDate: startDate, 
+				startDate: startDate,
 				endDate: endDate,
 				file:  file
 			},
@@ -156,7 +156,10 @@ $(function() {
 
 				if(data.code == "0") {
 					// alert('成功！')
-					window.location.href = $_Path+'index.php?r=benz/cert';
+					// window.location.href = $_Path+'index.php?r=benz/cert';
+					layer.msg('编辑成功！')
+					$('#update-close').click()
+					_GetData()
 				}
 			}
 		})
@@ -172,12 +175,10 @@ $(function() {
 			}
 			else {
 				$part.each(function(i, o) {
-					if(i%2 == 0) {
-						aPart.push({
-							partNo: $part.eq(i).val(),
-							partName: $name.eq(i).val()
-						})
-					}
+					aPart.push({
+						partNo: $part.eq(i).val(),
+						partName: $name.eq(i).val()
+					})
 				})
 
 				return aPart

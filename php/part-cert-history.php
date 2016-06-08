@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr>
 	<td>
 		<div class="list clearfix">
-			<div class="certNo">证书号：${filename}<br>有效日期：${startDate} 至 ${endDate}</div>
+			<div class="certNo">证书号：${certNo}<br>有效日期：${startDate} 至 ${endDate}</div>
 			<div class="upTime">上传时间：${uploadTime}</div>
 			<div class="downld"><a href="http://120.26.50.11:8010${file}" target="_blank" title="下载">下载</a></div>
 			<div class="delete"><a href="javascript:;" class="btn-delete" data-delid="${id}" title="删除">删除</a></div>

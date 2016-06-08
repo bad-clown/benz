@@ -116,7 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/x-jquery-tmpl" id="userListTmpl">
 <?php if(\Yii::$app->user->identity->isAdmin){ ?>
 <tr {{if blocked_at}} class="off" {{/if}}>
-	<td class="pl20">${username}</td>
+	<td class="pl20"><a href="javascript:;" data-userid="${_id['$id']}" class="edit-user">${username}</a></td>
 	<td><span class="pl10">${name}</span></td>
 	<td><span class="pl10">${id}</span></td>
 	<td><span class="pl10">${department}</span></td>
@@ -127,7 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </tr>
 <?php }else{ ?>
 <tr {{if blocked_at}} class="off" {{/if}}>
-	<td class="pl20">${username}</td>
+	<td class="pl20"><a href="javascript:;">${username}</a></td>
 	<td><span class="pl10">${name}</span></td>
 	<td><span class="pl10">${id}</span></td>
 	<td><span class="pl10">${department}</span></td>

@@ -30,6 +30,8 @@ var urlPort = {
 	userList : _host_+'?r=benz/user-list',
 	//新增账号
 	createUser : _host_+'?r=benz/create-user',
+	//修改账号：
+	updateUser : _host_+'?r=benz/update-user',
 	//禁用/启用
 	blockUser : _host_+'?r=benz/block-user',
 	//重置密码：
