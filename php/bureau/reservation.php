@@ -43,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
 					<table>
 						<thead>
 							<tr>
-								<th width="20%" class="pl42">提单号</th>
-								<th width="20%"><span class="l-line pl20">到厂日期</span></th>
+								<th width="25%" class="pl42">提单号</th>
+								<th width="15%"><span class="l-line pl20">到厂日期</span></th>
 								<th width="15%"><span class="l-line pl20">企业名</span></th>
 								<th width="15%"><span class="l-line pl20">发货号</span></th>
 								<th width="10%"><span class="l-line pl20">预约状态</span></th>
@@ -69,8 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr {{if !reservation}}class="reservation"{{/if}}>
-	<td class="pl20"><a href="<?= $Path;?>index.php?r=bureau/reservation-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
-	<td class="pl42">${arrivalDate}</td>
+	<td class="pl42"><a href="<?= $Path;?>index.php?r=bureau/reservation-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
+	<td class="pl20">${arrivalDate}</td>
 	<td class="pl20">${company}</td>
 	<td class="pl20">${BLNo}</td>
 	<td class="pl20">{{if reservation}}已预约{{else}}未预约{{/if}}</td>

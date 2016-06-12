@@ -58,10 +58,14 @@ $this->params['breadcrumbs'][] = $this->title;
 								<td class="tit">&lowast;PDF文件：</td>
 								<td class="con">
 									<input type="hidden" id="oldCertPDF" />
-									<input type="text" class="part-text f-l checkPDF" id="file-text" disabled="disabled" name="" value="" placeholder="请上传PDF文件">
+									<input type="text" class="part-text f-l checkPDF" id="file-text" readonly="readonly" name="" value="" placeholder="请上传PDF文件">
 									<div class="btn-file-box f-l">
 										<a href="javascript:;" class="btn-upload" title="选择文件">选择文件</a>
-										<input name="file" type="file" id="J_upload_pdf" class="file-upload">
+										<?php $form = ActiveForm::begin([
+						                    'id' => 'uploadPDF-form',
+						                ]) ?>
+						                <input name="file" type="file" id="J_upload_pdf" class="file-upload">
+										<?php ActiveForm::end(); ?>
 									</div>
 								</td>
 							</tr>
@@ -96,6 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 <?php $this->beginBlock("bottomcode"); ?>
+<script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
 <script type="text/javascript" src="/js/laydate/laydate.js"></script>

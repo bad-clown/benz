@@ -1,7 +1,38 @@
 $(function() {
 	$('#benzMenu').find('li:eq(1)').addClass('active');
 	/* 上传pdf文件 */
-	$('#J_upload_pdf').on('change', function() {
+	$(document).on('change', '#J_upload_pdf', function() {
+		var pdfPath = $("#J_upload_pdf").val();
+
+		if(!pdfPath) return;
+
+		//判断上传文件的后缀名
+		var strExtension = pdfPath.substr(pdfPath.lastIndexOf('.') + 1);
+		strExtension = strExtension.toLowerCase();
+		if (strExtension != 'pdf') {
+			layer.msg('请选择.pdf文件');
+			return;
+		}
+
+		$("#uploadPDF-form").ajaxSubmit({
+			type: "POST",
+			url: urlPort.uploadCert,
+			// iframe: true,
+			// dataType: "json",
+			// contentType: "application/html; charset=utf-8",
+			success: function(data) {
+				layer.msg('上传成功！');
+				var strText = data.substr(data.lastIndexOf('/') + 1);
+				$('#file-text').val(strText).data('url', data)
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				layer.msg('上传失败，请检查网络后重试！');
+			}
+		});
+		return false;
+	})
+
+	/*$(document).on('change', '#J_upload_pdf', function() {
 		var pdfPath = $("#J_upload_pdf").val();
 		var data = new FormData()
 		$.each($("#J_upload_pdf")[0].files, function(i, f) {
@@ -25,16 +56,11 @@ $(function() {
 			contentType: false,
 			processData: false,
 			beforeSend: function() {
-				//$('#uploadSuc').show()
 				$('#file-text').empty()
 			},
-			complete: function(XMLHttpRequest, textStatus) {
-				//$('#uploadSuc').show()
-				//$('#uploadState').append("上传成功！")
-			},
 			success: function(data) {
+				console.log(data)
 				layer.msg('上传成功！');
-				// alert('上传成功！')
 
 				$('#file-text').val(data.name).data('url', data.url)
 			},
@@ -43,7 +69,7 @@ $(function() {
 				// alert("上传失败，请检查网络后重试");
 			}
 		});
-	})
+	})*/
 
 	/* 证书上传 */
 	$('#J_Upload').on('click', function() {

@@ -1,25 +1,25 @@
 $(function() {
 	$('#benzMenu').find('li:eq(0)').addClass('active');
 	/* 上传xls文件 */
-	/*$('#J_upload_xlsx').on('change', function() {
+	$(document).on('change', '#J_upload_xlsx', function() {
 		var xlsPath = $("#J_upload_xlsx").val();
 
 		if(!xlsPath) return;
 
 		//判断上传文件的后缀名
 		var strExtension = xlsPath.substr(xlsPath.lastIndexOf('.') + 1);
+		var strText = xlsPath.substr(xlsPath.lastIndexOf('\\') + 1);
 		strExtension = strExtension.toLowerCase();
-		if (strExtension != 'xlsx' && strExtension != 'xls') {
-			layer.msg('请选择.xlsx或.xls文件');
+		if (strExtension != 'xls') {
+			layer.msg('请选择.xls文件');
 			return;
 		}
-
 
 		$("#upload-form").ajaxSubmit({
 			type: "POST",
 			url: urlPort.shipmentUpload,
 			iframe: true,
-			dataType: "json",
+			// dataType: "json",
 			contentType: "application/html; charset=utf-8",
 			beforeSubmit: function() {
 				$('#uploadState').empty()
@@ -28,13 +28,11 @@ $(function() {
 				$('#overlay__').show();
 				$('#uploadSuc').show()
 				var _code = ['上传成功。','格式错误，请使用最新模板填写。','发货号不一致，请重新上传。','提单号不一致，请重新上传。','到厂日期不一致，请重新上传。', '已有该提单号。']
-				if(data.code == '0') {
-					$('#uploadState').prepend('<div class="clearfix upload-suc"><p class="cont1">'+ data.name +'</p><span class="cont2">已上传</span></div>')
-					$('#J_upload_xlsx').val('')
+				if(data == 0) {
+					$('#uploadState').prepend('<div class="clearfix upload-suc"><p class="cont1">'+ strText +'</p><span class="cont2">已上传</span></div>')
 				}
 				else {
-					$('#uploadState').prepend('<div class="clearfix upload-err"><p class="cont">'+ _code[data.code] +'</p></div>')
-					$('#J_upload_xlsx').val('')
+					$('#uploadState').prepend('<div class="clearfix upload-err"><p class="cont">'+ _code[data] +'</p></div>')
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -43,9 +41,9 @@ $(function() {
 			}
 		});
 		return false;
-	})*/
+	})
 
-	$('#J_upload_xlsx').on('change', function() {
+	/*$('#J_upload_xlsx').on('change', function() {
 		var xlsPath = $("#J_upload_xlsx").val();
 
 		var data = new FormData()
@@ -93,7 +91,7 @@ $(function() {
 				layer.msg('上传失败，请检查网络后重试！');
 			}
 		});
-	})
+	})*/
 
 	$('#J_upload_xlsx').hover(function() {
 		$('.btn-upload').eq(0).css({
@@ -120,6 +118,10 @@ $(function() {
 			success : function(data) {
 				$('.delete-popup').remove();
 				$('#overlay__').hide();
+				_GetData()
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				layer.msg('删除失败，请检查网络后重试！');
 				_GetData()
 			}
 		})
@@ -182,6 +184,9 @@ $(function() {
 	$('.J_closeBtn').on('click', function() {
 		$(this).parents('.popup').hide()
 		$('#overlay__').hide();
+		var file = $("#J_upload_xlsx")
+		file.after(file.clone().val(""));
+		file.remove();
 		_GetData()
 	})
 

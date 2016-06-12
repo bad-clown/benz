@@ -68,8 +68,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <script type="text/javascript" src="/js/port.js"></script>
 <script type="text/x-jquery-tmpl" id="shipmentListTmpl">
 <tr>
-	<td class="pl20"><a href="<?= $Path;?>index.php?r=benz/reservation-detail&id=${_id}" title="">${shipmentNo}</a></td>
-	<td class="pl42">${checkDate}</td>
+	<td class="pl42"><a href="<?= $Path;?>index.php?r=benz/reservation-detail&id=${_id}" title="">${shipmentNo}</a></td>
+	<td class="pl20">${checkDate}</td>
 	<td class="pl20">${BLNo}</td>
 	<td class="pl20">${arrivalDate}</td>
 </tr>

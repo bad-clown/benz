@@ -517,7 +517,7 @@ a.desc:after {
     color: #7f7e7e;
 }
 .lists-cont table tr.status1 td,.lists-cont table tr.status1 td a{
-    color: #ff8900;
+    color: #ff8400;
 }
 .lists-cont table tr.status2 td,.lists-cont table tr.status2 td a{
     color: #ff0d0d;
@@ -1185,13 +1185,13 @@ a.desc:after {
     color: #033984;
 }
 .manager-list table .off td,.manager-list table .off a,.manager-list table .off .btn-res{
-    color: #a5a5a5;
+    color: #bebebe;
 }
 .manager-list table .off .btn-off{
     color: #f21c00;
 }
 .manager-list table .btn-disabled{
-    color: #a5a5a5;
+    color: #bebebe;
 }
 
 /* 个人信息 */
@@ -1669,6 +1669,7 @@ a.desc:after {
     position: relative;
     margin-left: 17px;
     overflow: hidden;
+    *margin-top: 10px;
 }
 .update-cont .btn-file-box .file-upload{
     position: absolute;

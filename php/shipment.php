@@ -36,12 +36,11 @@ $this->params['breadcrumbs'][] = $this->title;
 			<a href="<?= $Path;?>提单号.xls" class="btn-download" title="下载模版">下载模版</a>
 			<div class="upload-box">
 				<a href="javascript:;" class="btn-upload" title="上传信息">上传信息</a>
-				 <?php $form = ActiveForm::begin([
+				<?php $form = ActiveForm::begin([
                     'id' => 'upload-form',
                 ]) ?>
                 <input name="file" type="file" id="J_upload_xlsx" class="file-upload">
 				<?php ActiveForm::end(); ?>
-
 			</div>
 			<div class="search-box">
 				<input type="text" class="text-search" id="J_searchTxt" name="" value="" placeholder="请输入提单号">
@@ -78,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <?php $this->beginBlock("bottomcode"); ?>
-<script type="text/javascript" src="/js/upload/jquery.form.js"></script>
+<script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
 <script type="text/javascript" src="/js/layer/layer.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
@@ -87,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr>
 	<td class="pl42"><a href="<?= $Path;?>index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
 	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
-	<td class="pl20"><a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a></td>
+	<td class="pl20">{{if canDelete}}<a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a>{{/if}}</td>
 </tr>
 </script>
 <script type="text/javascript" src="/js/shipment.js"></script>
