@@ -42,28 +42,28 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>用户名：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="username" value="<?php if(\Yii::$app->user->identity->username){echo \Yii::$app->user->identity->username;}else{echo '暂无用户名';};?>" <?php if(!\Yii::$app->user->identity->username){echo 'data-mold="read"';};?> placeholder="请输入用户名">
+									<input type="text" class="user-text" disabled="disabled" name="username" value="<?php if(\Yii::$app->user->identity->username){echo \Yii::$app->user->identity->username;}else{echo '暂无用户名';};?>" data-label="用户名" <?php if(!\Yii::$app->user->identity->username){echo 'data-mold="f"';};?> placeholder="请输入用户名">
 									<span class="msg"></span>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>姓名：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="name" value="<?php if(\Yii::$app->user->identity->name){echo \Yii::$app->user->identity->name;}else{echo '暂无姓名';};?>" <?php if(!\Yii::$app->user->identity->name){echo 'data-mold="read"';};?> placeholder="请输入姓名">
+									<input type="text" class="user-text" disabled="disabled" name="name" value="<?php if(\Yii::$app->user->identity->name){echo \Yii::$app->user->identity->name;}else{echo '暂无姓名';};?>" data-label="姓名" <?php if(!\Yii::$app->user->identity->name){echo 'data-mold="f"';};?> placeholder="请输入姓名">
 									<span class="msg"></span>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>工号：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="id" value="<?php if(\Yii::$app->user->identity->id){echo \Yii::$app->user->identity->id;}else{echo '暂无工号';};?>" <?php if(!\Yii::$app->user->identity->id){echo 'data-mold="read"';};?> placeholder="请输入工号">
+									<input type="text" class="user-text" disabled="disabled" name="id" value="<?php if(\Yii::$app->user->identity->id){echo \Yii::$app->user->identity->id;}else{echo '暂无工号';};?>" data-label="工号" <?php if(!\Yii::$app->user->identity->id){echo 'data-mold="f"';};?> placeholder="请输入工号">
 									<span class="msg"></span>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>部门：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="department" value="<?php if(\Yii::$app->user->identity->department){echo \Yii::$app->user->identity->department;}else{echo '暂无部门';};?>" <?php if(!\Yii::$app->user->identity->department){echo 'data-mold="read"';};?> placeholder="请输入部门">
+									<input type="text" class="user-text" disabled="disabled" name="department" value="<?php if(\Yii::$app->user->identity->department){echo \Yii::$app->user->identity->department;}else{echo '暂无部门';};?>" data-label="部门" <?php if(!\Yii::$app->user->identity->department){echo 'data-mold="f"';};?> placeholder="请输入部门">
 									<span class="msg"></span>
 								</td>
 							</tr>
@@ -75,21 +75,21 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>手机：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="phone" value="<?php if(\Yii::$app->user->identity->phone){echo \Yii::$app->user->identity->phone;}else{echo '暂无手机';};?>" <?php if(!\Yii::$app->user->identity->phone){echo 'data-mold="read"';};?> placeholder="请输入手机">
+									<input type="text" class="user-text" disabled="disabled" name="phone" value="<?php if(\Yii::$app->user->identity->phone){echo \Yii::$app->user->identity->phone;}else{echo '暂无手机';};?>" data-label="手机" <?php if(!\Yii::$app->user->identity->phone){echo 'data-mold="f"';};?> placeholder="请输入手机">
 									<span class="msg"></span>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit"><span class="lowast">&lowast;</span>邮箱：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="email" value="<?php if(\Yii::$app->user->identity->email){echo \Yii::$app->user->identity->email;}else{echo '暂无邮箱';};?>" <?php if(!\Yii::$app->user->identity->email){echo 'data-mold="read"';};?> placeholder="请输入邮箱">
+									<input type="text" class="user-text" disabled="disabled" name="email" value="<?php if(\Yii::$app->user->identity->email){echo \Yii::$app->user->identity->email;}else{echo '暂无邮箱';};?>" data-label="邮箱" <?php if(!\Yii::$app->user->identity->email){echo 'data-mold="f"';};?> placeholder="请输入邮箱">
 									<span class="msg"></span>
 								</td>
 							</tr>
 							<tr>
 								<td class="tit">固话：</td>
 								<td class="con">
-									<input type="text" class="user-text" disabled="disabled" name="tel" value="<?php if(\Yii::$app->user->identity->tel){echo \Yii::$app->user->identity->tel;}else{echo '暂无固话';};?>" <?php if(!\Yii::$app->user->identity->tel){echo 'data-mold="read"';};?> placeholder="请输入固定电话">
+									<input type="text" class="user-text" disabled="disabled" name="tel" value="<?php if(\Yii::$app->user->identity->tel){echo \Yii::$app->user->identity->tel;}else{echo '暂无固话';};?>" data-label="固话" <?php if(!\Yii::$app->user->identity->tel){echo 'data-mold="f"';};?> placeholder="请输入固定电话">
 									<span class="msg"></span>
 								</td>
 							</tr>

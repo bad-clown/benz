@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <tr>
 	<td class="pl42"><a href="<?= $Path;?>index.php?r=benz/shipment-detail&id=${_id['$id']}" title="">${shipmentNo}</a></td>
 	<td class="pl20"><span class="c7f7e7e">${uploadTime}</span></td>
-	<td class="pl20">{{if canDelete}}<a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a>{{/if}}</td>
+	<td class="pl20">{{if canDelete}}<a href="javascript:;" class="btn-delete" data-delid="${_id['$id']}"></a>{{else}}<a href="javascript:;" class="btn-delete-dis"></a>{{/if}}</td>
 </tr>
 </script>
 <script type="text/javascript" src="/js/shipment.js"></script>
