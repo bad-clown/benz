@@ -5,12 +5,12 @@ $(function() {
 		$('#userInfo').addClass('user-text-change');
 
 		$('.user-text').each(function(i, o) {
-			$(o).data('vals', $(o).val());
 			$(o).removeAttr('disabled');
+			$(o).data('vals', $(o).val());
 
-			if($(o).data('mold') == 'read') {
+			if($(o).data('mold') == 'f') {
 				$(o).val("")
-				$(o).data('mold', 'unread')
+				$(o).data('mold', 't')
 			}
 		})
 	})
@@ -25,8 +25,8 @@ $(function() {
 			$(o).attr('disabled','disabled');
 			$(o).val($(o).data('vals'));
 
-			if($(o).data('mold') == 'unread') {
-				$(o).data('mold', 'read')
+			if($(o).data('mold') == 't') {
+				$(o).data('mold', 'f')
 			}
 		})
 	})
@@ -62,7 +62,8 @@ $(function() {
 				id : obj.eq(2).val(),
 				department : obj.eq(3).val(),
 				phone : obj.eq(4).val(),
-				email : obj.eq(5).val()
+				email : obj.eq(5).val(),
+				tel : obj.eq(6).val()
 			}
 
 		$.ajax({
@@ -73,14 +74,20 @@ $(function() {
 			success: function(data) {
 				if(data.code == 0) {
 					layer.msg('个人信息修改成功！')
+					$('.msg').html('')
 					$('#J_CancelUser').after('<a href="javascript:;" id="J_AlterUser" class="btns btn-alter" title="修改">修改</a>');
 					$('#J_SubmitUser,#J_CancelUser').remove();
 					$('#userInfo').removeClass('user-text-change');
 					$('.user-text').each(function(i, o) {
 						$(o).attr('disabled','disabled');
-						if($(o).data('mold') == 'unread') {
-							$(o).val($(o).data('vals'));
-							$(o).data('mold', 'read')
+
+						if(!$(o).val()) {
+							$(o).val("暂无"+$(o).data('label'))
+							$(o).data('mold', 'f')
+						}
+						else {
+							$(o).removeAttr('data-mold')
+							$(o).removeData('mold')
 						}
 					})
 				}
