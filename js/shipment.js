@@ -14,6 +14,7 @@ $(function() {
 			layer.msg('请选择.xls文件');
 			return;
 		}
+		var layerLoad = null;
 
 		$("#upload-form").ajaxSubmit({
 			type: "POST",
@@ -21,12 +22,16 @@ $(function() {
 			iframe: true,
 			// dataType: "json",
 			contentType: "application/html; charset=utf-8",
-			beforeSubmit: function() {
+			beforeSubmit : function() {
 				$('#uploadState').empty()
+				layerLoad = layer.load(1, {
+				  shade: [0.5,'#000']
+				});
 			},
 			success: function(data) {
+				layer.close(layerLoad);
 				$('#overlay__').show();
-				$('#uploadSuc').show()
+				$('#uploadSuc').show();
 				var _code = ['上传成功。','格式错误，请使用最新模板填写。','发货号不一致，请重新上传。','提单号不一致，请重新上传。','到厂日期不一致，请重新上传。', '已有该提单号。']
 				if(data == 0) {
 					$('#uploadState').prepend('<div class="clearfix upload-suc"><p class="cont1">'+ strText +'</p><span class="cont2">已上传</span></div>')
@@ -36,8 +41,9 @@ $(function() {
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				layer.close(layerLoad);
 				layer.msg('上传失败，请检查网络后重试！');
-				$('#J_upload_xlsx').val('')
+				$('#J_upload_xlsx').val('');
 			}
 		});
 		return false;

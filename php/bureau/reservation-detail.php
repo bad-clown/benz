@@ -199,13 +199,14 @@ $(function() {
 			},
 			success : function(data) {
 				if(data.code == 0) {
-					layer.close(layerLoad)
-					$('#mailContent-close').click()
+					layer.close(layerLoad);
+					$('#mailContent-close').click();
 					$('body').append('<div class="yuyuesuc-popup"><h3>新增预约</h3><div class="yuyuesuc-msg"><p class="msg1">预约查验成功！</p><p class="msg2">已发送提醒邮件给对方</p></div><a href="javascript:;" class="btn-suc" id="J_yuyuesuc" title="确定">确定</a></div>');
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				layer.msg('提交失败，请检查网络后重试！')
+				layer.close(layerLoad);
+				layer.msg('提交失败，请检查网络后重试！');
 			}
 		})
 	})

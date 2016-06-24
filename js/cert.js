@@ -13,6 +13,7 @@ $(function() {
 			layer.msg('请选择.pdf文件');
 			return;
 		}
+		var layerLoad = null;
 
 		$("#uploadPDF-form").ajaxSubmit({
 			type: "POST",
@@ -20,12 +21,19 @@ $(function() {
 			// iframe: true,
 			// dataType: "json",
 			// contentType: "application/html; charset=utf-8",
+			beforeSubmit : function() {
+				layerLoad = layer.load(1, {
+				  shade: [0.5,'#000']
+				});
+			},
 			success: function(data) {
+				layer.close(layerLoad);
 				layer.msg('上传成功！');
 				var strText = data.substr(data.lastIndexOf('/') + 1);
 				$('#file-text').val(strText).data('url', data)
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				layer.close(layerLoad);
 				layer.msg('上传失败，请检查网络后重试！');
 			}
 		});
